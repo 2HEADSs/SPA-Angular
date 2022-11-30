@@ -1,0 +1,39 @@
+
+nav img {
+    width: 80px;
+    height: 80px;
+    margin-left: 10px;
+    color: white;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(32, 32, 32);
+    height: 3rem;
+}
+
+ul li {
+    display: inline-block;
+    padding: 0.5rem 1.4rem;
+}
+ul li a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+}
+ul li::after{
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: #f80101;
+    display: block;
+    margin: auto;
+    transition: .4s;
+}
+ul li:hover::after{
+    width: 100%;
+    
+}
