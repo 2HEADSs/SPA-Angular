@@ -21,6 +21,17 @@ async function register(email, password) {
 
 async function login(email, password) {
     const user = await User.findOne({ email }).collation({ locale: 'en' })
+
+    if (!user) {
+        throw new Error('Invalid  email or password!!!')
+    }
+
+    const match = await bcrypt.compare(password, user.hashedPassword)
+    if (!match) {
+        throw new Error('Invalid  email or password!!!')
+
+    }
+    return createToken(user)
 }
 
 
@@ -41,7 +52,7 @@ function parseToken(token) {
         return jwt.verify(token, secret)
 
     } catch (error) {
-        throw new Error('Invalid acces token!')        
+        throw new Error('Invalid acces token!')
     }
 }
 
