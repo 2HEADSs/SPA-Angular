@@ -1,5 +1,5 @@
 const { parseToken } = require("../services/userService");
-// const { parseError } = require("../util/parser");
+// const { parseError } = require("../service/userService");
 
 module.exports = () => (req, res, next) => {
     const token = req.headers['x-authorization'];
