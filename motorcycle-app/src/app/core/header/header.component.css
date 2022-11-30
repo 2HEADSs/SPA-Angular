@@ -1,4 +1,3 @@
-
 nav img {
     width: 80px;
     height: 80px;
@@ -18,22 +17,18 @@ ul li {
     display: inline-block;
     padding: 0.5rem 1.4rem;
 }
-ul li a{
+
+ul li a {
     text-decoration: none;
-    color: white;
+    color: rgb(250, 249, 249);
     font-weight: bold;
     font-size: 1rem;
+
+
 }
-ul li::after{
-    content: '';
-    width: 0%;
-    height: 2px;
-    background: #f80101;
-    display: block;
-    margin: auto;
-    transition: .4s;
-}
-ul li:hover::after{
-    width: 100%;
-    
+
+
+
+a:hover {
+    border-bottom: 4px solid rgb(233, 172, 19);
 }
