@@ -1,0 +1,83 @@
+
+.register-section {
+
+    margin: auto;
+    width: 740px auto;
+    height: 590px auto;
+    /* margin-top: 2em; */
+    left: 35%;
+    text-align: center;
+    display: flex;
+    color: white;
+    box-shadow: 3px 10px 20px 5px rgba(0, 0, 0, .5);
+}
+
+
+.reg-form {
+    width: 540px;
+    /* padding: 30px 0; */
+    /* transition: .2s; */
+}
+
+.reg-form>h2 {
+    font-weight: 350;
+    font-size: 27px;
+    margin-bottom: 0.8em;
+}
+
+
+
+.inputs {
+    margin: 18px 0;
+    font-size: 20px;
+    /* padding: 10px; */
+    width: 270px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background: rgba(232, 8, 8, 0.2);
+    color: white;
+    outline: none;
+}
+
+.list-form {
+    list-style-type: none;
+    padding: 0;
+}
+
+#reg-btn {
+    border: 1px solid rgb(243, 6, 6);
+    background: rgba(7, 0, 0, 0.6);
+
+    font-size: 18px;
+    color: white;
+    margin-top: 20px;
+    padding: 10px 43px;
+    cursor: pointer;
+    transition: .4s;
+}
+
+#reg-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 10px 80px;
+}
+
+label {
+    display: block;
+    width: 100%;
+    margin-top: 0.6em;
+    padding: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    font-size: 19px;
+}
+
+label {
+    margin-bottom: -0.5em;
+}
+
+label:nth-of-type(2) {
+    margin-top: 3em;
+}
+
