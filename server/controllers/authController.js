@@ -17,7 +17,7 @@ authController.post('/register', async (req, res) => {
 
 authController.post('/login', async (req, res) => {
     try {
-        const token = await register(req.body.email, req.body.password)
+        const token = await login(req.body.email, req.body.password)
         res.status(200).json(token)
         //TODOnot sure
         res.end()
