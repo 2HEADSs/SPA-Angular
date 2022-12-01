@@ -3,6 +3,8 @@ const app = express()
 const cors = require('./middlewares/cors')
 const { mongoose } = require('mongoose');
 const session = require('./middlewares/session');
+const router = require('./routes');
+// const router = require('../routes');
 
 const connectionString = 'mongodb://127.0.0.1:27017/motorcycle';
 const port = 'http://localhost:3000'
@@ -16,9 +18,9 @@ async function startServer() {
     app.use(cors())
     app.use(session())
     //trimBody
-    app.get('/', (req, res) => {
-        res.json({ message: 'Rest Service Operational' })
-    });
+    app.use(router)
+
+
 
     app.listen('3000', () => console.log('REST service started at 3000'))
 
