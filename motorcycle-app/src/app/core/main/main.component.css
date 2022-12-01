@@ -4,15 +4,14 @@
   }
 }
 
-div {
+/* div {
   background-image:url('../../../assets/1920x1080-built-customs-modified-indian-4k_1630697398.jpg');
-  /* width: 100%; */
   height: calc(100vh);
   background-position: 20% 82%;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-}
+} */
 
 h1 {
   color: rgb(246, 17, 5);
