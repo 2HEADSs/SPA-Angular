@@ -11,6 +11,7 @@ nav {
     justify-content: space-between;
     background-color: rgb(32, 32, 32);
     height: 3rem;
+    border-bottom: 0;
 }
 
 ul li {
@@ -30,5 +31,5 @@ ul li a {
 
 
 a:hover {
-    border-bottom: 4px solid rgb(233, 172, 19);
+    border-bottom: 4px solid rgb(251, 2, 2);
 }
