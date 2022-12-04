@@ -6,10 +6,12 @@ import { RouterModule } from '@angular/router';
 
 
 
+
 @NgModule({
   declarations: [
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+
   ],
   imports: [
     CommonModule,
