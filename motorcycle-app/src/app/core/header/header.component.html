@@ -3,13 +3,15 @@
         <ul>
             <li><a routerLink="/">Home</a></li>
             <li><a routerLink="/">All Posts</a></li>
-
-            <li><a href="/catalog/create">Create Post</a></li>
-            <li><a href="/auth/profile">Profile</a></li>
-            <li><a href="/auth/logout">Logout</a></li>
-
-            <li><a routerLink="/auth/register">Register</a></li>
-            <li><a routerLink="/auth/login">Login</a></li>
+            <ng-container>
+                <li><a href="/catalog/create">Create Post</a></li>
+                <li><a href="/auth/profile">Profile</a></li>
+                <li><a href="/auth/logout">Logout</a></li>
+            </ng-container>
+            <ng-container>
+                <li><a routerLink="/auth/register">Register</a></li>
+                <li><a routerLink="/auth/login">Login</a></li>
+            </ng-container>
         </ul>
 
 </nav>
