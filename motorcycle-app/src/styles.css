@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+
+
+* {
+
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-image:url('../../../assets/2560x1440-2021-indian-built-customs-envy-4k_1630697398.jpg');
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: calc(100vh - 5rem);
+}
