@@ -1,15 +1,20 @@
 <nav>
     <img id="logo-img" src="../../../assets/motorcycles-logo-400x300.png" alt="logo-img">
-        <ul>
-            <li><a routerLink="/">Home</a></li>
-            <li><a routerLink="/">All Posts</a></li>
-
-            <li><a href="/catalog/create">Create Post</a></li>
-            <li><a href="/profile">Profile</a></li>
-            <li><a href="/user/logout">Logout</a></li>
-
+    <ul>
+        <li><a routerLink="/">Home</a></li>
+        <li><a routerLink="/">All Bikes</a></li>
+        <ng-container>
+            <li><a href="/catalog/create">Add Bike</a></li>
+            <li><a href="/profile">My Bikes</a></li>
+        </ng-container>
+        <ng-container>
             <li><a routerLink="/auth/register">Register</a></li>
             <li><a routerLink="/auth/login">Login</a></li>
-        </ul>
+        </ng-container>
+        <ng-container>
+            <li><a href="/user/logout">Logout</a></li>
+        </ng-container>
+
+    </ul>
 
 </nav>
