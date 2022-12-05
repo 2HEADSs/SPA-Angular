@@ -14,8 +14,8 @@ const initDB = () => mongoose.connect(connectionString)
 startServer()
 async function startServer() {
     initDB();
-    app.use(express.json())
     app.use(cors())
+    app.use(express.json())
     app.use(session())
     //trimBody
     app.use(router)
