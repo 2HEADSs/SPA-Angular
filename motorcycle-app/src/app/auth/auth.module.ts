@@ -4,6 +4,8 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { RouterModule } from '@angular/router';
 import { ProfileComponent } from './profile/profile.component';
+import { AuthRoutingModule } from './auth-routing.module';
+import { BikesRoutingModule } from '../bikes/bikes-routing.module';
 
 
 
@@ -15,7 +17,9 @@ import { ProfileComponent } from './profile/profile.component';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    AuthRoutingModule,
+    BikesRoutingModule
   ]
 })
 export class AuthModule { }

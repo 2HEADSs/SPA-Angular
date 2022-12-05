@@ -11,18 +11,6 @@ const routes: Routes = [
     pathMatch: 'full',
     component: MainComponent
   },
-  {
-    path: 'auth/register',
-    component: RegisterComponent
-  },
-  {
-    path: 'auth/login',
-    component: LoginComponent
-  },
-  {
-    path: 'auth/profile',
-    component: ProfileComponent
-  },
 ];
 
 @NgModule({
