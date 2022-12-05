@@ -7,11 +7,11 @@ const routes: Routes = [
   {
     path: 'bikes/catalog',
     component: BikesListComponent
-  },
-  {
+},
+{
     path: 'bikes/create',
     component: CreateBikesComponent
-  },
+},
 ];
 
 @NgModule({

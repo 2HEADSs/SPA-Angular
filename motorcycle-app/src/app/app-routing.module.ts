@@ -11,6 +11,7 @@ const routes: Routes = [
     pathMatch: 'full',
     component: MainComponent
   },
+  
 ];
 
 @NgModule({
