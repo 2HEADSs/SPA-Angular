@@ -16,7 +16,7 @@ bikeController.post('/', async (req, res) => {
         res.json(bike)
     } catch (err) {
         // const message = parseError(err)
-        res.status(400).json({ error:err.message })
+        res.status(400).json({ error: err.message })
         console.log(err);
     }
     res.end()
@@ -24,21 +24,23 @@ bikeController.post('/', async (req, res) => {
 
 bikeController.get('/:id', async (req, res) => {
     const bike = await getById(req.params.id)
-    res.status(400).res.json(bike)
+    console.log(bike);
+    return res.status(400).json(bike)
 });
 
 bikeController.put('/:id', async (req, res) => {
+
     const bike = await getById(req.params.id);
-    if (req.user._id != bike._ownerId) {
-        return res.status(403).json({ message: 'You cannot modify this record' })
-    }
+    //todo parse token
+    // if (req.user._id != bike._ownerId) {
+    //     return res.status(403).json({ message: 'You cannot modify this record' })
+    // }
     try {
         const result = await update(req.params.id, req.body);
-        console.log(result);
-        res.json(result)
+        res.status(400).json(result)
     } catch (err) {
         const message = parseError(err)
-        res.status(400).json({ error:err.message })
+        res.status(400).json({ error: err.message })
     }
 });
 
