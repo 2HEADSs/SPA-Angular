@@ -1,7 +1,7 @@
 body {
     background-image: url('../assets/1920x1080-built-customs-modified-indian-4k_1630697398.jpg');
     width: 100%;
-    height: calc(100vh -88px);
+    height: calc(100vh - 88px);
     background-repeat: no-repeat;
     background-size: cover;
 
