@@ -22,6 +22,6 @@ async function startServer() {
 
 
 
-    app.listen('3000', () => console.log('REST service started at 3000'))
+    app.listen(port, () => console.log(`REST service started at ${port}`))
 
 }
