@@ -13,8 +13,8 @@ async function getById(id) {
     return Bike.findById(id)
 };
 
-async function create(item) {
-    return Bike.create(item)
+async function create(bike) {
+    return Bike.create(bike)
 };
 
 async function update(id, bike) {

@@ -12,12 +12,12 @@ bikeController.get('/', async (req, res) => {
 
 bikeController.post('/', async (req, res) => {
     try {
-        const data = Object.assign({ _ownerId: req.user._id }, req.body)
-        const bike = await create(data);
+        const bike = await create(req.body);
         res.json(bike)
     } catch (err) {
         // const message = parseError(err)
         res.status(400).json({ error:err.message })
+        console.log(err);
     }
     res.end()
 });
