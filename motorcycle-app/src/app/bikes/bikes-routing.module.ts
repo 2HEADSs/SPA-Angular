@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { BikeDetailsComponent } from './bike-details/bike-details.component';
 import { BikesListComponent } from './bikes-list/bikes-list.component';
 import { CreateBikesComponent } from './create-bikes/create-bikes.component';
+import { EditComponent } from './edit/edit.component';
 
 const routes: Routes = [
   {
@@ -12,9 +13,14 @@ const routes: Routes = [
 {
     path: 'bikes/create',
     component: CreateBikesComponent
-},{
+},
+{
   path: 'bikes/details',
   component: BikeDetailsComponent
+},
+{
+  path: 'bikes/edit',
+  component: EditComponent
 },
 ];
 

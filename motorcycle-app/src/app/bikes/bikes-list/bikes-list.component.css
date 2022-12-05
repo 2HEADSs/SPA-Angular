@@ -1,5 +1,5 @@
 
-h1 {
+/* h1 {
     position: absolute;
     top: 15%;
     left: 50%;
@@ -8,9 +8,7 @@ h1 {
     text-align: center;
     font-size: 35px;
     font-family: Arial, sans-serif;
-
-
-  }
+  } */
 
 .container {
     height: calc(100vh - 6rem);
@@ -43,7 +41,7 @@ h1 {
     width: 300px;
     background: #808080;
     border-radius: 10px;
-    transition: background 0.8s;
+    /* transition: background 0.8s; */
     overflow: hidden;
     background: #000;
     box-shadow: 0 70px 63px -60px #000;
@@ -59,7 +57,7 @@ h1 {
 }
 
 
-.card:hover h2 {
+.card:hover .details {
     opacity: 1;
 }
 
@@ -69,7 +67,7 @@ h1 {
 
 
 
-.card1:hover h2 {
+.card1:hover .details {
     opacity: 1;
 }
 
@@ -78,7 +76,7 @@ h1 {
 }
 
 
-h2 {
+.details {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     color: #fff;
     margin: 20px;
