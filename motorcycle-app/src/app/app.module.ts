@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
+import { BikesModule } from './bikes/bikes.module';
 import { CoreModule } from './core/core.module';
 
 @NgModule({
@@ -16,7 +17,8 @@ import { CoreModule } from './core/core.module';
     AppRoutingModule,
     CoreModule,
     AuthModule,
-    RouterModule
+    RouterModule,
+    BikesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
