@@ -4,7 +4,6 @@ const User = require('../models/User')
 
 const secret = 'q-asd231adfas12321kl';
 
-
 async function register(email, password) {
     const existing = await User.findOne({ email }).collation({ locale: 'en', strength: 2 })
     if (existing) {
@@ -59,5 +58,6 @@ function parseToken(token) {
 module.exports = {
     register,
     login,
-    parseToken
+    parseToken,
+
 }
