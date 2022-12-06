@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BikesService } from '../bikes.service';
 
 @Component({
   selector: 'app-bike-details',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BikeDetailsComponent implements OnInit {
 
-  constructor() { }
+  singleBike: any | null = null
+
+  constructor(private bikesSerice: BikesService) { }
 
   ngOnInit(): void {
+    this.bikesSerice.loadOneBike().subscribe({
+      next: (bike) => {
+        console.log(bike);
+
+        this.singleBike = bike
+      },
+      error: (err) => {
+        console.log(err);
+
+      }
+    })
   }
 
 }

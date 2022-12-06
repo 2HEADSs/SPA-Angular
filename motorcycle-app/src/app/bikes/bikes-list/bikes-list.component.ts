@@ -15,6 +15,8 @@ export class BikesListComponent implements OnInit {
   ngOnInit(): void {
     this.bikesSerice.loadAllBike().subscribe({
       next: (bikes) => {
+        console.log(bikes);
+        
         this.bikesList = bikes
       },
       error: (err) => {

@@ -15,9 +15,12 @@ export class BikesService {
   constructor(private httpClient: HttpClient) { }
   //todo - <any> - set interface
   
-  loadAllBike() {
-    
+  loadAllBike() { 
     return this.httpClient.get<any>(`${apiUrl}/bikes`)
+  }
+
+  loadOneBike() { 
+    return this.httpClient.get<any>(`${apiUrl}/bikes/:id`)
   }
 
 
