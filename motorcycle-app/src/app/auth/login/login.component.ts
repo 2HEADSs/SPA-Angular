@@ -17,7 +17,7 @@ export class LoginComponent {
       email: 'pavel@abv.bg'
     };
 
-    this.router.navigate(['/'])
+    // this.router.navigate(['/'])
   }
 
 

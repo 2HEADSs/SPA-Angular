@@ -18,10 +18,10 @@ const routes: Routes = [
         path: 'auth/profile',
         component: ProfileComponent
     },
-    {
-        path: 'auth/logout',
-        component: LogoutComponent
-    },
+//     {
+//         path: 'auth/logout',
+//         component: LogoutComponent
+//     },
 ];
 
 @NgModule({

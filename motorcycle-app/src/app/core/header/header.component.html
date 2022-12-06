@@ -1,16 +1,16 @@
 <nav>
     <img id="logo-img" src="../../../assets/motorcycles-logo-400x300.png" alt="logo-img">
-    <p style="color: white">Welcome user </p> 
+    <p *ngIf="isLoggedIn" style="color: white">Welcome user </p> 
     <ul>
             <li><a routerLink="/">Home</a></li>
             
             <li><a routerLink="/bikes/catalog">All Bikes</a></li>
-            <ng-container>
+            <ng-container *ngIf="isLoggedIn">
                 <li><a routerLink="/bikes/create">Add Bike</a></li>
                 <li><a routerLink="/auth/profile">My Bikes</a></li>
                 <li><a routerLink="/auth/logout">Logout</a></li>
             </ng-container>
-            <ng-container>
+            <ng-container *ngIf="!isLoggedIn">
                 <li><a routerLink="/auth/register">Register</a></li>
                 <li><a routerLink="/auth/login">Login</a></li>
             </ng-container>
