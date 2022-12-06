@@ -16,9 +16,8 @@ export class BikesService {
   //todo - <any> - set interface
   
   loadAllBike() {
-    console.log('asdasda');
     
-    return this.httpClient.get<any>(`${apiUrl}/bikes/catalog`)
+    return this.httpClient.get<any>(`${apiUrl}/bikes`)
   }
 
 

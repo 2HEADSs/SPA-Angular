@@ -6,6 +6,7 @@ import { BikeDetailsComponent } from './bike-details/bike-details.component';
 import { CreateBikesComponent } from './create-bikes/create-bikes.component';
 import { BikesListComponent } from './bikes-list/bikes-list.component';
 import { EditComponent } from './edit/edit.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -17,7 +18,11 @@ import { EditComponent } from './edit/edit.component';
   ],
   imports: [
     CommonModule,
-    BikesRoutingModule
+    BikesRoutingModule,
+    HttpClientModule
+  ],
+  providers: [
+
   ]
 })
 export class BikesModule { }
