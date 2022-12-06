@@ -100,3 +100,9 @@
     align-items: center;
     justify-content: space-around;
 }
+
+h1 {
+    position: absolute;
+    left: 41%;
+    color: red;
+}

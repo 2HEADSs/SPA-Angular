@@ -1,6 +1,7 @@
 <!-- <h1>Click on chosen bike for details!</h1> -->
 
 
+<h1 *ngIf="!bikesList">There is no bikes for sale!!!</h1>
 <div class="container">
     <div *ngFor="let bike of bikesList" class="card" style="background: url('{{bike.img}}'); background-size:100% 100%">
         <div class="border">
