@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { ProfileComponent } from './profile/profile.component';
 import { AuthRoutingModule } from './auth-routing.module';
 import { BikesRoutingModule } from '../bikes/bikes-routing.module';
+import { LogoutComponent } from './logout/logout.component';
 
 
 
@@ -13,7 +14,8 @@ import { BikesRoutingModule } from '../bikes/bikes-routing.module';
   declarations: [
     RegisterComponent,
     LoginComponent,
-    ProfileComponent
+    ProfileComponent,
+    LogoutComponent
   ],
   imports: [
     CommonModule,
