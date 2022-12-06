@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-//add user interface and set to user as type
+//add user interface and set to user as
 @Injectable({
   providedIn: 'root'
 })

@@ -12,7 +12,12 @@ export class HeaderComponent {
     console.log(this.authService.isLoggedIn);
     
     return this.authService.isLoggedIn
+  }
 
+  get user() {
+    console.log(this.authService.user);
+    
+    return this.authService.user
   }
 
   constructor(private authService: AuthService) {
