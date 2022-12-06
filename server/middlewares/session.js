@@ -11,7 +11,6 @@ module.exports = () => (req, res, next) => {
             req.user = payload;
             req.token = token
         } catch (error) {
-            console.log(error + 'error');
             return res.status(401).json({ message: 'Invalid authorization token' })
         }
     }
