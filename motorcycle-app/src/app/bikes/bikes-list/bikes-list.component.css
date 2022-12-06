@@ -41,7 +41,8 @@
 
 .card {
     /* background: url("../../../assets/HD-wallpaper-suzuki-gsx-r-bike-doctor-motorcycle.jpg") center center no-repeat; */
-    background-size:cover;
+    /* background-repeat: no-repeat; */
+    /* background-size:100% 100%; */
 }
 
 
