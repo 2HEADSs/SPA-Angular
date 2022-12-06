@@ -30,3 +30,8 @@ ul li a {
 a:hover {
     border-bottom: 4px solid rgb(251, 2, 2);
 }
+
+p {
+    font-size: 35px;
+    
+}
