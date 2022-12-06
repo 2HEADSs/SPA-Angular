@@ -9,9 +9,9 @@ const apiUrl = environment.apiUrl
 @Injectable({
   providedIn: 'root'
 })
+
 export class BikesService {
 
-  //here we take server- http client
   constructor(private httpClient: HttpClient) { }
   //todo - <any> - set interface
   

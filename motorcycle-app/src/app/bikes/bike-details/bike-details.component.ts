@@ -9,9 +9,9 @@ import { BikesService } from '../bikes.service';
 export class BikeDetailsComponent implements OnInit {
 
   singleBike: any | null = null
+  
 
   constructor(private bikesSerice: BikesService) { }
-
   ngOnInit(): void {
     this.bikesSerice.loadOneBike().subscribe({
       next: (bike) => {
