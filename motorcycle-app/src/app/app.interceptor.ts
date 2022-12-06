@@ -8,7 +8,7 @@ export class AppInterceptor implements HttpInterceptor {
     constructor() { }
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        //add token - erik mistakes(if-else)
+        //todo - add token - erik mistakes(if-else)
         return next.handle(req)
     }
 }
