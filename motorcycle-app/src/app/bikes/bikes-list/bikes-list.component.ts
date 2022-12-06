@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IBikes } from 'src/app/interfaces/bikes';
 import { BikesService } from '../bikes.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { BikesService } from '../bikes.service';
 export class BikesListComponent implements OnInit {
   
 
-  bikesList: any | null = null;
+  bikesList: IBikes[] | null = null;
 
   constructor(private bikesSerice: BikesService) { }
 

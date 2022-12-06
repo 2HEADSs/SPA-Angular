@@ -2,7 +2,7 @@
 
 
 <div class="container">
-    <div class="card card">
+    <div *ngFor="let bike of bikesList" class="card" style="background: url('{{bike.img}}')">
         <div class="border">
             <h2 class="details">Details</h2>
             <h2 class="edit">Edit</h2>

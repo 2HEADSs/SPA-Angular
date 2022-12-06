@@ -1,4 +1,5 @@
 export interface IBikes {
+    _id: string,
     brand: string,
     model: string,
     year: number,
@@ -7,7 +8,6 @@ export interface IBikes {
     description: string,
     img: string,
     _ownerId: string,
-    _id: string
 
 }
 

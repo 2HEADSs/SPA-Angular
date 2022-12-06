@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
-// import { ITheme } from './interfaces/theme';
-// import { IPost } from './interfaces/posts';
+import { IBikes } from '../interfaces/bikes';
 
 const apiUrl = environment.apiUrl
 
@@ -16,7 +15,7 @@ export class BikesService {
   //todo - <any> - set interface
   
   loadAllBike() { 
-    return this.httpClient.get<any>(`${apiUrl}/bikes`)
+    return this.httpClient.get<IBikes[]>(`${apiUrl}/bikes`)
   }
 
   loadOneBike() { 
