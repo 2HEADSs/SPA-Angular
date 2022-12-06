@@ -7,6 +7,7 @@ import { BikesService } from '../bikes.service';
   styleUrls: ['./bikes-list.component.css']
 })
 export class BikesListComponent implements OnInit {
+  
 
   bikesList: any | null = null;
 
