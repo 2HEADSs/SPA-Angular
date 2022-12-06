@@ -15,6 +15,7 @@ export class BikesService {
   //todo - <any> - set interface
   
   loadAllBike() { 
+
     return this.httpClient.get<IBikes[]>(`${apiUrl}/bikes`)
   }
 
