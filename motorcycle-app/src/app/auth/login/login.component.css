@@ -23,7 +23,7 @@ html {
   
   .login-box h2 {
     margin: 0 0 30px;
-    padding: 0;
+    padding: -20;
     color: #fff;
     text-align: center;
   }
@@ -45,7 +45,7 @@ html {
   }
   .login-box .user-box label {
     position: absolute;
-    top:0;
+    top:-20px;
     left: 0;
     padding: 10px 0;
     font-size: 16px;

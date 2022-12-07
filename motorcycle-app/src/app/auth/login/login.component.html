@@ -3,13 +3,17 @@
 <div class="login-box">
   <h2>Login</h2>
   <form #form="ngForm" (ngSubmit)="loginHandler(form)">
-    <ng-container *ngIf="emailnput.touched">
-      <p class="error">Email is required.</p>
+    <ng-container *ngIf="emailnput.asyncValidator">
+      <p class="error">Invalid email.</p>
     </ng-container>
+
     <div class="user-box">
-      <input #emailnput="ngModel" ngModel type="email" name="email" required >
+      <input #emailnput="ngModel" ngModel name="email" type="email"  required
+        pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$">
       <label>Email</label>
     </div>
+
+
     <div class="user-box">
       <input #passwordlnput="ngModel" ngModel type="password" name="password" required [minlength]="5">
       <!-- <ng-container *ngIf="passwordlnput.errors?.['required']">
