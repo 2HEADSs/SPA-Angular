@@ -8,21 +8,27 @@ import { EditComponent } from './edit/edit.component';
 
 const routes: Routes = [
   {
-    path: 'bikes/catalog',
-    component: BikesListComponent
-  },
-  {
-    path: 'bikes/create',
-    component: CreateBikesComponent
-  },
-  {
-    path: 'bikes/details',
-    component: BikeDetailsComponent
-  },
-  {
-    path: 'bikes/edit',
-    component: EditComponent
-  },
+    path: 'bikes',
+    children: [
+      {
+        path: 'catalog',
+        component: BikesListComponent
+      },
+      {
+        path: 'create',
+        component: CreateBikesComponent
+      },
+      {
+        path: 'details',
+        component: BikeDetailsComponent
+      },
+      {
+        path: 'edit',
+        component: EditComponent
+      },
+    ]
+  }
+
 ];
 
 @NgModule({
