@@ -21,7 +21,6 @@ export class BikesListComponent implements OnInit {
         this.bikesList = bikes
         if (this.bikesList.length > 0) {
           this.hasBikes = true;
-
         }
       },
       error: (err) => {
