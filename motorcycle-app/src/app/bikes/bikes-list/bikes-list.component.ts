@@ -8,18 +8,21 @@ import { BikesService } from '../bikes.service';
   styleUrls: ['./bikes-list.component.css']
 })
 export class BikesListComponent implements OnInit {
-  
 
-  bikesList: IBikes[] | null = null;
+
+  bikesList: IBikes[] | null = [];
+  hasBikes: boolean = false
 
   constructor(private bikesSerice: BikesService) { }
 
   ngOnInit(): void {
     this.bikesSerice.loadAllBike().subscribe({
       next: (bikes) => {
-        console.log(bikes);
-        
         this.bikesList = bikes
+        if (this.bikesList.length > 0) {
+          this.hasBikes = true;
+
+        }
       },
       error: (err) => {
         console.log(err);

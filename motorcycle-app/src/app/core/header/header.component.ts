@@ -9,7 +9,6 @@ import { AuthService } from 'src/app/auth/auth.service';
 export class HeaderComponent {
 
   get isLoggedIn() {
-    console.log(this.authService.isLoggedIn);
     
     return this.authService.isLoggedIn
   }

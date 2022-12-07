@@ -70,6 +70,7 @@
     transition: opacity 1s;
     display: inline;
     display: inline;
+    font-size: 25px;
 
 }
 
@@ -80,6 +81,8 @@
     opacity: 0;
     transition: opacity 1s;
     display: inline;
+    font-size: 25px;
+
 
 }
 
