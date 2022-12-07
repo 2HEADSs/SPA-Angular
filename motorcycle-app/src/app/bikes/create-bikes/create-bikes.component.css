@@ -65,7 +65,7 @@ body {
     font-size: 18px;
 }
 
-.create-box form a {
+.create-box form button {
     position: relative;
     display: inline-block;
     padding: 10px 20px;
@@ -79,7 +79,7 @@ body {
     letter-spacing: 4px
 }
 
-.create-box a:hover {
+.create-box button:hover {
     background: #f7f6f5;
     color: #fff;
     border-radius: 5px;
@@ -89,12 +89,12 @@ body {
         0 0 100px #6d6e6e;
 }
 
-.create-box a span {
+.create-box button span {
     position: absolute;
     display: block;
 }
 
-.create-box a span:nth-child(1) {
+.create-box button span:nth-child(1) {
     top: 0;
     left: -100%;
     width: 100%;
@@ -114,7 +114,7 @@ body {
     }
 }
 
-.create-box a span:nth-child(2) {
+.create-box button span:nth-child(2) {
     top: -100%;
     right: 0;
     width: 2px;
@@ -135,7 +135,7 @@ body {
     }
 }
 
-.create-box a span:nth-child(3) {
+.create-box button span:nth-child(3) {
     bottom: 0;
     right: -100%;
     width: 100%;
@@ -156,7 +156,7 @@ body {
     }
 }
 
-.create-box a span:nth-child(4) {
+.create-box button span:nth-child(4) {
     bottom: -100%;
     left: 0;
     width: 2px;

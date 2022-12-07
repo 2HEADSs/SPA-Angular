@@ -1,22 +1,27 @@
-
+<!--todo  errors from routing workshop-->
 <div class="login-box">
-    <h2>Login</h2>
-    <form>
-      <div class="user-box">
-        <input type="text" name="username" required="">
-        <label>Username</label>
-      </div>
-      <div class="user-box">
-        <input type="password" name="password" required="">
-        <label>Password</label>
-      </div>
-      <button (click)="loginHandler()">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        LOGIN
-      </button>
-    </form>
-  </div>
-
+  <h2>Login</h2>
+  <form #form="ngForm" (ngSubmit)="loginHandler(form)">
+    <ng-container *ngIf="emailnput.touched">
+      <p class="error">Email is required.</p>
+    </ng-container>
+    <div class="user-box">
+      <input #emailnput="ngModel" ngModel type="text" name="email" required>
+      <label>Email</label>
+    </div>
+    <ng-container *ngIf="passwordlnput.touched">
+      <p class="error">Password is required</p>
+    </ng-container>
+    <div class="user-box">
+      <input #passwordlnput="ngModel" ngModel type="password" name="password" required>
+      <label>Password</label>
+    </div>
+    <button>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      LOGIN
+    </button>
+  </form>
+</div>

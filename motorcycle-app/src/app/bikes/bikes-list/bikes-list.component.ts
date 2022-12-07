@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IBikes } from 'src/app/interfaces/bikes';
+import { IBikes } from 'src/app/shared/interfaces/bikes';
 import { BikesService } from '../bikes.service';
 
 @Component({

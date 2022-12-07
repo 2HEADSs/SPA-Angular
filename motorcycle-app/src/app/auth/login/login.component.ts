@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 
@@ -20,12 +21,12 @@ export class LoginComponent {
     // this.router.navigate(['/'])
   }
 
-  loginHandler(): void { 
-    console.log('loggedIn');
-    this.authService.user = {
-      username: 'Pavel',
-      email: 'pavel@abv.bg'
-    };
+  loginHandler(form: NgForm): void { 
+    // console.log('loggedIn');
+    // this.authService.user = {
+    //   username: 'Pavel',
+    //   email: 'pavel@abv.bg'
+    // };
   }
 
 }
