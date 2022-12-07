@@ -24,7 +24,6 @@ bikeController.post('/', async (req, res) => {
 
 bikeController.get('/:id', async (req, res) => {
     const bike = await getById(req.params.id)
-    console.log(bike);
     return res.status(400).json(bike)
 });
 

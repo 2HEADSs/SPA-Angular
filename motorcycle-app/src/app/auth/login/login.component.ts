@@ -9,33 +9,30 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  userEmails = new FormGroup({
-    primaryEmail: new FormControl('',[
-    Validators.required,
-    
-  Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]),
-    secondaryEmail: new FormControl('',[
-    Validators.required,
-    
-  Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")])
-  });  
+  // userEmails = new FormGroup({
+  //   primaryEmail: new FormControl('',[
+  //   Validators.required,
+
+  // Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]),
+  //   secondaryEmail: new FormControl('',[
+  //   Validators.required,
+
+  // Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")])
+  // });  
 
 
   constructor(private router: Router, private authService: AuthService) {
-    // this.authService.user = {
-    //   username: 'Pavel',
-    //   email: 'pavel@abv.bg'
-    // };
 
-    // this.router.navigate(['/'])
   }
 
   loginHandler(form: NgForm): void {
-    // console.log('loggedIn');
-    // this.authService.user = {
-    //   username: 'Pavel',
-    //   email: 'pavel@abv.bg'
-    // };
+    console.log(form.valid)
+    console.log(form.value);
+    
+    this.authService.user = {
+      username: 'Pavel',
+      email: 'pavel@abv.bg'
+    };
   }
 
 }

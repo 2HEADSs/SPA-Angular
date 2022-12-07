@@ -1,17 +1,17 @@
 
 <div class="register-box">
     <h2>Register</h2>
-    <form>
+    <form #form="ngForm" (ngSubmit)="registerHandler(form)">
       <div class="user-box">
         <input type="text" name="" required="">
         <label>Username</label>
       </div>
       <div class="user-box">
-        <input type="text" name="" required="">
+        <input #emailnput="ngModel" ngModel type="text" name="" required>
         <label>Email</label>
       </div>
       <div class="user-box">
-        <input type="password" name="" required="">
+        <input #passwordlnput="ngModel" ngModel type="password" name="" required>
         <label>Password</label>
       </div>
       <button >

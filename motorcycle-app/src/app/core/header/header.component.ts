@@ -14,7 +14,6 @@ export class HeaderComponent {
   }
 
   get user() {
-    console.log(this.authService.user);
     
     return this.authService.user
   }
