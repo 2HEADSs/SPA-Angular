@@ -12,13 +12,20 @@ export class LoginComponent {
 
 
   constructor(private router: Router, private authService: AuthService) {
-    this.authService.user = {
-      username: 'Pavel',
-      email: 'pavel@abv.bg'
-    };
+    // this.authService.user = {
+    //   username: 'Pavel',
+    //   email: 'pavel@abv.bg'
+    // };
 
     // this.router.navigate(['/'])
   }
 
+  loginHandler(): void { 
+    console.log('loggedIn');
+    this.authService.user = {
+      username: 'Pavel',
+      email: 'pavel@abv.bg'
+    };
+  }
 
 }
