@@ -4,6 +4,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { ProfileComponent } from './auth/profile/profile.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { MainComponent } from './core/main/main.component';
+import { NotFoundComponent } from './core/not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,14 @@ const routes: Routes = [
     pathMatch: 'full',
     component: MainComponent
   },
+  // {
+  //   path: 'not-found',
+  //   component: NotFoundComponent
+  // },
+  // {
+  //   path: '**',
+  //   redirectTo:'/not-found'
+  // },
   
 ];
 
