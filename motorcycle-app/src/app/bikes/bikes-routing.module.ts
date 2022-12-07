@@ -23,10 +23,6 @@ const routes: Routes = [
     path: 'bikes/edit',
     component: EditComponent
   },
-  {
-    path: '**',
-    component: NotFoundComponent
-  },
 ];
 
 @NgModule({

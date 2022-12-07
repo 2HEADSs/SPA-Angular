@@ -23,10 +23,6 @@ const routes: Routes = [
         path: 'auth/logout',
         component: LogoutComponent
     },
-    {
-        path: '**',
-        component: NotFoundComponent
-    },
 ];
 
 @NgModule({

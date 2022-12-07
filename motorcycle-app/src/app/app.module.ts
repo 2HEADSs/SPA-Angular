@@ -16,12 +16,12 @@ import { CoreModule } from './core/core.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    CoreModule,
-    AuthModule,
     BikesModule,
+    AuthModule,
+    CoreModule,
+    HttpClientModule,
     RouterModule,
+    AppRoutingModule,
   ],
   providers: [appInterceptorProvider],
   bootstrap: [AppComponent]
