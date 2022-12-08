@@ -5,11 +5,14 @@ const { login, register } = require('../service/userService');
 
 authController.post('/register', async (req, res) => {
     try {
-        const token = await register(req.body.username,req.body.email, req.body.password)
+        console.log(req.body.username);
+        const token = await register(req.body.email, req.body.username, req.body.password)
+        console.log(token);
         res.status(201).json(token)
         //TODOnot sure
         res.end()
     } catch (error) {
+        console.log(error);
         res.status(400).json({ error })
     }
 })

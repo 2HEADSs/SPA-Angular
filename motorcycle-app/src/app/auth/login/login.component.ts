@@ -30,7 +30,7 @@ export class LoginComponent {
       email: this.loginFormGroup.value.email,
       password: this.loginFormGroup.value.password,
     }
-    console.log(body);
+    console.log(`${body}`);
 
     this.authService.user = body
 

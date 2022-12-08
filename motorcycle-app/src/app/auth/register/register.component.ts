@@ -36,7 +36,10 @@ export class RegisterComponent {
       password
     }
     this.authService.user = body
-    console.log(body);
+    this.authService.register(body).subscribe(()=>{
+      console.log('ready');
+      
+    })
 
   }
 }
