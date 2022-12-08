@@ -16,12 +16,12 @@ export class RegisterComponent {
   passwordControl = new FormControl('', [Validators.required, Validators.minLength(5)])
 
 
-    registerFormGroup: FormGroup = this.formBuilder.group({
-      'email': new FormControl('', [Validators.required, Validators.pattern(this.pattern)]),
-      'username': new FormControl('', [Validators.required, Validators.minLength(5)]),
-      'password': this.passwordControl,
-      'repass': new FormControl(null, [passwordMatch(this.passwordControl)]),
-    })
+  registerFormGroup: FormGroup = this.formBuilder.group({
+    'email': new FormControl('', [Validators.required, Validators.pattern(this.pattern)]),
+    'username': new FormControl('', [Validators.required, Validators.minLength(5)]),
+    'password': this.passwordControl,
+    'repass': new FormControl(null, [passwordMatch(this.passwordControl)]),
+  })
 
   constructor(
     private router: Router,
@@ -29,7 +29,14 @@ export class RegisterComponent {
     private formBuilder: FormBuilder) { }
 
   registerHandler(): void {
-    console.log('register');
+    const {email, username, password} = this.registerFormGroup.value
+    const body = {
+      email,
+      username,
+      password
+    }
+    this.authService.user = body
+    console.log(body);
 
   }
 }

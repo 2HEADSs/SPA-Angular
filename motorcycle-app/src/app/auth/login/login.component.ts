@@ -25,13 +25,15 @@ export class LoginComponent {
     private formBuilder: FormBuilder) { }
 
 
-  loginSubmit(): void { 
-    this.authService.user = {
-      username: 'Pavel',
-      email: 'pavel@abv.bg'
-    };
-    console.log('form is handler submit', this.loginFormGroup);
+  loginSubmit(): void {
+    const body = {
+      email: this.loginFormGroup.value.email,
+      password: this.loginFormGroup.value.password,
+    }
+    console.log(body);
 
-    
+    this.authService.user = body
+
+
   }
 }
