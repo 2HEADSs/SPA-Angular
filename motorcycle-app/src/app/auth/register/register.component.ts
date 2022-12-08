@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { NgForm, FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
 
 
@@ -12,12 +11,5 @@ export class RegisterComponent  {
 
   constructor(private authService: AuthService) { }
 
-
-
-  registerHandler(form: NgForm): void {
-    console.log(form.valid)
-    console.log(form.value);
-
-  }
 
 }
