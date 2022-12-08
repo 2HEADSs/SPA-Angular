@@ -25,10 +25,10 @@ export class LoginComponent {
 
 
   loginHandler(): void {
-    // this.authService.user = {
-    //   username: 'Pavel',
-    //   email: 'pavel@abv.bg'
-    // };
+    this.authService.user = {
+      username: 'Pavel',
+      email: 'pavel@abv.bg'
+    };
     console.log('form is handler submit', this.loginFormGroup);
 
   }
