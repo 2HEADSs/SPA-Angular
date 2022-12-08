@@ -5,15 +5,13 @@ const { login, register } = require('../service/userService');
 
 authController.post('/register', async (req, res) => {
     try {
-        console.log(req.body.username);
         const token = await register(req.body.email, req.body.username, req.body.password)
-        console.log(token);
         res.status(201).json(token)
         //TODOnot sure
         res.end()
     } catch (error) {
         console.log(error);
-        res.status(400).json({ error })
+        res.status(400).json({ error:error.message })
     }
 })
 
@@ -25,7 +23,7 @@ authController.post('/login', async (req, res) => {
         //TODOnot sure
         res.end()
     } catch (error) {
-        res.status(400).json({ error })
+        res.status(400).json({ error:error.message })
     }
 })
 //TODO LOGOUT

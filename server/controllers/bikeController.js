@@ -12,7 +12,7 @@ bikeController.get('/', async (req, res) => {
 
 bikeController.post('/', async (req, res) => {
     try {
-        const bike = await create(req.body);
+        const bike = await create(req.body, req.user._id);
         res.json(bike)
     } catch (err) {
         // const message = parseError(err)
