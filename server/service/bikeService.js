@@ -10,11 +10,11 @@ async function getByUserId(userId) {
 
 };
 async function getById(id) {
-    return Bike.findById(id)
+    return Bike.findById(id).populate('owner')
 };
 
-async function create(bike) {
-    return Bike.create(bike)
+async function create(data) {
+    return Bike.create(data)
 };
 
 async function update(id, bike) {
@@ -34,6 +34,10 @@ async function deleteById(id) {
     return Bike.findByIdAndDelete(id)
 };
 
+async function getMyBikes(id) {
+    return await Bike.find({ owner: id })
+}
+
 
 module.exports = {
     getAll,
@@ -41,5 +45,6 @@ module.exports = {
     create,
     update,
     deleteById,
-    getByUserId
+    getByUserId,
+    getMyBikes
 }
