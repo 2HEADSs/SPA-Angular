@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { passwordMatch } from 'src/app/shared/validators/repass-validator';
 import { AuthService } from '../auth.service';
 
 
@@ -12,12 +13,14 @@ import { AuthService } from '../auth.service';
 export class RegisterComponent {
 
   pattern = '^[a-z0-9A-Z\.-]{3,}@[a-z]+\.[a-z]+$'
+  passwordControl = new FormControl('', [Validators.required, Validators.minLength(5)])
+
 
     registerFormGroup: FormGroup = this.formBuilder.group({
       'email': new FormControl('', [Validators.required, Validators.pattern(this.pattern)]),
       'username': new FormControl('', [Validators.required, Validators.minLength(5)]),
-      'password': new FormControl('', [Validators.required, Validators.minLength(5)]),
-      'repass': new FormControl(),
+      'password': this.passwordControl,
+      'repass': new FormControl(null, [passwordMatch(this.passwordControl)]),
     })
 
   constructor(

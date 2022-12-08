@@ -24,24 +24,18 @@
       <input formControlName="password" type="password" name="password">
       <label>Password</label>
 
-      <!-- <ng-container
-        *ngIf="registerFormGroup.controls['password'].touched && registerFormGroup.controls['username'].invalid">
-        <p *ngIf="registerFormGroup.controls['password'].errors" class="error">Password is necessary</p>
-        <p *ngIf="registerFormGroup.controls['password'].errors" class="error">Password must be at least 5 characters
-        </p>
-      </ng-container> -->
+      <ng-container *ngIf="registerFormGroup.get('password')?.touched  && registerFormGroup.get('password')?.invalid">
+        <p class="error">Password must be ate least 5 characters</p>
+      </ng-container>>
     </div>
 
     <div class="user-box">
       <input formControlName="repass" type="password" name="repass">
       <label>Repeat Password</label>
 
-      <!-- <ng-container
-        *ngIf="registerFormGroup.controls['password'].touched && registerFormGroup.controls['username'].invalid">
-        <p *ngIf="registerFormGroup.controls['password'].errors" class="error">Password is necessary</p>
-        <p *ngIf="registerFormGroup.controls['password'].errors" class="error">Password must be at least 5 characters
-        </p>
-      </ng-container> -->
+      <ng-container *ngIf="registerFormGroup.get('repass')?.touched  && registerFormGroup.get('repass')?.invalid">
+        <p class="error">Password is not same</p>
+      </ng-container>>
     </div>
 
     <button [disabled]="registerFormGroup.invalid">
