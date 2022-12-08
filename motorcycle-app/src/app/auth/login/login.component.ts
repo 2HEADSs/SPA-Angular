@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { emailValidator } from 'src/app/shared/validators/email-validator';
 import { AuthService } from '../auth.service';
 
 
@@ -13,8 +14,8 @@ import { AuthService } from '../auth.service';
 export class LoginComponent {
 
   loginFormGroup: FormGroup = this.formBuilder.group({
-    'email' : new FormControl('',[Validators.required, ]),
-    'password': new FormControl('',[Validators.required, Validators.minLength(4)])
+    'email': new FormControl('', [Validators.required, emailValidator]),
+    'password': new FormControl(null, [Validators.required, Validators.minLength(5)])
   })
 
   constructor(
@@ -24,12 +25,16 @@ export class LoginComponent {
 
 
   loginHandler(): void {
+    // this.authService.user = {
+    //   username: 'Pavel',
+    //   email: 'pavel@abv.bg'
+    // };
+    console.log('form is handler submit', this.loginFormGroup);
 
-
-    this.authService.user = {
-      username: 'Pavel',
-      email: 'pavel@abv.bg'
-    };
   }
 
+  loginSubmit(): void { 
+    console.log('form must be submit');
+    
+  }
 }

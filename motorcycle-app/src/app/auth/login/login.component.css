@@ -176,3 +176,6 @@ body {
       bottom: 100%;
   }
 }
+.error{
+  color: red;
+}

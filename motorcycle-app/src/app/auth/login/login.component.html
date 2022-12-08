@@ -1,20 +1,31 @@
+<!-- todo add errors -->
 <div class="create-box">
   <h2>Add bike</h2>
-  <form [formGroup]="loginFormGroup">
-      <div class="user-box">
-          <input formControlName="email" type="text" name="email" required>
-          <label>Email</label>
-      </div>
-      <div class="user-box">
-          <input type="text" name="password" required>
-          <label>Password</label>
-      </div>
-      <button (click)="loginHandler()">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          Login
-      </button>
+  <form [formGroup]="loginFormGroup" (ngSubmit)="loginSubmit()">
+    <div class="user-box">
+      <input formControlName="email" type="text" name="email"email required >
+      <label>Email</label>
+      <ng-container *ngIf="loginFormGroup.controls['email'].touched && loginFormGroup.controls['email'].invalid">
+        <!-- <p *ngIf="loginFormGroup.controls['email'].errors" class="error">Email is necessary</p> -->
+        <p *ngIf="loginFormGroup.controls['email'].errors" class="error">Invalid email</p>
+      </ng-container>
+
+    </div>
+    <div class="user-box">
+      <input formControlName="password" type="text" name="password" required>
+      <label>Password</label>
+      <ng-container *ngIf="loginFormGroup.controls['password'].touched && loginFormGroup.controls['password'].invalid">
+        <p class="error">Password must be at least 5 characters</p>
+      </ng-container>
+
+
+    </div>
+    <button [disabled]="loginFormGroup.invalid" (click)="loginHandler()">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      Login
+    </button>
   </form>
 </div>
