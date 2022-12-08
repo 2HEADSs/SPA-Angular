@@ -5,7 +5,7 @@ const { hasUser } = require('../middlewares/guards');
 const { getAll, create, getById, update, deleteById, getByUserId, getMyBikes } = require('../service/bikeService');
 // const { parseError } = require('../util/parser');
 //todo parseError
-//todo - populate bike with owner
+//todo - populate bike with _ownerId
 
 bikeController.get('/', async (req, res) => {
     const bikes = await getAll();

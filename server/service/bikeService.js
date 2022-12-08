@@ -10,7 +10,7 @@ async function getByUserId(userId) {
 
 };
 async function getById(id) {
-    return Bike.findById(id).populate('owner')
+    return Bike.findById(id).populate('_ownerId')
 };
 
 async function create(data) {
@@ -35,7 +35,7 @@ async function deleteById(id) {
 };
 
 async function getMyBikes(id) {
-    return await Bike.find({ owner: id })
+    return await Bike.find({ _ownerId: id })
 }
 
 
