@@ -24,17 +24,13 @@ export class LoginComponent {
     private formBuilder: FormBuilder) { }
 
 
-  loginHandler(): void {
+  loginSubmit(): void { 
     this.authService.user = {
       username: 'Pavel',
       email: 'pavel@abv.bg'
     };
     console.log('form is handler submit', this.loginFormGroup);
 
-  }
-
-  loginSubmit(): void { 
-    console.log('form must be submit');
     
   }
 }
