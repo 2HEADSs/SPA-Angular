@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateBikesComponent implements OnInit {
 
+   URL_PATTERN = '/https?:\/\/./i'
+
+
   constructor() { }
 
   ngOnInit(): void {

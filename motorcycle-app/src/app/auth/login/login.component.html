@@ -1,13 +1,13 @@
 <!-- todo add errors -->
-<div class="create-box">
+<div class="login-box">
   <h2>Add bike</h2>
   <form [formGroup]="loginFormGroup" (ngSubmit)="loginSubmit()">
     <div class="user-box">
       <input formControlName="email" type="text" name="email"email required >
       <label>Email</label>
       <ng-container *ngIf="loginFormGroup.get('email')?.touched && loginFormGroup.get('email')?.invalid">
-        <p *ngIf="loginFormGroup.get('email')?.errors?.['required']" class="error">Email is necessary</p>
-        <p *ngIf="loginFormGroup.get('email')?.errors?.['pattern']" class="error">Invalid email</p>
+        <p class="error" *ngIf="loginFormGroup.get('email')?.errors?.['required']" class="error">Email is necessary</p>
+        <p class="error" *ngIf="loginFormGroup.get('email')?.errors?.['pattern']" class="error">Invalid email</p>
       </ng-container>
 
     </div>

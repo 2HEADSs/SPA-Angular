@@ -9,7 +9,7 @@ body {
   background: linear-gradient(#141e30, #243b55);
 }
 
-.create-box {
+.login-box {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -23,18 +23,19 @@ body {
   border-radius: 10px;
 }
 
-.create-box h2 {
-  margin: 0 0 30px;
+.login-box h2 {
+  margin: 0 0 20px;
   padding: 0;
   color: #fff;
   text-align: center;
 }
 
-.create-box .user-box {
+.login-box .user-box {
   position: relative;
+  margin: 0 0 20px;
 }
 
-.create-box .user-box input {
+.login-box .user-box input {
   width: 100%;
   padding: 10px 0;
   font-size: 16px;
@@ -46,7 +47,7 @@ body {
   background: transparent;
 }
 
-.create-box .user-box label {
+.login-box .user-box label {
   position: absolute;
   top: 0;
   left: 0;
@@ -57,15 +58,15 @@ body {
   transition: .5s;
 }
 
-.create-box .user-box input:focus~label,
-.create-box .user-box input:valid~label {
+.login-box .user-box input:focus~label,
+.login-box .user-box input:valid~label {
   top: -20px;
   left: 0;
   color: #f40b03;
   font-size: 18px;
 }
 
-.create-box form button {
+.login-box form button {
   position: relative;
   display: inline-block;
   padding: 10px 20px;
@@ -79,7 +80,7 @@ body {
   letter-spacing: 4px
 }
 
-.create-box button:hover {
+.login-box button:hover {
   background: #f7f6f5;
   color: #fff;
   cursor:pointer;
@@ -90,12 +91,12 @@ body {
       0 0 100px #6d6e6e;
 }
 
-.create-box button span {
+.login-box button span {
   position: absolute;
   display: block;
 }
 
-.create-box button span:nth-child(1) {
+.login-box button span:nth-child(1) {
   top: 0;
   left: -100%;
   width: 100%;
@@ -115,7 +116,7 @@ body {
   }
 }
 
-.create-box button span:nth-child(2) {
+.login-box button span:nth-child(2) {
   top: -100%;
   right: 0;
   width: 2px;
@@ -136,7 +137,7 @@ body {
   }
 }
 
-.create-box button span:nth-child(3) {
+.login-box button span:nth-child(3) {
   bottom: 0;
   right: -100%;
   width: 100%;
@@ -157,7 +158,7 @@ body {
   }
 }
 
-.create-box button span:nth-child(4) {
+.login-box button span:nth-child(4) {
   bottom: -100%;
   left: 0;
   width: 2px;
@@ -177,6 +178,8 @@ body {
       bottom: 100%;
   }
 }
-.error{
-  color: red;
+
+p {
+  color: white;
+  font-size: 20px;
 }

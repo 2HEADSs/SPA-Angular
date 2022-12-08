@@ -7,6 +7,7 @@ import { CreateBikesComponent } from './create-bikes/create-bikes.component';
 import { BikesListComponent } from './bikes-list/bikes-list.component';
 import { EditComponent } from './edit/edit.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     CommonModule,
     BikesRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
 
