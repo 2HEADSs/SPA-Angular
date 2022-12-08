@@ -1,26 +1,28 @@
-
-<div class="register-box">
-    <h2>Register</h2>
-    <form #form="ngForm" (ngSubmit)="registerHandler(form)">
-      <div class="user-box">
-        <input type="text" name="" required="">
-        <label>Username</label>
-      </div>
-      <div class="user-box">
-        <input #emailnput="ngModel" ngModel type="text" name="" required>
-        <label>Email</label>
-      </div>
-      <div class="user-box">
-        <input #passwordlnput="ngModel" ngModel type="password" name="" required>
-        <label>Password</label>
-      </div>
-      <button >
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        REGISTER
-      </button>
-    </form>
-  </div>
-
+<div class="create-box">
+  <h2>Add bike</h2>
+  <form>
+    <div class="user-box">
+      <input type="text" name="email" required="">
+      <label>Email</label>
+    </div>
+    <div class="user-box">
+      <input type="text" name="username" required="">
+      <label>Username</label>
+    </div>
+    <div class="user-box">
+      <input type="password" name="email" required="">
+      <label>Password</label>
+    </div>
+    <div class="user-box">
+      <input type="password" name="password" required="">
+      <label>Repeat Password</label>
+    </div>
+    <button>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      Register
+    </button>
+  </form>
+</div>

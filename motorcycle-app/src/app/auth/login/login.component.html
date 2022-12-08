@@ -1,35 +1,20 @@
-<!--todo  errors from routing workshop-->
-<!-- todo regex for password-->
-<div class="login-box">
-  <h2>Login</h2>
-  <form #form="ngForm" (ngSubmit)="loginHandler(form)">
-    <ng-container *ngIf="emailnput.asyncValidator">
-      <p class="error">Invalid email.</p>
-    </ng-container>
-
-    <div class="user-box">
-      <input #emailnput="ngModel" ngModel name="email" type="email"  required>
-        <!-- pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$"> -->
-      <label>Email</label>
-    </div>
-
-
-    <div class="user-box">
-      <input #passwordlnput="ngModel" ngModel type="password" name="password" required [minlength]="5">
-      <!-- <ng-container *ngIf="passwordlnput.errors?.['required']">
-        <p class="error">Password is required</p>
-      </ng-container> -->
-      <ng-container *ngIf="passwordlnput.errors?.['minlength']">
-        <p class="error">Password must be at least 5 charachters</p>
-      </ng-container>
-      <label>Password</label>
-    </div>
-    <button>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      LOGIN
-    </button>
+<div class="create-box">
+  <h2>Add bike</h2>
+  <form>
+      <div class="user-box">
+          <input type="text" name="email" required="">
+          <label>Email</label>
+      </div>
+      <div class="user-box">
+          <input type="text" name="password" required="">
+          <label>Password</label>
+      </div>
+      <button>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          Login
+      </button>
   </form>
 </div>
