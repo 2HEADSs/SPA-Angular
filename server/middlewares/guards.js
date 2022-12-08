@@ -11,7 +11,7 @@ function hasUser() {
 function isGuest() {
     return (req, res, next) => {
         if (req.user) {
-            res.status(400).json({ message: 'You are alreade logfed in!' })
+            res.status(400).json({ message: 'You are alreade logded in!' })
         } else {
             next();
         }
