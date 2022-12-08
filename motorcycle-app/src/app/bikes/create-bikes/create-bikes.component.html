@@ -1,16 +1,16 @@
 <div class="create-box">
     <h2>Add bike</h2>
-    <form>
+    <form [formGroup]="createFormGroup" (ngSubmit)="createHandler()">
         <div class="bike-box">
-            <input type="text" name="" required="">
+            <input type="text" name="brand" required="">
             <label>Brand</label>
         </div>
         <div class="bike-box">
-            <input type="text" name="" required="">
+            <input type="text" name="model" required="">
             <label>Model</label>
         </div>
         <div class="bike-box">
-            <input type="text" name="" required="">
+            <input type="number" name="year" required="">
             <label>Year of manifacture</label>
         </div>
         <div class="bike-box">
