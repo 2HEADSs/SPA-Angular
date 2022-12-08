@@ -177,3 +177,7 @@ body {
       bottom: 100%;
   }
 }
+
+p {
+  color: white;
+}

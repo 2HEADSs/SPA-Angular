@@ -1,23 +1,50 @@
-<div class="create-box" [formGroup]="registerFormGriup" (ngSubmit)="registerHandler()">
+<div class="create-box">
   <h2>Add bike</h2>
-  <form>
+  <form [formGroup]="registerFormGroup" (ngSubmit)="registerHandler()">
     <div class="user-box">
       <input formControlName="email" type="text" name="email" >
       <label>Email</label>
+
+      <ng-container *ngIf="registerFormGroup.get('email')?.touched && registerFormGroup.get('email')?.invalid">
+        <p *ngIf="registerFormGroup.get('email')?.errors?.['required']" class="error">Email is necessary</p>
+        <p *ngIf="registerFormGroup.get('email')?.errors?.['pattern']" class="error">Invalid email</p>
+      </ng-container>
     </div>
+
     <div class="user-box">
       <input formControlName="username" type="text" name="username">
       <label>Username</label>
+
+      <ng-container *ngIf="registerFormGroup.get('username')?.touched  && registerFormGroup.get('username')?.invalid">
+        <p class="error">Username must be ate least 5 characters</p>
+      </ng-container>>
     </div>
+
     <div class="user-box">
       <input formControlName="password" type="password" name="password">
       <label>Password</label>
+
+      <!-- <ng-container
+        *ngIf="registerFormGroup.controls['password'].touched && registerFormGroup.controls['username'].invalid">
+        <p *ngIf="registerFormGroup.controls['password'].errors" class="error">Password is necessary</p>
+        <p *ngIf="registerFormGroup.controls['password'].errors" class="error">Password must be at least 5 characters
+        </p>
+      </ng-container> -->
     </div>
+
     <div class="user-box">
-      <input formControlName="password" type="password" name="repass" >
+      <input formControlName="repass" type="password" name="repass">
       <label>Repeat Password</label>
+
+      <!-- <ng-container
+        *ngIf="registerFormGroup.controls['password'].touched && registerFormGroup.controls['username'].invalid">
+        <p *ngIf="registerFormGroup.controls['password'].errors" class="error">Password is necessary</p>
+        <p *ngIf="registerFormGroup.controls['password'].errors" class="error">Password must be at least 5 characters
+        </p>
+      </ng-container> -->
     </div>
-    <button>
+
+    <button [disabled]="registerFormGroup.invalid">
       <span></span>
       <span></span>
       <span></span>
