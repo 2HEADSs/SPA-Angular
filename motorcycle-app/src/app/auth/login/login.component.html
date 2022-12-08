@@ -1,15 +1,15 @@
 <div class="create-box">
   <h2>Add bike</h2>
-  <form>
+  <form [formGroup]="loginFormGroup">
       <div class="user-box">
-          <input type="text" name="email" required="">
+          <input formControlName="email" type="text" name="email" required>
           <label>Email</label>
       </div>
       <div class="user-box">
-          <input type="text" name="password" required="">
+          <input type="text" name="password" required>
           <label>Password</label>
       </div>
-      <button>
+      <button (click)="loginHandler()">
           <span></span>
           <span></span>
           <span></span>
