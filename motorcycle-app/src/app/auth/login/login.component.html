@@ -5,16 +5,16 @@
     <div class="user-box">
       <input formControlName="email" type="text" name="email"email required >
       <label>Email</label>
-      <ng-container *ngIf="loginFormGroup.controls['email'].touched && loginFormGroup.controls['email'].invalid">
-        <!-- <p *ngIf="loginFormGroup.controls['email'].errors" class="error">Email is necessary</p> -->
-        <p *ngIf="loginFormGroup.controls['email'].errors" class="error">Invalid email</p>
+      <ng-container *ngIf="loginFormGroup.get('email')?.touched && loginFormGroup.get('email')?.invalid">
+        <p *ngIf="loginFormGroup.get('email')?.errors?.['required']" class="error">Email is necessary</p>
+        <p *ngIf="loginFormGroup.get('email')?.errors?.['pattern']" class="error">Invalid email</p>
       </ng-container>
 
     </div>
     <div class="user-box">
       <input formControlName="password" type="text" name="password" required>
       <label>Password</label>
-      <ng-container *ngIf="loginFormGroup.controls['password'].touched && loginFormGroup.controls['password'].invalid">
+      <ng-container *ngIf="loginFormGroup.get('password')?.touched && loginFormGroup.get('password')?.invalid">
         <p class="error">Password must be at least 5 characters</p>
       </ng-container>
 

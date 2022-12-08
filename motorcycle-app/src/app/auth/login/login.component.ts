@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { emailValidator } from 'src/app/shared/validators/email-validator';
 import { AuthService } from '../auth.service';
 
 
@@ -13,8 +12,10 @@ import { AuthService } from '../auth.service';
 })
 export class LoginComponent {
 
+  pattern = '^[a-z0-9A-Z\.-]{3,}@[a-z]+\.[a-z]+$'
+
   loginFormGroup: FormGroup = this.formBuilder.group({
-    'email': new FormControl('', [Validators.required, emailValidator]),
+    'email': new FormControl('', [Validators.required, Validators.pattern(this.pattern)]),
     'password': new FormControl(null, [Validators.required, Validators.minLength(5)])
   })
 
