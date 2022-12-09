@@ -29,19 +29,15 @@ export class RegisterComponent {
     private formBuilder: FormBuilder) { }
 
   registerHandler(): void {
-    const {email, username, password} = this.registerFormGroup.value
-    const body = {
-      email,
-      username,
-      password
-    }
+    const { email, username, password } = this.registerFormGroup.value
+    const body = { email, username, password }
     this.authService.user = body
-    this.authService.register(body).subscribe(()=>{
+    this.authService.register(body).subscribe(() => {
       console.log('ready');
-      
+
     })
 
     console.log(body);
-    
+
   }
 }

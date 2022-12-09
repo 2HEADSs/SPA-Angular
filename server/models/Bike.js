@@ -13,6 +13,7 @@ const bikeSchema = new Schema({
     },
     year: {
         type: Number, required: true,
+        min: [1885, 'First bike was made in 1885'],
         max: [2022, 'We are still in 2022!!!']
     },
     power: {

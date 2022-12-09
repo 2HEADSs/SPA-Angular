@@ -15,7 +15,7 @@ export class CreateBikesComponent {
   createFormGroup: FormGroup = this.formBuilder.group({
     'brand': new FormControl('', [Validators.required, Validators.minLength(1)]),
     'model': new FormControl('', [Validators.required, Validators.minLength(1)]),
-    'year': new FormControl('', [Validators.required, Validators.max(2022)]),
+    'year': new FormControl('', [Validators.required, Validators.max(2022), Validators.min(1885)]),
     'power': new FormControl('', [Validators.required, Validators.min(10)]),
     'price': new FormControl('', [Validators.required, Validators.min(0.01)]),
     'description': new FormControl('', [Validators.required, Validators.minLength(5)]),
@@ -27,6 +27,8 @@ export class CreateBikesComponent {
 
   createHandler(): void {
     const { brand, model, year, power, price, description, img } = this.createFormGroup.value
+    const body = { brand, model, year, power, price, description, img }
+
     console.log(this.createFormGroup.value);
 
   }

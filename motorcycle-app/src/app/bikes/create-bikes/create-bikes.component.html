@@ -2,25 +2,49 @@
     <h2>Add bike</h2>
     <form [formGroup]="createFormGroup" (ngSubmit)="createHandler()">
         <div class="bike-box">
-            <input type="text" name="brand" required="">
+            <input formControlName="brand" type="text" name="brand" required="">
             <label>Brand</label>
+
+            <ng-container *ngIf="createFormGroup.get('brand')?.touched && createFormGroup.get('brand')?.invalid">
+                <p class="error">Brand must be minimum one characters!</p>
+            </ng-container>
         </div>
+
         <div class="bike-box">
-            <input type="text" name="model" required="">
+            <input formControlName="model" type="text" name="model" required="">
             <label>Model</label>
+
+            <ng-container *ngIf="createFormGroup.get('model')?.touched && createFormGroup.get('model')?.invalid">
+                <p class="error">Model must be minimum one characters!</p>
+            </ng-container>
         </div>
+
         <div class="bike-box">
-            <input type="number" name="year" required="">
+            <input formControlName="year" type="number" name="year" required="">
             <label>Year of manifacture</label>
+            <ng-container *ngIf="createFormGroup.get('year')?.touched && createFormGroup.get('year')?.invalid">
+                <p class="error">Bike must be between 1885 and 2022!</p>
+            </ng-container>
         </div>
+
+
         <div class="bike-box">
-            <input type="text" name="" required="">
+            <input formControlName="power" type="text" name="" required="">
             <label>Power/HP</label>
+
+            <ng-container *ngIf="createFormGroup.get('power')?.touched && createFormGroup.get('power')?.invalid">
+                <p class="error">Power must be positive number!</p>
+            </ng-container>
         </div>
+
         <div class="bike-box">
-            <input type="text" name="" required="">
+            <input formControlName="price" type="text" name="" required="">
             <label>Price</label>
+            <ng-container *ngIf="createFormGroup.get('price')?.touched && createFormGroup.get('price')?.invalid">
+                <p class="error">Price must be positive number!</p>
+            </ng-container>
         </div>
+
         <div class="bike-box">
             <input type="text" name="" required="">
             <label>Description</label>
