@@ -18,7 +18,7 @@ const bikeSchema = new Schema({
     },
     power: {
         type: Number, required: true,
-        min: [10, 'Power must be more than 10 HP'],
+        min: [0.5, 'Minumum power 0.5 HP!'],
     },
     price: {
         type: Number, required: true, min: [0.01, 'Price must be positive number!']
