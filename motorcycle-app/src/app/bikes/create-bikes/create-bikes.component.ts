@@ -18,7 +18,7 @@ export class CreateBikesComponent {
     'year': new FormControl('', [Validators.required, Validators.max(2022), Validators.min(1885)]),
     'power': new FormControl('', [Validators.required, Validators.min(10)]),
     'price': new FormControl('', [Validators.required, Validators.min(0.01)]),
-    'description': new FormControl('', [Validators.required, Validators.minLength(5)]),
+    'description': new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(100)]),
     'img': new FormControl('', [Validators.required, Validators.pattern(this.URL_PATTERN)]),
 
   })

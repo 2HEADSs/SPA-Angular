@@ -20,7 +20,7 @@
         </div>
 
         <div class="bike-box">
-            <input formControlName="year" type="number" name="year" required="">
+            <input formControlName="year" type="text" name="year" required="">
             <label>Year of manifacture</label>
             <ng-container *ngIf="createFormGroup.get('year')?.touched && createFormGroup.get('year')?.invalid">
                 <p class="error">Bike must be between 1885 and 2022!</p>
@@ -38,20 +38,31 @@
         </div>
 
         <div class="bike-box">
-            <input formControlName="price" type="text" name="" required="">
+            <input formControlName="price" type="text" name="price" required="">
             <label>Price</label>
             <ng-container *ngIf="createFormGroup.get('price')?.touched && createFormGroup.get('price')?.invalid">
-                <p class="error">Price must be positive number!</p>
+                <p class="error" *ngIf="createFormGroup.get('price')?.errors?.['minimum']" class="error">Price must be positive number/p>
+              
             </ng-container>
         </div>
 
         <div class="bike-box">
-            <input type="text" name="" required="">
+            <input  formControlName="description" type="text" name="description" required="">
             <label>Description</label>
+            <ng-container *ngIf="createFormGroup.get('price')?.touched && createFormGroup.get('price')?.invalid">
+                <p class="error" *ngIf="createFormGroup.get('price')?.errors?.['required']" class="error">Description is required!</p>
+                <p class="error" *ngIf="createFormGroup.get('price')?.errors?.['minLength']" class="error">Description must be minimum 10 characters!</p>
+                <p class="error" *ngIf="createFormGroup.get('price')?.errors?.['maxLength']" class="error">Description must be maximum 10 characters!</p>
+            </ng-container>
         </div>
+
         <div class="bike-box">
-            <input type="text" name="" required="">
+            <input formControlName="img" type="text" name="img" required="">
             <label>Img</label>
+            <ng-container *ngIf="createFormGroup.get('img')?.touched && createFormGroup.get('img')?.invalid">
+                <p class="error" *ngIf="createFormGroup.get('price')?.errors?.['required']" class="error">Image is required!</p>
+                <p class="error" *ngIf="createFormGroup.get('price')?.errors?.['pattern']" class="error">Description must be minimum 10 characters!</p>
+            </ng-container>
         </div>
         <button>
             <span></span>
