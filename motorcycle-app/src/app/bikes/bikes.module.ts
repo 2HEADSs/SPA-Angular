@@ -23,8 +23,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [
-
-  ]
+  providers: []
 })
 export class BikesModule { }

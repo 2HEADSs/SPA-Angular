@@ -2,7 +2,7 @@
     <h2>Add bike</h2>
     <form [formGroup]="createFormGroup" (ngSubmit)="createHandler()">
         <div class="bike-box">
-            <input formControlName="brand" type="text" name="brand" required="">
+            <input formControlName="brand" type="text" >
             <label>Brand</label>
 
             <ng-container *ngIf="createFormGroup.get('brand')?.touched && createFormGroup.get('brand')?.invalid">
@@ -11,7 +11,7 @@
         </div>
 
         <div class="bike-box">
-            <input formControlName="model" type="text" name="model" required="">
+            <input formControlName="model" type="text">
             <label>Model</label>
 
             <ng-container *ngIf="createFormGroup.get('model')?.touched && createFormGroup.get('model')?.invalid">
@@ -20,7 +20,7 @@
         </div>
 
         <div class="bike-box">
-            <input formControlName="year" type="text" name="year" required="">
+            <input formControlName="year" type="text">
             <label>Year of manifacture</label>
             <ng-container *ngIf="createFormGroup.get('year')?.touched && createFormGroup.get('year')?.invalid">
                 <p class="error">Bike must be between 1885 and 2022!</p>
@@ -29,7 +29,7 @@
 
 
         <div class="bike-box">
-            <input formControlName="power" type="text" name="" required="">
+            <input formControlName="power" type="text">
             <label>Power/HP</label>
 
             <ng-container *ngIf="createFormGroup.get('power')?.touched && createFormGroup.get('power')?.invalid">
@@ -38,7 +38,7 @@
         </div>
 
         <div class="bike-box">
-            <input formControlName="price" type="text" name="price" required="">
+            <input formControlName="price" type="text" >
             <label>Price</label>
             <ng-container *ngIf="createFormGroup.get('price')?.touched && createFormGroup.get('price')?.invalid">
                 <p class="error" *ngIf="createFormGroup.get('price')?.errors?.['min']">Price must be positive number(0.01)! </p>
@@ -47,7 +47,7 @@
         </div>
 
         <div class="bike-box">
-            <input  formControlName="description" type="text" name="description" required="">
+            <input  formControlName="description" type="text">
             <label>Description</label>
             <ng-container *ngIf="createFormGroup.get('description')?.touched && createFormGroup.get('description')?.invalid">
                 <p class="error" >Description must be between 10 and 100 characters!</p>
@@ -55,14 +55,14 @@
         </div>
 
         <div class="bike-box">
-            <input formControlName="img" type="text" name="img" required="">
+            <input formControlName="img" type="text">
             <label>Img</label>
             <ng-container *ngIf="createFormGroup.get('img')?.touched && createFormGroup.get('img')?.invalid">
                 <p class="error" *ngIf="createFormGroup.get('img')?.errors?.['pattern']" >Invalid URL, must start with HTTP/HTTPS</p>
                 <p class="error" *ngIf="createFormGroup.get('img')?.errors?.['required']" >Image is required!</p>
             </ng-container>
         </div>
-        <button>
+        <button [disabled]="createFormGroup.invalid">
             <span></span>
             <span></span>
             <span></span>

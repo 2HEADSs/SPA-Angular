@@ -1,47 +1,83 @@
 <div class="edit-box">
-    <h2>Edit bike</h2>
-    <form>
-        <div class="user-box">
-            <input type="text" name="" required="">
+    <h2>Add bike</h2>
+    <form [formGroup]="editFormGroup" (ngSubmit)="createHandler()">
+        <div class="bike-box">
+            <input formControlName="brand" type="text">
             <label>Brand</label>
+
+            <ng-container *ngIf="editFormGroup.get('brand')?.touched && editFormGroup.get('brand')?.invalid">
+                <p class="error">Brand must be minimum one characters!</p>
+            </ng-container>
         </div>
-        <div class="user-box">
-            <input type="text" name="" required="">
+
+        <div class="bike-box">
+            <input formControlName="model" type="text">
             <label>Model</label>
+
+            <ng-container *ngIf="editFormGroup.get('model')?.touched && editFormGroup.get('model')?.invalid">
+                <p class="error">Model must be minimum one characters!</p>
+            </ng-container>
         </div>
-        <div class="user-box">
-            <input type="text" name="" required="">
+
+        <div class="bike-box">
+            <input formControlName="year" type="text">
             <label>Year of manifacture</label>
+            <ng-container *ngIf="editFormGroup.get('year')?.touched && editFormGroup.get('year')?.invalid">
+                <p class="error">Bike must be between 1885 and 2022!</p>
+            </ng-container>
         </div>
-        <div class="user-box">
-            <input type="text" name="" required="">
+
+
+        <div class="bike-box">
+            <input formControlName="power" type="text">
             <label>Power/HP</label>
+
+            <ng-container *ngIf="editFormGroup.get('power')?.touched && editFormGroup.get('power')?.invalid">
+                <p class="error">Minumum power 0.5 HP!</p>
+            </ng-container>
         </div>
-        <div class="user-box">
-            <input type="text" name="" required="">
+
+        <div class="bike-box">
+            <input formControlName="price" type="text">
             <label>Price</label>
+            <ng-container *ngIf="editFormGroup.get('price')?.touched && editFormGroup.get('price')?.invalid">
+                <p class="error" *ngIf="editFormGroup.get('price')?.errors?.['min']">Price must be positive
+                    number(0.01)! </p>
+
+            </ng-container>
         </div>
-        <div class="user-box">
-            <input type="text" name="" required="">
+
+        <div class="bike-box">
+            <input formControlName="description" type="text">
             <label>Description</label>
+            <ng-container
+                *ngIf="editFormGroup.get('description')?.touched && editFormGroup.get('description')?.invalid">
+                <p class="error">Description must be between 10 and 100 characters!</p>
+            </ng-container>
         </div>
-        <div class="user-box">
-            <input type="text" name="" required="">
+
+        <div class="bike-box">
+            <input formControlName="img" type="text">
             <label>Img</label>
+            <ng-container *ngIf="editFormGroup.get('img')?.touched && editFormGroup.get('img')?.invalid">
+                <p class="error" *ngIf="editFormGroup.get('img')?.errors?.['pattern']">Invalid URL, must start with
+                    HTTP/HTTPS</p>
+                <p class="error" *ngIf="editFormGroup.get('img')?.errors?.['required']">Image is required!</p>
+            </ng-container>
         </div>
-        <a href="#">
+        <button class="edit" [disabled]="editFormGroup.invalid">
             <span></span>
             <span></span>
             <span></span>
             <span></span>
-            Edit
-        </a>
-        <a class="edit" href="#">
+            Save
+        </button>
+        <button class="back">
             <span></span>
             <span></span>
             <span></span>
             <span></span>
-            Delete
-        </a>
+            Back
+        </button>
     </form>
 </div>
