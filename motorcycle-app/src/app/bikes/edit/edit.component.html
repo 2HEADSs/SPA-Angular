@@ -41,8 +41,7 @@
             <input formControlName="price" type="text">
             <label>Price</label>
             <ng-container *ngIf="editFormGroup.get('price')?.touched && editFormGroup.get('price')?.invalid">
-                <p class="error" *ngIf="editFormGroup.get('price')?.errors?.['min']">Price must be positive
-                    number(0.01)! </p>
+                <p class="error">Price must be positivenumber(0.01)! </p>
 
             </ng-container>
         </div>
