@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { passwordMatch } from 'src/app/shared/validators/repass-validator';
+import { passwordMissMatch } from 'src/app/shared/validators/repass-validator';
 import { AuthService } from '../auth.service';
 
 
@@ -20,7 +20,7 @@ export class RegisterComponent {
     'email': new FormControl('', [Validators.required, Validators.pattern(this.pattern)]),
     'username': new FormControl('', [Validators.required, Validators.minLength(5)]),
     'password': this.passwordControl,
-    'repass': new FormControl(null, [passwordMatch(this.passwordControl)]),
+    'repass': new FormControl(null, [passwordMissMatch(this.passwordControl)]),
   })
 
   constructor(
@@ -32,8 +32,11 @@ export class RegisterComponent {
     const { email, username, password } = this.registerFormGroup.value
     const body = { email, username, password }
     this.authService.user = body
-    this.authService.register(body).subscribe(() => {
+    this.authService.register(body).subscribe((a) => {
+      console.log(JSON.stringify(a) + 'data return from server - register');
       console.log('ready');
+      this.router.navigate(['/'])
+
 
     })
 

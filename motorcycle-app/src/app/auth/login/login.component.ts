@@ -26,14 +26,17 @@ export class LoginComponent {
 
 
   loginSubmit(): void {
-    const body = {
-      email: this.loginFormGroup.value.email,
-      password: this.loginFormGroup.value.password,
-    }
-    console.log(`${body}`);
+    const { email, password } = this.loginFormGroup.value
+    const body = { email, password }
 
     this.authService.user = body
+    this.authService.login(body).subscribe((a) => {
+      console.log(JSON.stringify(a) + 'data return from server - login');
+      console.log('ready');
+      // this.router.navigate(['/'])
 
+
+    })
 
   }
 }

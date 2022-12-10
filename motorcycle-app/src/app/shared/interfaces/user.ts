@@ -1,9 +1,6 @@
-export interface IUser {
+export interface IUser{
+    _id:any,
+    username: string,
     email: string,
-    username:string,
-    
-    _id:string,
-    // token:string, 
-    //token or hashedPassword
-
+    accessToken: string,
 }
