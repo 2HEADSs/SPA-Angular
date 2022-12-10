@@ -1,10 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, tap } from 'rxjs';
+import { Observable, Subject, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { IUser } from '../shared/interfaces/user';
-//add user interface and set to user as
 
 const apiUrl = environment.apiUrl
 
@@ -13,8 +12,7 @@ const apiUrl = environment.apiUrl
   providedIn: 'root'
 })
 export class AuthService {
-
-  user: IUser | null | string = null
+  user: IUser | null  = null
 
 
   constructor(private http: HttpClient, private router: Router) { }
@@ -22,38 +20,40 @@ export class AuthService {
   //todo add my bike functionality
 
 
+
   getUser() {
     return this.http.get<IUser>(`${apiUrl}/auth/user`).pipe(tap((user) => {
+      console.log(user);
+
       this.user = user
     }))
   }
 
   register(userData: {}) {
-    console.log(userData);
     return this.http.post<IUser>(`${apiUrl}/auth/register`, userData).pipe(tap((user) => {
-     this.user = user
+      this.user = user
       localStorage.setItem('token', this.user.accessToken)
     }))
   }
 
   login(userData: {}) {
-    return this.http.post<IUser>(`${apiUrl}/auth/login`, userData).pipe(tap((user) => {
-      this.user = user
+    return this.http.post<IUser>(`${apiUrl}/auth/login`, userData).pipe(tap((userData) => {
+      this.user = userData
       localStorage.setItem('token', this.user.accessToken)
-
     }))
   }
 
   logout() {
     this.user = null;
-    localStorage.removeItem('token')
-    return
+    return localStorage.removeItem('token')
   }
 
-  get isLoggedIn() {
-    if (this.user) {
-      return this.user
-    }
-    return null
+
+  get isLoggedIn(): boolean { 
+    console.log(this.user);
+    
+    return this.user !==null
+    
   }
+
 }

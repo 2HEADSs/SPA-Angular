@@ -38,6 +38,7 @@ authController.get('/user', async (req, res) => {
         res.status(400).json({ error:error.message })
     }
 })
+
 //TODO LOGOUT
 
 

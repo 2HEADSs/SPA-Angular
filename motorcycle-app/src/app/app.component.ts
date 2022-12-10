@@ -10,13 +10,9 @@ import { AuthService } from './auth/auth.service';
 export class AppComponent {
   title = 'motorcycle-app';
 
-  constructor(private http: HttpClient, private userService: AuthService) {
+  constructor(private http: HttpClient, private authService: AuthService) {
     if (localStorage.getItem('token')) {
-    userService.getUser()
-
-    } else{
-      console.log('you are not logged in');
-      
+      authService.getUser().subscribe();
     }
   }
 }
