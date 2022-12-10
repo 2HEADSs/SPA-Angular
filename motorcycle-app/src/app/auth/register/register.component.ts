@@ -31,7 +31,7 @@ export class RegisterComponent {
   registerHandler(): void {
     const { email, username, password } = this.registerFormGroup.value
     const body = { email, username, password }
-    this.authService.user = body
+    // this.authService.user = body
     this.authService.register(body).subscribe((a) => {
       console.log(JSON.stringify(a) + 'data return from server - register');
       console.log('ready');

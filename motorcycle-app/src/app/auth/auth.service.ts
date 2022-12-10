@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { IUser } from '../shared/interfaces/user';
 //add user interface and set to user as
@@ -21,21 +21,29 @@ export class AuthService {
 
   //todo nav bar - login and logout
 
-  register(userData: {}): Observable<any> {
+  register(userData: {}): Observable<IUser> {
     console.log(userData);
-    
-    return this.http.post<IUser>(`${apiUrl}/auth/register`,  userData )
 
+    return this.http.post<IUser>(`${apiUrl}/auth/register`, userData).pipe(tap((user) => {
+      this.user = user
+      localStorage.setItem('token', this.user.accessToken)
+    }))
   }
 
   login(userData: {}): Observable<IUser> {
-    
-    return this.http.post<IUser>(`${apiUrl}/auth/login`,  userData )
 
+    return this.http.post<IUser>(`${apiUrl}/auth/login`, userData).pipe(tap((user) => {
+      this.user = user
+      localStorage.setItem('token', this.user.accessToken)
+    }))
   }
-  
+
+  logout() {
+    this.user = null;
+    return localStorage.removeItem('token')
+  }
 
   get isLoggedIn() {
-  return this.user !== null
-}
+    return this.user !== null
+  }
 }

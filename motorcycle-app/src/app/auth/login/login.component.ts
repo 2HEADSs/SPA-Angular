@@ -29,11 +29,11 @@ export class LoginComponent {
     const { email, password } = this.loginFormGroup.value
     const body = { email, password }
 
-    this.authService.user = body
+    // this.authService.user = body
     this.authService.login(body).subscribe((a) => {
-      console.log(JSON.stringify(a) + 'data return from server - login');
+      console.log(JSON.stringify(a) + ' data return from server - login');
       console.log('ready');
-      // this.router.navigate(['/'])
+      this.router.navigate(['/'])
 
 
     })
