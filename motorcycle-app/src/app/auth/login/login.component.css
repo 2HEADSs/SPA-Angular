@@ -83,12 +83,12 @@ body {
 .login-box button:hover {
   background: #f7f6f5;
   color: #fff;
-  cursor:pointer;
+  cursor: pointer;
   border-radius: 5px;
   box-shadow: 0 0 5px #ffffff,
-      0 0 25px #ffffff,
-      0 0 50px #4f5050,
-      0 0 100px #6d6e6e;
+    0 0 25px #ffffff,
+    0 0 50px #4f5050,
+    0 0 100px #6d6e6e;
 }
 
 .login-box button span {
@@ -107,12 +107,12 @@ body {
 
 @keyframes btn-anim1 {
   0% {
-      left: -100%;
+    left: -100%;
   }
 
   50%,
   100% {
-      left: 100%;
+    left: 100%;
   }
 }
 
@@ -128,12 +128,12 @@ body {
 
 @keyframes btn-anim2 {
   0% {
-      top: -100%;
+    top: -100%;
   }
 
   50%,
   100% {
-      top: 100%;
+    top: 100%;
   }
 }
 
@@ -149,12 +149,12 @@ body {
 
 @keyframes btn-anim3 {
   0% {
-      right: -100%;
+    right: -100%;
   }
 
   50%,
   100% {
-      right: 100%;
+    right: 100%;
   }
 }
 
@@ -170,16 +170,21 @@ body {
 
 @keyframes btn-anim4 {
   0% {
-      bottom: -100%;
+    bottom: -100%;
   }
 
   50%,
   100% {
-      bottom: 100%;
+    bottom: 100%;
   }
 }
 
 p {
   color: white;
   font-size: 20px;
+}
+
+
+.server-error {
+  color: red;
 }

@@ -24,18 +24,23 @@ export class LoginComponent {
     private authService: AuthService,
     private formBuilder: FormBuilder) { }
 
+  errors: string | undefined = undefined
+
+
+
 
   loginSubmit(): void {
     const { email, password } = this.loginFormGroup.value
     const body = { email, password }
 
-    // this.authService.user = body
-    this.authService.login(body).subscribe((a) => {
-      console.log(JSON.stringify(a) + ' data return from server - login');
-      console.log('ready');
-      this.router.navigate(['/'])
-
-
+    this.authService.login(body).subscribe({
+      next: () => {
+        this.router.navigate(['/'])
+      },
+      error: (err) => { 
+        console.log(err.error.error);
+        this.errors = err.error.error
+      }
     })
 
   }

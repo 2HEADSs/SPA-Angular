@@ -28,16 +28,20 @@ export class RegisterComponent {
     private authService: AuthService,
     private formBuilder: FormBuilder) { }
 
+  errors: string | undefined = undefined
+
   registerHandler(): void {
     const { email, username, password } = this.registerFormGroup.value
     const body = { email, username, password }
     // this.authService.user = body
-    this.authService.register(body).subscribe((a) => {
-      console.log(JSON.stringify(a) + 'data return from server - register');
-      console.log('ready');
-      this.router.navigate(['/'])
-
-
+    this.authService.register(body).subscribe({
+      next: () => {
+        this.router.navigate(['/'])
+      },
+      error: (err) => { 
+        console.log(err.error.error);
+        this.errors = err.error.error
+      }
     })
 
     console.log(body);
