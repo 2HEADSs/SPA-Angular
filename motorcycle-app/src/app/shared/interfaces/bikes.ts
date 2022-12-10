@@ -1,4 +1,4 @@
-export interface IBikes {
+export interface IBike {
     _id: string,
     brand: string,
     model: string,

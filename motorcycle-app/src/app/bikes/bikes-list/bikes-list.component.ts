@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IBikes } from 'src/app/shared/interfaces/bikes';
+import { IBike } from 'src/app/shared/interfaces/bikes';
 import { BikesService } from '../bikes.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { BikesService } from '../bikes.service';
 export class BikesListComponent implements OnInit {
 
 
-  bikesList: IBikes[] | null = [];
+  bikesList: IBike[] | null = [];
   hasBikes: boolean = false
 
   constructor(private bikesSerice: BikesService) { }

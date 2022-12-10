@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
-import { IBikes } from '../shared/interfaces/bikes';
+import { IBike } from '../shared/interfaces/bikes';
 
 const apiUrl = environment.apiUrl
 
@@ -13,14 +13,20 @@ export class BikesService {
 
   constructor(private httpClient: HttpClient) { }
   //todo - <any> - set interface
-  
-  loadAllBike() { 
 
-    return this.httpClient.get<IBikes[]>(`${apiUrl}/bikes`)
+  loadAllBike() {
+
+    return this.httpClient.get<IBike[]>(`${apiUrl}/bikes`)
   }
 
-  loadOneBike() { 
-    return this.httpClient.get<any>(`${apiUrl}/bikes/:id`)
+  loadOneBike() {
+    return this.httpClient.get<IBike>(`${apiUrl}/bikes/:id`)
+  }
+
+  createBike(bike: {}) {
+    console.log(bike);
+    
+    return this.httpClient.post(`${apiUrl}/bikes`, bike)
   }
 
 
