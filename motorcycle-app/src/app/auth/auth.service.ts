@@ -14,36 +14,44 @@ const apiUrl = environment.apiUrl
 })
 export class AuthService {
 
-  user: IUser | null = null
+  user: IUser | null | string = null
 
 
   constructor(private http: HttpClient, private router: Router) { }
 
   //todo add my bike functionality
-
-  register(userData: {}): Observable<IUser> {
-    console.log(userData);
-
-    return this.http.post<IUser>(`${apiUrl}/auth/register`, userData).pipe(tap((user) => {
+  getUser() {
+    return this.http.get<IUser>(`${apiUrl}/auth/user`).pipe(tap((user) => {
       this.user = user
+    }))
+  }
+
+  register(userData: {}) {
+    console.log(userData);
+    return this.http.post<IUser>(`${apiUrl}/auth/register`, userData).pipe(tap((user) => {
+     this.user = user
       localStorage.setItem('token', this.user.accessToken)
     }))
   }
 
-  login(userData: {}): Observable<IUser> {
-
+  login(userData: {}) {
     return this.http.post<IUser>(`${apiUrl}/auth/login`, userData).pipe(tap((user) => {
       this.user = user
       localStorage.setItem('token', this.user.accessToken)
+
     }))
   }
 
   logout() {
     this.user = null;
-    return localStorage.removeItem('token')
+    localStorage.removeItem('token')
+    return
   }
 
   get isLoggedIn() {
-    return this.user !== null
+    if (this.user) {
+      return this.user
+    }
+    return null
   }
 }

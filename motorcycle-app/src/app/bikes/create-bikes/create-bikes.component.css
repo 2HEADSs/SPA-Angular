@@ -3,17 +3,18 @@ html {
   }
   
   body {
+    
     margin: 0;
-    padding: 20%;
+    padding: 30%;
     font-family: sans-serif;
     background: linear-gradient(#141e30, #243b55);
   }
   
   .create-box {
     position: absolute;
-    top: 32%;
+    top: 45%;
     left: 50%;
-    height: 50%;
+    height: 70%;
     width: 400px;
     padding: 20px;
     transform: translate(-50%, -50%);
