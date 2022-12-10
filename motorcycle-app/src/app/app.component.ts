@@ -12,7 +12,10 @@ export class AppComponent {
 
   constructor(private http: HttpClient, private userService: AuthService) {
     if (localStorage.getItem('token')) {
-      userService.getUser().subscribe(user => userService.user = user.username)
+    userService.getUser()
+
+    } else{
+      console.log('you are not logged in');
       
     }
   }
