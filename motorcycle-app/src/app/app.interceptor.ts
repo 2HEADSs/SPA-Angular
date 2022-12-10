@@ -1,19 +1,22 @@
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { Injectable, Provider } from "@angular/core";
-import { Observable } from "rxjs";
+import { Observable, tap } from "rxjs";
 
 
 @Injectable()
 export class AppInterceptor implements HttpInterceptor {
-    constructor() { }
-
+    token: string | null  = localStorage.getItem('token')
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        //todo - add token - erik mistakes(if-else)
-        return next.handle(req)
+        if(this.token){
+            return next.handle(req.clone({ setHeaders: { 'X-Authorization': this.token}}));
+        }else{
+            return next.handle(req.clone())
+        }
     }
+
 }
 
-export const appInterceptorProvider :Provider = {
+export const appInterceptorProvider: Provider = {
     provide: HTTP_INTERCEPTORS,
     useClass: AppInterceptor,
     multi: true
