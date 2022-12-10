@@ -14,12 +14,12 @@ const apiUrl = environment.apiUrl
 })
 export class AuthService {
 
-  user: any | null = null
+  user: IUser | null = null
 
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  //todo nav bar - login and logout
+  //todo add my bike functionality
 
   register(userData: {}): Observable<IUser> {
     console.log(userData);

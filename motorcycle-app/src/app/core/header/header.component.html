@@ -1,6 +1,6 @@
 <nav>
     <img id="logo-img" src="../../../assets/motorcycles-logo-400x300.png" alt="logo-img">
-    <p *ngIf="isLoggedIn" style="color: white">Welcome {{user.username}} </p>
+    <p *ngIf="isLoggedIn" style="color: white">Welcome {{user?.username}} </p>
     <ul>
         <li><a routerLink="/">Home</a></li>
 
