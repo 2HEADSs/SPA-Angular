@@ -12,25 +12,25 @@ bikeController.get('/', async (req, res) => {
     res.status(200).json(bikes)
 });
 
-bikeController.post('/', hasUser(), async (req, res) => {
+bikeController.post('/', async (req, res) => {
     try {
         const data = Object.assign({ _ownerId: req.user._id }, req.body)
         const bike = await create(data);
         res.json(bike)
     } catch (err) {
         // const message = parseError(err)
+        console.log(err+ 'errr');
         res.status(400).json({ error: err.message })
-        console.log(err);
     }
     res.end()
 });
 
-bikeController.get('/:id', hasUser(), async (req, res) => {
+bikeController.get('/:id', async (req, res) => {
     const bike = await getById(req.params.id)
     return res.status(200).json(bike)
 });
 
-bikeController.put('/:id', hasUser(), async (req, res) => {
+bikeController.put('/:id', async (req, res) => {
 
     const bike = await getById(req.params.id);
     // todo parse token
@@ -46,7 +46,7 @@ bikeController.put('/:id', hasUser(), async (req, res) => {
     }
 });
 
-bikeController.delete('/:id', hasUser(), async (req, res) => {
+bikeController.delete('/:id',  async (req, res) => {
     const item = await getById(req.params.id);
 
     if (req.user._id != item._ownerId) {
@@ -61,7 +61,8 @@ bikeController.delete('/:id', hasUser(), async (req, res) => {
     }
 });
 
-bikeController.get('/myBikes', hasUser(), async (req, res) => {
+bikeController.get('/myBikes', async (req, res) => {
+    
     const bikes = await getMyBikes(req.user._id)
     return res.status(200).json(bikes)
 })
