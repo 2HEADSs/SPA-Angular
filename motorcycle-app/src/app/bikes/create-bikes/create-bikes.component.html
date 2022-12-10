@@ -63,6 +63,7 @@
                     HTTP/HTTPS</p>
                 <p class="error" *ngIf="createFormGroup.get('img')?.errors?.['required']">Image is required!</p>
             </ng-container>
+            <p *ngIf="errors" class="server-error">{{errors}}</p>
         </div>
         <button [disabled]="createFormGroup.invalid">
             <span></span>

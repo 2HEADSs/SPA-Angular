@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { BikesService } from '../bikes.service';
 
 
 @Component({
@@ -9,7 +10,7 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 })
 export class CreateBikesComponent {
 
-
+  errors: string | undefined = undefined;
   URL_PATTERN = /^https?:\/\/.+/i
 
   createFormGroup: FormGroup = this.formBuilder.group({
@@ -23,13 +24,21 @@ export class CreateBikesComponent {
 
   })
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private bikesService: BikesService) { }
 
   createHandler(): void {
     const { brand, model, year, power, price, description, img } = this.createFormGroup.value
-    const body = { brand, model, year, power, price, description, img }
+    const bike = { brand, model, year, power, price, description, img }
 
-    console.log(this.createFormGroup.value);
+    console.log(bike);
+    this.bikesService.createBike(bike).subscribe({
+      next: (a) => console.log(a),
+      error: (err) => {
+        console.log(err.error.error);
+        this.errors = err.error.error
+      }
+
+    })
 
   }
 

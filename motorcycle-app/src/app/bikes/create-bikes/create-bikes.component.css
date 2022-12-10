@@ -185,3 +185,6 @@ html {
   }
 
 
+  .server-error {
+    color: red;
+  }
