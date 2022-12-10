@@ -25,6 +25,7 @@ ul li a {
     color: rgb(250, 249, 249);
     font-weight: bold;
     font-size: 2rem;
+    cursor: pointer;
 }
 
 a:hover {
