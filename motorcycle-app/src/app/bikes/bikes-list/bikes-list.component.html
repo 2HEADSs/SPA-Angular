@@ -6,9 +6,9 @@
 <div class="container">
     <div *ngFor="let bike of bikesList" class="card" style="background: url('{{bike.img}}'); background-size:100% 100%">
         <div class="border">
-            <!-- todo add relative links -->
-            <a routerLink="/" class="details">Details</a>
-            <a routerLink="/" class="edit">Edit</a>
+
+            <a [routerLink]="['/bikes/details', bike._id]" class="details">Details</a>
+            <a [routerLink]="['/bikes/edit', bike._id]" class="edit">Edit</a>
             <div class="icons">
                 <i class="fa fa-codepen" aria-hidden="true"></i>
                 <i class="fa fa-instagram" aria-hidden="true"></i>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { BikesService } from '../bikes.service';
 
 @Component({
@@ -11,17 +12,16 @@ export class BikeDetailsComponent implements OnInit {
   singleBike: any | null = null
   
 
-  constructor(private bikesSerice: BikesService) { }
+  constructor(private bikesSerice: BikesService, private activatedRoute: ActivatedRoute) { }
   ngOnInit(): void {
-    this.bikesSerice.loadOneBike().subscribe({
+    let id = this.activatedRoute.snapshot.params['id']
+    
+    this.bikesSerice.loadOneBike(id).subscribe({
       next: (bike) => {
-        console.log(bike);
-
         this.singleBike = bike
       },
       error: (err) => {
         console.log(err);
-
       }
     })
   }

@@ -19,8 +19,8 @@ export class BikesService {
     return this.httpClient.get<IBike[]>(`${apiUrl}/bikes`)
   }
 
-  loadOneBike() {
-    return this.httpClient.get<IBike>(`${apiUrl}/bikes/:id`)
+  loadOneBike(id: string) {
+    return this.httpClient.get<IBike>(`${apiUrl}/bikes/${id}`)
   }
 
   createBike(bike: {}) {

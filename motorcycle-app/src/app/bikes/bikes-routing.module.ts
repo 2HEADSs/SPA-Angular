@@ -19,12 +19,12 @@ const routes: Routes = [
         component: CreateBikesComponent
       },
       {
-        path: 'details',
-        component: BikeDetailsComponent
+        path: 'edit/:id',
+        component: EditComponent
       },
       {
-        path: 'edit',
-        component: EditComponent
+        path: 'details/:id',
+        component: BikeDetailsComponent
       },
     ]
   }

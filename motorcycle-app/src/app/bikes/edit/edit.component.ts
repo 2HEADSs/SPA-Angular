@@ -1,13 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { BikesService } from '../bikes.service';
 
 @Component({
   selector: 'app-edit',
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.css']
 })
-export class EditComponent  {
-
+export class EditComponent implements OnInit {
+  
+  singleBike: any | null = null
   URL_PATTERN = /^https?:\/\/.+/i
 
   editFormGroup: FormGroup = this.formBuilder.group({
@@ -21,7 +24,21 @@ export class EditComponent  {
 
   })
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private bikesSerice: BikesService, private formBuilder: FormBuilder, private activatedRoute: ActivatedRoute) { }
+  ngOnInit(): void {
+    let id = this.activatedRoute.snapshot.params['id']
+
+    this.bikesSerice.loadOneBike(id).subscribe({
+      next: (bike) => {
+        console.log(bike);
+
+        this.singleBike = bike
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    })
+  }
 
   createHandler(): void {
     const { brand, model, year, power, price, description, img } = this.editFormGroup.value

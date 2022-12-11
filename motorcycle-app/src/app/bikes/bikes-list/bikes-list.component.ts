@@ -30,4 +30,6 @@ export class BikesListComponent implements OnInit {
     })
   }
 
+
+
 }
