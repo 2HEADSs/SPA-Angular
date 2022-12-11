@@ -18,6 +18,8 @@ export class BikeDetailsComponent implements OnInit {
     
     this.bikesSerice.loadOneBike(id).subscribe({
       next: (bike) => {
+        console.log(bike);
+        
         this.singleBike = bike
       },
       error: (err) => {

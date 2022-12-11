@@ -4,21 +4,20 @@
         <div class="bike-info">
             <div>
                 <img class="img"
-                    src="https://www.nastarta.com/wp-content/uploads/2018/04/Mercedes-Benz-A-Class-2019-1280-3d.jpg"
+                    src={{singleBike?.img}}
                     alt="car-image">
             </div>
             <div class="bike-details">
-                <h5>Bike details</h5>
+                <h5 class="info">Bike details</h5>
                 <div class="lead" >
-                    <p>asdsadsaasd</p>
-                    <p>asdsadsaasd</p>
-                    <p>asdsadsaasd</p>
-                    <p>asdsadsaasd</p>
-                    <p>asdsadsaasd</p>
-                    <p>asdsadsaasd</p>
-                    <p>asdsadsaasd</p>
+                    <p>Brand: {{singleBike?.brand}}</p>
+                    <p>Model: {{singleBike?.model}}</p>
+                    <p>Year: {{singleBike?.year}}</p>
+                    <p>Power: {{singleBike?.power}}HP</p>
+                    <p>Price: {{singleBike?.price}}BGN</p>
                 </div>
-                <h5>Price: <span class="lead">40</span> BGN</h5>
+
+                <h5>Description: <span>{{singleBike?.description}}</span></h5>
 
                 <div class="actions">
                     <span class="btn btn-secondary">No seats available! [0]</span>
