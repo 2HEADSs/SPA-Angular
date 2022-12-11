@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { GuestActivate } from '../shared/routeGards/hasUser.gaurd';
+import { HasUser } from '../shared/routeGards/hasUser.gaurd';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -13,12 +13,12 @@ const routes: Routes = [
             {
                 path: 'register',
                 component: RegisterComponent,
-                canActivate: [GuestActivate]
+                canActivate: [HasUser]
             },
             {
                 path: 'login',
                 component: LoginComponent,
-                canActivate: [GuestActivate]
+                canActivate: [HasUser]
             },
             {
                 path: 'profile',

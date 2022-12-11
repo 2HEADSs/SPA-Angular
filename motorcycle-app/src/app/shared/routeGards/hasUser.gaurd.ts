@@ -1,3 +1,4 @@
+import { Token } from "@angular/compiler";
 import { Injectable } from "@angular/core";
 import { CanActivate, Router } from "@angular/router";
 import { AuthService } from "src/app/auth/auth.service";
@@ -6,15 +7,20 @@ import { AuthService } from "src/app/auth/auth.service";
     providedIn: 'root'
 })
 
-export class GuestActivate implements CanActivate {
+export class HasUser implements CanActivate {
 
-    constructor(private authService: AuthService, private router: Router) {}
-    
-    canActivate() {        
-        if(!this.authService.user) {
-            this.router.navigate(['/']);
-            return false;
+    constructor(private authService: AuthService, private router: Router) { }
+
+    canActivate() {
+        const token = localStorage.getItem('token')
+        console.log(token + 'hasUser');
+
+
+        if (token == null) {
+            return true
+            
         }
-        return true;
+        this.router.navigate(['/']);
+        return false;
     }
 }

@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from "@angular/router";
+import { ActivatedRouteSnapshot, CanActivate, Router, } from "@angular/router";
 import { Observable } from "rxjs";
 import { AuthService } from "src/app/auth/auth.service";
 
@@ -7,16 +7,21 @@ import { AuthService } from "src/app/auth/auth.service";
     providedIn: 'root'
 })
 
-export class AuthActivate implements CanActivate {
+export class IsGuest implements CanActivate {
 
-    constructor(private authService: AuthService, private router: Router) {}
+    constructor(private authService: AuthService, private router: Router) { }
 
     canActivate() {
+        const token = localStorage.getItem('token')
+        console.log(token + 'isguest');
+        
 
-        if(!!this.authService.user) {
+
+        if (token ==null) {
             this.router.navigate(['/auth/login']);
-            return false
+            return false;
+            
         }
-        return true;
+        return true
     }
 }
