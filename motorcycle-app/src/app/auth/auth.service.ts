@@ -23,8 +23,6 @@ export class AuthService {
 
   getUser() {
     return this.http.get<IUser>(`${apiUrl}/auth/user`).pipe(tap((user) => {
-      console.log(user);
-
       this.user = user
     }))
   }
@@ -50,8 +48,7 @@ export class AuthService {
 
 
   get isLoggedIn(): boolean { 
-    console.log(this.user);
-    
+
     return this.user !==null
     
   }

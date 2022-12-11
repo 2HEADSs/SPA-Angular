@@ -15,11 +15,15 @@ bikeController.get('/', async (req, res) => {
 bikeController.post('/', async (req, res) => {
     try {
         const data = Object.assign({ _ownerId: req.user._id }, req.body)
+        // console.log(req.user._id);
+        // console.log(req.body);
+        // const body = req.body
+        // body['_ownerId'] = req.user._id
         const bike = await create(data);
         res.json(bike)
     } catch (err) {
         // const message = parseError(err)
-        console.log(err+ 'errr');
+        console.log(err + 'errr');
         res.status(400).json({ error: err.message })
     }
     res.end()
@@ -46,7 +50,7 @@ bikeController.put('/:id', async (req, res) => {
     }
 });
 
-bikeController.delete('/:id',  async (req, res) => {
+bikeController.delete('/:id', async (req, res) => {
     const item = await getById(req.params.id);
 
     if (req.user._id != item._ownerId) {
@@ -62,7 +66,7 @@ bikeController.delete('/:id',  async (req, res) => {
 });
 
 bikeController.get('/myBikes', async (req, res) => {
-    
+
     const bikes = await getMyBikes(req.user._id)
     return res.status(200).json(bikes)
 })

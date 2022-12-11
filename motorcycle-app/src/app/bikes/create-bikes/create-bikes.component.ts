@@ -30,7 +30,6 @@ export class CreateBikesComponent {
     const { brand, model, year, power, price, description, img } = this.createFormGroup.value
     const bike = { brand, model, year, power, price, description, img }
 
-    console.log(bike);
     this.bikesService.createBike(bike).subscribe({
       next: (a) => console.log(a),
       error: (err) => {
