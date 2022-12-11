@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { IBike } from 'src/app/shared/interfaces/bikes';
 import { BikesService } from '../bikes.service';
+let id = ''
 
 @Component({
   selector: 'app-edit',
@@ -10,8 +12,9 @@ import { BikesService } from '../bikes.service';
 })
 export class EditComponent implements OnInit {
 
-  singleBike: any | null = null
+  singleBike: IBike | null = null
   URL_PATTERN = /^https?:\/\/.+/i
+  id: string = ''
 
   editFormGroup: FormGroup = this.formBuilder.group({
     'brand': new FormControl('', [Validators.required, Validators.minLength(1)]),
@@ -26,12 +29,10 @@ export class EditComponent implements OnInit {
 
   constructor(private bikesService: BikesService, private formBuilder: FormBuilder, private activatedRoute: ActivatedRoute) { }
   ngOnInit(): void {
-    let id = this.activatedRoute.snapshot.params['id']
+    this.id = this.activatedRoute.snapshot.params['id']
 
-    this.bikesService.loadOneBike(id).subscribe({
+    this.bikesService.loadOneBike(this.id).subscribe({
       next: (bike) => {
-        console.log(bike);
-
         this.singleBike = bike
       },
       error: (err) => {
@@ -46,11 +47,10 @@ export class EditComponent implements OnInit {
     const body = { brand, model, year, power, price, description, img }
 
     console.log(body);
-
-    this.bikesService.updateBike(body).subscribe({
+    this.bikesService.updateBike(body, this.id).subscribe({
       next: (a) => console.log(a),
       error: (err) => {
-        console.log(err.error.error);
+        console.log(err);
       }
 
     })

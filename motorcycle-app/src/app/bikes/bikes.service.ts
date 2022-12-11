@@ -4,12 +4,12 @@ import { environment } from '../../environments/environment';
 import { IBike } from '../shared/interfaces/bikes';
 
 const apiUrl = environment.apiUrl
-
 @Injectable({
   providedIn: 'root'
 })
 
 export class BikesService {
+  id: string = ''
 
   constructor(private httpClient: HttpClient) { }
   //todo - <any> - set interface
@@ -23,16 +23,16 @@ export class BikesService {
     return this.httpClient.get<IBike>(`${apiUrl}/bikes/${id}`)
   }
 
-  createBike(bike: {}) {
+  createBike(bike: {},) {
     console.log(bike);
-    
+
     return this.httpClient.post(`${apiUrl}/bikes`, bike)
   }
 
-  updateBike(bike: {}) {
+  updateBike(bike: {}, id:string) {
     console.log(bike);
-    
-    return this.httpClient.put(`${apiUrl}/bikes`, bike)
+
+    return this.httpClient.put(`${apiUrl}/bikes/${id}`, bike)
   }
 
 

@@ -35,16 +35,16 @@ bikeController.get('/:id', async (req, res) => {
 });
 
 bikeController.put('/:id', async (req, res) => {
-
-    const bike = await getById(req.params.id);
+const bike = await getById(req.params.id);
     // todo parse token
-    if (req.user._id != bike._ownerId) {
+    if (req.user._id != bike._ownerId._id) {
         return res.status(403).json({ message: 'You cannot modify this record' })
     }
     try {
         const result = await update(req.params.id, req.body);
-        res.status(400).json(result)
+        res.status(200).json(result)
     } catch (err) {
+        console.log(err);
         // const message = parseError(err)
         res.status(400).json({ error: err.message })
     }
