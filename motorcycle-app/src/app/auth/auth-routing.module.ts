@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { GuestActivate } from '../shared/routeGards/hasUser.gaurd';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -11,11 +12,13 @@ const routes: Routes = [
         children: [
             {
                 path: 'register',
-                component: RegisterComponent
+                component: RegisterComponent,
+                canActivate: [GuestActivate]
             },
             {
                 path: 'login',
-                component: LoginComponent
+                component: LoginComponent,
+                canActivate: [GuestActivate]
             },
             {
                 path: 'profile',
