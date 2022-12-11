@@ -9,7 +9,7 @@ import { BikesService } from '../bikes.service';
   styleUrls: ['./edit.component.css']
 })
 export class EditComponent implements OnInit {
-  
+
   singleBike: any | null = null
   URL_PATTERN = /^https?:\/\/.+/i
 
@@ -24,11 +24,11 @@ export class EditComponent implements OnInit {
 
   })
 
-  constructor(private bikesSerice: BikesService, private formBuilder: FormBuilder, private activatedRoute: ActivatedRoute) { }
+  constructor(private bikesService: BikesService, private formBuilder: FormBuilder, private activatedRoute: ActivatedRoute) { }
   ngOnInit(): void {
     let id = this.activatedRoute.snapshot.params['id']
 
-    this.bikesSerice.loadOneBike(id).subscribe({
+    this.bikesService.loadOneBike(id).subscribe({
       next: (bike) => {
         console.log(bike);
 
@@ -38,13 +38,22 @@ export class EditComponent implements OnInit {
         console.log(err);
       }
     })
+
   }
 
   createHandler(): void {
     const { brand, model, year, power, price, description, img } = this.editFormGroup.value
     const body = { brand, model, year, power, price, description, img }
 
-    console.log(this.editFormGroup.value);
+    console.log(body);
+
+    this.bikesService.updateBike(body).subscribe({
+      next: (a) => console.log(a),
+      error: (err) => {
+        console.log(err.error.error);
+      }
+
+    })
 
   }
 

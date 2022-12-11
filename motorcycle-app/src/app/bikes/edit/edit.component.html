@@ -1,8 +1,8 @@
 <div class="edit-box">
-    <h2>Add bike</h2>
+    <h2>Edit Bike</h2>
     <form [formGroup]="editFormGroup" (ngSubmit)="createHandler()">
         <div class="bike-box">
-            <input formControlName="brand" type="text">
+            <input formControlName="brand" type="text" i [ngModel]="singleBike?.brand">
             <label>Brand</label>
 
             <ng-container *ngIf="editFormGroup.get('brand')?.touched && editFormGroup.get('brand')?.invalid">
@@ -11,7 +11,7 @@
         </div>
 
         <div class="bike-box">
-            <input formControlName="model" type="text">
+            <input formControlName="model" type="text" [ngModel]="singleBike?.year" >
             <label>Model</label>
 
             <ng-container *ngIf="editFormGroup.get('model')?.touched && editFormGroup.get('model')?.invalid">
@@ -20,7 +20,7 @@
         </div>
 
         <div class="bike-box">
-            <input formControlName="year" type="text">
+            <input formControlName="year" type="text" [ngModel]="singleBike?.year">
             <label>Year of manifacture</label>
             <ng-container *ngIf="editFormGroup.get('year')?.touched && editFormGroup.get('year')?.invalid">
                 <p class="error">Bike must be between 1885 and 2022!</p>
@@ -29,7 +29,7 @@
 
 
         <div class="bike-box">
-            <input formControlName="power" type="text">
+            <input formControlName="power" type="text" [ngModel]="singleBike?.power">
             <label>Power/HP</label>
 
             <ng-container *ngIf="editFormGroup.get('power')?.touched && editFormGroup.get('power')?.invalid">
@@ -38,7 +38,7 @@
         </div>
 
         <div class="bike-box">
-            <input formControlName="price" type="text">
+            <input formControlName="price" type="text" [ngModel]="singleBike?.price">
             <label>Price</label>
             <ng-container *ngIf="editFormGroup.get('price')?.touched && editFormGroup.get('price')?.invalid">
                 <p class="error">Price must be positivenumber(0.01)! </p>
@@ -47,7 +47,7 @@
         </div>
 
         <div class="bike-box">
-            <input formControlName="description" type="text">
+            <input formControlName="description" type="text" [ngModel]="singleBike?.description">
             <label>Description</label>
             <ng-container
                 *ngIf="editFormGroup.get('description')?.touched && editFormGroup.get('description')?.invalid">
@@ -56,7 +56,7 @@
         </div>
 
         <div class="bike-box">
-            <input formControlName="img" type="text">
+            <input formControlName="img" type="text" [ngModel]="singleBike?.img">
             <label>Img</label>
             <ng-container *ngIf="editFormGroup.get('img')?.touched && editFormGroup.get('img')?.invalid">
                 <p class="error" *ngIf="editFormGroup.get('img')?.errors?.['pattern']">Invalid URL, must start with
@@ -64,7 +64,7 @@
                 <p class="error" *ngIf="editFormGroup.get('img')?.errors?.['required']">Image is required!</p>
             </ng-container>
         </div>
-        <button class="edit" [disabled]="editFormGroup.invalid">
+        <button class="edit">
             <span></span>
             <span></span>
             <span></span>

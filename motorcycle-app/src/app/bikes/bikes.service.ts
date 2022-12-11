@@ -29,5 +29,11 @@ export class BikesService {
     return this.httpClient.post(`${apiUrl}/bikes`, bike)
   }
 
+  updateBike(bike: {}) {
+    console.log(bike);
+    
+    return this.httpClient.put(`${apiUrl}/bikes`, bike)
+  }
+
 
 }
