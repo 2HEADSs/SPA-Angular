@@ -13,11 +13,8 @@ export class IsGuest implements CanActivate {
 
     canActivate() {
         const token = localStorage.getItem('token')
-        console.log(token + 'isguest');
-        
 
-
-        if (token ==null) {
+        if (token == null) {
             this.router.navigate(['/auth/login']);
             return false;
             

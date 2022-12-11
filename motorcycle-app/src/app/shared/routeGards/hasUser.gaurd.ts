@@ -13,9 +13,6 @@ export class HasUser implements CanActivate {
 
     canActivate() {
         const token = localStorage.getItem('token')
-        console.log(token + 'hasUser');
-
-
         if (token == null) {
             return true
             
