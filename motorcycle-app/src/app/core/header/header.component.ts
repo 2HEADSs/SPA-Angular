@@ -10,13 +10,17 @@ import { IUser } from 'src/app/shared/interfaces/user';
 })
 export class HeaderComponent {
 
-  user: IUser | null = null
+
 
   constructor(private authService: AuthService, private router: Router) {
   }
 
   get isLoggedIn() {
-    return this.authService.isLoggedIn;
+    if(this.authService.user){
+      return true
+    }else {
+      return false
+    }
   }
 
 
@@ -25,8 +29,5 @@ export class HeaderComponent {
     this.router.navigate(['/'])
   }
 
-  get userData() {
-    return this.authService.user
-  }
 
 }

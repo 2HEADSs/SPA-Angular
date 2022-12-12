@@ -11,8 +11,15 @@ export class AppComponent {
   title = 'motorcycle-app';
 
   constructor(private http: HttpClient, private authService: AuthService) {
+    console.log('app-component');
+    
     if (localStorage.getItem('token')) {
-      authService.getUser().subscribe();
+      console.log(localStorage.getItem('token') + 'app-component');
+      
+      authService.getUser().subscribe((a)=> {
+        console.log(a+'app-component');
+        
+      });
     }
   }
 }

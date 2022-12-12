@@ -36,15 +36,13 @@ export class RegisterComponent {
     // this.authService.user = body
     this.authService.register(body).subscribe({
       next: () => {
-        this.router.navigate(['/'])
+        this.router.navigate(['/bikes/catalog'])
       },
       error: (err) => { 
         console.log(err.error.error);
         this.errors = err.error.error
       }
     })
-
-    console.log(body);
 
   }
 }

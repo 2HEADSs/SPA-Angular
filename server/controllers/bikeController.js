@@ -12,6 +12,12 @@ bikeController.get('/', async (req, res) => {
     res.status(200).json(bikes)
 });
 
+bikeController.get('/my-bikes', async (req, res) => {
+    console.log(req.user._id);
+    const bikes = await getByUserId(req.user._id);
+    res.status(200).json(bikes)
+});
+
 bikeController.post('/', async (req, res) => {
     try {
         const data = Object.assign({ _ownerId: req.user._id }, req.body)

@@ -6,6 +6,7 @@ import { BikeDetailsComponent } from './bike-details/bike-details.component';
 import { BikesListComponent } from './bikes-list/bikes-list.component';
 import { CreateBikesComponent } from './create-bikes/create-bikes.component';
 import { EditComponent } from './edit/edit.component';
+import { MyBikesComponent } from './my-bikes/my-bikes.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,11 @@ const routes: Routes = [
       {
         path: 'create',
         component: CreateBikesComponent,
+        canActivate: [IsGuest]
+      },
+      {
+        path: 'my-bikes',
+        component: MyBikesComponent,
         canActivate: [IsGuest]
       },
       {

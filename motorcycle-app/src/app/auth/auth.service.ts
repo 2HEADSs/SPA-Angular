@@ -12,7 +12,7 @@ const apiUrl = environment.apiUrl
   providedIn: 'root'
 })
 export class AuthService {
-  user: IUser | null  = null
+  user: IUser | null = null
 
 
   constructor(private http: HttpClient, private router: Router) { }
@@ -22,22 +22,28 @@ export class AuthService {
 
 
   getUser() {
-    return this.http.get<IUser>(`${apiUrl}/auth/user`).pipe(tap((user) => {
-      this.user = user
+    return this.http.get<IUser>(`${apiUrl}/auth/user`).pipe(tap((userData) => {
+      console.log(userData + 'getUser');
+
+      this.user = userData
     }))
   }
 
   register(userData: {}) {
-    return this.http.post<IUser>(`${apiUrl}/auth/register`, userData).pipe(tap((user) => {
-      this.user = user
-      localStorage.setItem('token', this.user.accessToken)
+    return this.http.post<IUser>(`${apiUrl}/auth/register`, userData).pipe(tap((userData) => {
+      console.log(userData);
+
+      localStorage.setItem('token', userData.accessToken)
+      console.log(userData.accessToken);
+
+      this.user = userData
     }))
   }
 
   login(userData: {}) {
     return this.http.post<IUser>(`${apiUrl}/auth/login`, userData).pipe(tap((userData) => {
+      localStorage.setItem('token', userData.accessToken)
       this.user = userData
-      localStorage.setItem('token', this.user.accessToken)
     }))
   }
 
@@ -47,10 +53,12 @@ export class AuthService {
   }
 
 
-  get isLoggedIn(): boolean { 
-
-    return this.user !==null
-    
+  get isLoggedIn(): boolean {
+    if (this.user) {
+      return true
+    } else {
+      return false
+    }
   }
 
 }

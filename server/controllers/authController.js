@@ -29,6 +29,7 @@ authController.post('/login', async (req, res) => {
 })
 
 authController.get('/user', async (req, res) => {
+    console.log(req.user + 'api-authController');
     try {
         const user = req.user
         res.status(200).json(user)
