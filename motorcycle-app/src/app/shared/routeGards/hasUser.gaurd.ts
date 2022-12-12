@@ -8,7 +8,7 @@ import { AuthService } from "src/app/auth/auth.service";
 })
 
 export class HasUser implements CanActivate {
-
+//todo one more check - rest request
     constructor(private authService: AuthService, private router: Router) { }
 
     canActivate() {
