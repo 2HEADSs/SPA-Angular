@@ -109,3 +109,8 @@ h1 {
     left: 41%;
     color: red;
 }
+
+a {
+    -webkit-text-stroke: 1px red;
+    color: rgb(1, 1, 12);
+    }
