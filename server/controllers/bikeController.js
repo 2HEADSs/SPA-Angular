@@ -15,10 +15,6 @@ bikeController.get('/', async (req, res) => {
 bikeController.post('/', async (req, res) => {
     try {
         const data = Object.assign({ _ownerId: req.user._id }, req.body)
-        // console.log(req.user._id);
-        // console.log(req.body);
-        // const body = req.body
-        // body['_ownerId'] = req.user._id
         const bike = await create(data);
         res.json(bike)
     } catch (err) {

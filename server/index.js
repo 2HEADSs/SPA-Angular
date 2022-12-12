@@ -17,9 +17,7 @@ async function startServer() {
     app.use(session())
     //trimBody
     app.use(router)
-
-
-
+    
     app.listen('3000', () => console.log(`REST service started at 3000`))
 
 }

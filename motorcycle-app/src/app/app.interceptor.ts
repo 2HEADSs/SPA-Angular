@@ -8,6 +8,8 @@ export class AppInterceptor implements HttpInterceptor {
     token: string | null  = localStorage.getItem('token')
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         if(this.token){
+            console.log(this.token + 'token - interceptor');
+            
             return next.handle(req.clone({ setHeaders: { 'X-Authorization': this.token}}));
         }else{
             return next.handle(req.clone())
