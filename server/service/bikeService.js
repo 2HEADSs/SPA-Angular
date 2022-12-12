@@ -5,6 +5,7 @@ async function getAll() {
     return Bike.find({})
 
 };
+
 async function getByUserId(userId) {
     return Bike.find({ _ownerId: userId })
 
