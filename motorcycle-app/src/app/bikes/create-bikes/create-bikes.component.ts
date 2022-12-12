@@ -31,7 +31,7 @@ export class CreateBikesComponent {
     const bike = { brand, model, year, power, price, description, img }
 
     this.bikesService.createBike(bike).subscribe({
-      next: (a) => console.log(a),
+      next: (a) => console.log(a + '---||||----create-bikes component'),
       error: (err) => {
         console.log(err.error.error);
         this.errors = err.error.error

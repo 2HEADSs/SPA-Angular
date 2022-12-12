@@ -19,6 +19,11 @@ export class BikesService {
     return this.httpClient.get<IBike[]>(`${apiUrl}/bikes`)
   }
 
+  loadMyBikes() {
+
+    return this.httpClient.get<IBike[]>(`${apiUrl}/bikes/my-bikes`)
+  }
+
   loadOneBike(id: string) {
     return this.httpClient.get<IBike>(`${apiUrl}/bikes/${id}`)
   }
@@ -30,7 +35,6 @@ export class BikesService {
   }
 
   updateBike(bike: {}, id:string) {
-    console.log(bike);
 
     return this.httpClient.put(`${apiUrl}/bikes/${id}`, bike)
   }
