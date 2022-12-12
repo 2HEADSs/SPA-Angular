@@ -1,27 +1,28 @@
-<section class=" details" >
+<section class=" details">
     <div class="container">
 
         <div class="bike-info">
             <div>
-                <img class="img"
-                    src={{singleBike?.img}}
-                    alt="car-image">
+                <img class="img" src={{singleBike?.img}} alt="car-image">
             </div>
             <div class="bike-details">
                 <h5 class="info">Bike details</h5>
-                <div class="lead" >
+                <div class="lead">
                     <p>Brand: {{singleBike?.brand}}</p>
                     <p>Model: {{singleBike?.model}}</p>
                     <p>Year: {{singleBike?.year}}</p>
                     <p>Power: {{singleBike?.power}}HP</p>
                     <p>Price: {{singleBike?.price}}BGN</p>
+                    <p>Owner: {{singleBike?._ownerId?.email}}</p>
                 </div>
 
                 <h5>Description: <span>{{singleBike?.description}}</span></h5>
 
-                <div class="actions">
-                    <span class="btn btn-secondary">No seats available! [0]</span>
-                </div>
+                <ng-container *ngIf="isOwner">
+                    <div class="actions">
+                        <span class="btn btn-secondary">Edit</span>
+                    </div>
+                </ng-container>
 
             </div>
         </div>
