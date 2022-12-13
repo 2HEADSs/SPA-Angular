@@ -5,7 +5,6 @@
 <div *ngIf="authService.errorString" class="error-container">
     <h1 class="error-message">
       {{authService.errorString}}
-      Buy the motorcycle of your life!!!
       <button   class="button" [routerLink]="['/']"
       (click)="authService.errorString = null">
         HOME
