@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { setSession } from 'src/app/shared/function/api';
 import { passwordMissMatch } from 'src/app/shared/validators/repass-validator';
 import { AuthService } from '../auth.service';
 
@@ -35,10 +36,12 @@ export class RegisterComponent {
     const body = { email, username, password }
     // this.authService.user = body
     this.authService.register(body).subscribe({
-      next: () => {
+      next: (userData) => {
+        setSession(userData)
+        this.authService.setLoginInfo(userData,true)
         this.router.navigate(['/bikes/catalog'])
       },
-      error: (err) => { 
+      error: (err) => {
         console.log(err.error.error);
         this.errors = err.error.error
       }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { setSession } from 'src/app/shared/function/api';
 import { AuthService } from '../auth.service';
 
 
@@ -31,10 +32,11 @@ export class LoginComponent {
 
   loginSubmit(): void {
     const { email, password } = this.loginFormGroup.value
-    const body = { email, password }
 
-    this.authService.login(body).subscribe({
-      next: () => {
+    this.authService.login({ email, password,}).subscribe({
+      next: (userData) => {
+        setSession(userData)
+        this.authService.setLoginInfo(userData,true)
         this.router.navigate(['/'])
       },
       error: (err) => { 
@@ -45,3 +47,5 @@ export class LoginComponent {
 
   }
 }
+
+
