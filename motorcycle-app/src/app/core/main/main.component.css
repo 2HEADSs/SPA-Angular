@@ -10,7 +10,7 @@ h1 {
   position: absolute;
   top: 25%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   /* padding-left: 50%; */
   color: rgb(246, 17, 5);
   text-align: center;
@@ -20,3 +20,6 @@ h1 {
   animation: blinker 3s linear infinite;
 }
 
+.error-message {
+  color: white;
+}

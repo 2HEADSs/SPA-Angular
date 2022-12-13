@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/auth.service';
+import { getSession } from 'src/app/shared/function/api';
 import { IUser } from 'src/app/shared/interfaces/user';
 
 @Component({
@@ -9,25 +10,10 @@ import { IUser } from 'src/app/shared/interfaces/user';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-
-
-
-  constructor(private authService: AuthService, private router: Router) {
+  
+  constructor(public authService: AuthService, private router: Router) {
   }
 
-  get isLoggedIn() {
-    if(this.authService.user){
-      return true
-    }else {
-      return false
-    }
-  }
-
-
-  logout() {
-    this.authService.logout()
-    this.router.navigate(['/'])
-  }
 
 
 }
