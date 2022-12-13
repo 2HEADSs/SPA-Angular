@@ -14,7 +14,7 @@ export class BikeDetailsComponent implements OnInit {
   singleBike: IBike | null = null
   isOwner: Boolean = false
 
-  constructor(private bikesSerice: BikesService, private activatedRoute: ActivatedRoute, private currentUser: AuthService) { }
+  constructor(private bikesSerice: BikesService, private activatedRoute: ActivatedRoute, private authService: AuthService) { }
   ngOnInit(): void {
     let id = this.activatedRoute.snapshot.params['id']
 
@@ -22,9 +22,10 @@ export class BikeDetailsComponent implements OnInit {
       next: (bike) => {
 
         this.singleBike = bike
+        //todo errorString = error.message
         console.log(bike);
-        console.log(this.currentUser?.user?._id);
-        if (this.singleBike._ownerId._id === this.currentUser?.user?._id) {
+        console.log(this.authService?.user?._id);
+        if (this.singleBike._ownerId._id === this.authService?.user?._id) {
           this.isOwner = true
         }
 
