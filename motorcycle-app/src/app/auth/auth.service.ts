@@ -11,7 +11,7 @@ const apiUrl = environment.apiUrl
 
 @Injectable({
   providedIn: 'root'
-})
+})  
 export class AuthService {
   user!: IUser | null;
   isLogged: boolean = false

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/auth/auth.service';
 import { IBike } from 'src/app/shared/interfaces/bikes';
 import { BikesService } from '../bikes.service';
 
@@ -13,7 +14,7 @@ export class BikesListComponent implements OnInit {
   bikesList: IBike[] | null = [];
   hasBikes: boolean = false
 
-  constructor(private bikesSerice: BikesService) { }
+  constructor(private bikesSerice: BikesService, private authService:AuthService) { }
 
   ngOnInit(): void {
     this.bikesSerice.loadAllBike().subscribe({
