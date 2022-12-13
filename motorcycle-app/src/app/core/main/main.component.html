@@ -1,13 +1,12 @@
-<div *ngIf="!authService.errorString" >
-    <h1 class="main-text">Buy the motorcycle of your life!!!</h1>
+<div *ngIf="!authService.errorString">
+  <h1 class="main-text">Buy the motorcycle of your life!!!</h1>
 </div>
 
 <div *ngIf="authService.errorString" class="error-container">
-    <h1 class="error-message">
-      {{authService.errorString}}
-      <button   class="button" [routerLink]="['/']"
-      (click)="authService.errorString = null">
-        HOME
-      </button>
-    </h1>
-  </div>
+  <h1 class="error-message">
+    sadsadsadassadsadasdsadasdsa{{authService.errorString}}
+    <button class="button" [routerLink]="['/']" (click)="authService.errorString = null">
+      HOME
+    </button>
+  </h1>
+</div>

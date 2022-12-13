@@ -182,9 +182,20 @@ body {
 p {
   color: white;
   font-size: 20px;
+  position: absolute;
+  top: 45px;
 }
 
 
 .server-error {
   color: red;
+}
+
+a {
+  position: absolute;
+  color: white;
+  top: 331px;
+  left: 235px;
+  font-size: 20px;
+
 }

@@ -6,9 +6,9 @@
       <label>Email</label>
 
       <ng-container *ngIf="registerFormGroup.get('email')?.touched && registerFormGroup.get('email')?.invalid">
-        <p class="error" *ngIf="registerFormGroup.get('email')?.errors?.['required']" class="error">Email is necessary
+        <p class="error" *ngIf="registerFormGroup.get('email')?.errors?.['required']" class="error">Email is necessary!
         </p>
-        <p class="error" *ngIf="registerFormGroup.get('email')?.errors?.['pattern']" class="error">Invalid email</p>
+        <p class="error" *ngIf="registerFormGroup.get('email')?.errors?.['pattern']" class="error">Invalid email!</p>
       </ng-container>
     </div>
 
@@ -17,7 +17,7 @@
       <label>Username</label>
 
       <ng-container *ngIf="registerFormGroup.get('username')?.touched  && registerFormGroup.get('username')?.invalid">
-        <p class="error">Username must be ate least 5 characters</p>
+        <p class="error">Username must be minimum 5 characters!</p>
       </ng-container>>
     </div>
 
@@ -26,7 +26,7 @@
       <label>Password</label>
 
       <ng-container *ngIf="registerFormGroup.get('password')?.touched  && registerFormGroup.get('password')?.invalid">
-        <p class="error">Password must be ate least 5 characters</p>
+        <p class="error">Password must be minimum 5 characters!</p>
       </ng-container>>
     </div>
 
@@ -35,7 +35,7 @@
       <label>Repeat Password</label>
 
       <ng-container *ngIf="registerFormGroup.get('repass')?.touched  && registerFormGroup.get('repass')?.invalid">
-        <p class="error">Password is not same</p>
+        <p class="error">Password is not same!</p>
       </ng-container>>
       <p *ngIf="errors" class="server-error">{{errors}}</p>
     </div>
@@ -47,4 +47,5 @@
       Register
     </button>
   </form>
+  <a  routerLink="/auth/login">Login here!</a>
 </div>
