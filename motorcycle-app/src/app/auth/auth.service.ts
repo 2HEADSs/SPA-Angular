@@ -34,14 +34,12 @@ export class AuthService {
   register(userData: {}) {
     return this.http.post<IUser>(`${apiUrl}/auth/register`, userData).pipe(tap((response) => {
       if (!response._id) { return }
-      console.log(response + 'register');
     }))
   }
 
   login(userData: {}) {
     return this.http.post<IUser>(`${apiUrl}/auth/login`, userData).pipe(tap((response) => {
       if (!response._id) { return }
-      console.log(response + 'login');
     }))
   }
 

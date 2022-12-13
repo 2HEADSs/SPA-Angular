@@ -12,7 +12,7 @@ export class AppComponent {
   title = 'motorcycle-app';
 
   constructor(private http: HttpClient, private authService: AuthService) {
-    console.log('app-component');
+
 
     if (!getSession()) {
       this.authService.setLoginInfo(null, false)

@@ -23,8 +23,7 @@ export class BikeDetailsComponent implements OnInit {
 
         this.singleBike = bike
         //todo errorString = error.message
-        console.log(bike);
-        console.log(this.authService?.user?._id);
+
         if (this.singleBike._ownerId._id === this.authService?.user?._id) {
           this.isOwner = true
         }
