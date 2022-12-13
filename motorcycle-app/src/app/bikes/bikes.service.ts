@@ -41,7 +41,7 @@ export class BikesService {
   }
 
   deleteBike(id: string) {
-    return this.httpClient.delete(`${apiUrl}/bikes/${id}`, { headers: { 'x-authorization': JSON.stringify(getSession().accessToken) } })
+    return this.httpClient.put(`${apiUrl}/bikes/${id}`, { headers: { 'x-authorization': getSession().accessToken } })
   }
 
 

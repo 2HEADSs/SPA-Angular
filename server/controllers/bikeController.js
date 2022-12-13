@@ -49,6 +49,12 @@ const bike = await getById(req.params.id);
     }
 });
 
+bikeController.get('/myBikes', async (req, res) => {
+    console.log(req.user);
+    const bikes = await getMyBikes(req.user._id)
+    return res.status(200).json(bikes)
+})
+
 bikeController.delete('/:id', async (req, res) => {
     console.log(req);
     const bike = await getById(req.params.id);
@@ -65,11 +71,6 @@ bikeController.delete('/:id', async (req, res) => {
     }
 });
 
-bikeController.get('/myBikes', async (req, res) => {
-    console.log(req.user);
-    const bikes = await getMyBikes(req.user._id)
-    return res.status(200).json(bikes)
-})
 
 module.exports = {
     bikeController
