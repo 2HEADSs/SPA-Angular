@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { appInterceptorProvider } from './app.interceptor';
+// import { appInterceptorProvider } from './app.interceptor';
 import { AuthModule } from './auth/auth.module';
 import { BikesModule } from './bikes/bikes.module';
 import { CoreModule } from './core/core.module';
@@ -24,7 +24,7 @@ import { CoreModule } from './core/core.module';
     RouterModule,
     AppRoutingModule,
   ],
-  providers: [appInterceptorProvider],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

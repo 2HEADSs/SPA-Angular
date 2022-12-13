@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { NotFoundComponent } from '../core/not-found/not-found.component';
+import { HasUser } from '../shared/routeGards/hasUser.gaurd';
 import { IsGuest } from '../shared/routeGards/isGuest.guards';
 import { BikeDetailsComponent } from './bike-details/bike-details.component';
 import { BikesListComponent } from './bikes-list/bikes-list.component';
@@ -14,27 +14,24 @@ const routes: Routes = [
     children: [
       {
         path: 'catalog',
-        component: BikesListComponent
+        component: BikesListComponent,
       },
       {
         path: 'create',
         component: CreateBikesComponent,
-        canActivate: [IsGuest]
       },
       {
         path: 'my-bikes',
         component: MyBikesComponent,
-        canActivate: [IsGuest]
       },
       {
         path: 'edit/:id',
         component: EditComponent,
-        canActivate: [IsGuest]
       },
       {
         path: 'details/:id',
         component: BikeDetailsComponent,
-        canActivate: [IsGuest]
+
       },
     ]
   }
