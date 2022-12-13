@@ -17,16 +17,14 @@
                 </div>
 
                 <h5>Description: <span>{{singleBike?.description}}</span></h5>
-
                 <ng-container *ngIf="isOwner">
-                    <div class="actions">
+                    <div class="actions-edit">
                         <button class="btn btn-seconday" [routerLink]="['/bikes/edit', singleBike?._id]">Edit</button>
                     </div>
-                    <div class="actions">
-                        <button class="btn btn-seconday" [routerLink]="['/bikes/edit', singleBike?._id]">Delete</button>
+                    <div class="actions-delete">
+                        <button class="btn btn-seconday" (click)="deleteBike()">Delete</button>
                     </div>
                 </ng-container>
-
             </div>
         </div>
     </div>

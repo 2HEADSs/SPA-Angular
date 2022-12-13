@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/auth.service';
 import { IBike } from 'src/app/shared/interfaces/bikes';
 import { BikesService } from '../bikes.service';
@@ -12,13 +12,15 @@ import { BikesService } from '../bikes.service';
 export class BikeDetailsComponent implements OnInit {
 
   singleBike: IBike | null = null
-  isOwner: Boolean = false
+  isOwner: Boolean = false;
+  errors: string | undefined = undefined;
 
-  constructor(private bikesSerice: BikesService, private activatedRoute: ActivatedRoute, private authService: AuthService) { }
+
+  constructor(private bikesService: BikesService, private activatedRoute: ActivatedRoute, private authService: AuthService, private router:Router) { }
   ngOnInit(): void {
     let id = this.activatedRoute.snapshot.params['id']
 
-    this.bikesSerice.loadOneBike(id).subscribe({
+    this.bikesService.loadOneBike(id).subscribe({
       next: (bike) => {
 
         this.singleBike = bike
@@ -34,6 +36,26 @@ export class BikeDetailsComponent implements OnInit {
         console.log(err);
       }
     })
+  }
+  deleteBike():void{
+    const id = this.singleBike?._id
+    console.log(id);
+    
+    
+    this.bikesService.deleteBike(id!).subscribe({
+      next: (a) => { 
+        console.log(a);
+        
+        this.router.navigate(['/bikes/catalog'])
+      },
+      error: (err) => {
+        console.log(err.error);
+        this.errors = err.error.error
+      }
+
+    })
+    
+
   }
 
 }

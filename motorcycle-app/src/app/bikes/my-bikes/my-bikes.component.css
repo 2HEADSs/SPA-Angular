@@ -20,16 +20,12 @@
     position: relative;
 }
 
-.border:hover {
-    border: 1px solid #fff;
-}
 
 .card {
     height: 379px;
     width: 300px;
     background: #808080;
     border-radius: 10px;
-    /* transition: background 0.8s; */
     overflow: hidden;
     background: #000;
     box-shadow: 0 70px 63px -60px #000;
@@ -39,11 +35,6 @@
     position: relative;
 }
 
-.card {
-    /* background: url("../../../assets/HD-wallpaper-suzuki-gsx-r-bike-doctor-motorcycle.jpg") center center no-repeat; */
-    /* background-repeat: no-repeat; */
-    /* background-size:100% 100%; */
-}
 
 
 .card:hover .details {
@@ -64,6 +55,9 @@
 
 .details {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    position: absolute;
+    top: -10%;
+    left: 55px;
     color: rgb(6, 0, 0);
     margin: 40px;
     opacity: 0;
@@ -74,17 +68,7 @@
 
 }
 
-.edit {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    color: rgb(9, 0, 0);
-    margin: 20px;
-    opacity: 0;
-    transition: opacity 1s;
-    display: inline;
-    font-size: 25px;
 
-
-}
 
 .fa {
     opacity: 0;
@@ -109,3 +93,11 @@ h1 {
     left: 41%;
     color: red;
 }
+
+a {
+    text-shadow:
+    -1px 0px 0px red,
+    1px 0px 0px red,
+    0px -1px 0px red,
+    0px 1px 0px red;color: blue;
+    }

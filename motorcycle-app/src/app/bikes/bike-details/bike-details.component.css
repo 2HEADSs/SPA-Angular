@@ -64,7 +64,27 @@ div.container {
 }
 
 
+.actions-edit{
+  position: absolute;
+  left: 30%;
+}
 
+.actions-delete{
+  position: absolute;
+  left: 60%;
+}
+
+
+.btn {
+  background-color: rgb(197, 2, 2); 
+  border: none;
+  color: white;
+  padding: 10px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+}
 
 
 
