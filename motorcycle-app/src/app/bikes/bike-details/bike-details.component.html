@@ -20,7 +20,10 @@
 
                 <ng-container *ngIf="isOwner">
                     <div class="actions">
-                        <span class="btn btn-secondary" [routerLink]="['/bikes/edit', singleBike?._id]">Edit</span>
+                        <button class="btn btn-seconday" [routerLink]="['/bikes/edit', singleBike?._id]">Edit</button>
+                    </div>
+                    <div class="actions">
+                        <button class="btn btn-seconday" [routerLink]="['/bikes/edit', singleBike?._id]">Delete</button>
                     </div>
                 </ng-container>
 
