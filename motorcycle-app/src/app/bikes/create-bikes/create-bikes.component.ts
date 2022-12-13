@@ -34,7 +34,7 @@ export class CreateBikesComponent {
     this.bikesService.createBike(bike).subscribe({
       next: (bike) => {
         if (!bike) { return }
-        this.router.navigate(['/bike/catalog'])
+        this.router.navigate(['/bikes/catalog'])
       },
       error: (err) => {
         console.log(err.error.error);
