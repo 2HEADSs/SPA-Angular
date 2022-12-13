@@ -19,10 +19,6 @@ export class AuthService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  //todo add my bike functionality
-
-
-
   getUser() {
     return this.http.get<IUser>(`${apiUrl}/auth/user`,).pipe(tap((userData) => {
       console.log(userData + 'getUser');

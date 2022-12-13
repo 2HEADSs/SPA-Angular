@@ -14,7 +14,6 @@ export class BikesService {
 
 
   constructor(private httpClient: HttpClient, private authService: AuthService) { }
-  //todo - <any> - set interface
 
   loadAllBike() {
 

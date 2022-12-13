@@ -1,11 +1,7 @@
 const bikeController = require('express').Router();
 
-const { hasUser } = require('../middlewares/guards');
-/// todo HAS_USER - guards
 const { getAll, create, getById, update, deleteById, getByUserId, getMyBikes } = require('../service/bikeService');
-// const { parseError } = require('../util/parser');
-//todo parseError
-//todo - populate bike with _ownerId
+
 
 bikeController.get('/', async (req, res) => {
     const bikes = await getAll();

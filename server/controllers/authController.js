@@ -1,7 +1,5 @@
 const authController = require('express').Router();
 const { login, register } = require('../service/userService');
-//TODO parsing error
-
 
 authController.post('/register', async (req, res) => {
     try {
@@ -10,7 +8,6 @@ authController.post('/register', async (req, res) => {
             throw new Error('Unable to register with this credential!!!')
         }
         res.status(201).json(token)
-        //TODOnot sure
         res.end()
     } catch (error) {
         console.log(error);
@@ -28,7 +25,6 @@ authController.post('/login', async (req, res) => {
 
         console.log(token.accessToken);
         res.status(200).json(token)
-        //TODOnot sure
         res.end()
     } catch (error) {
         console.log(error);
@@ -47,7 +43,6 @@ authController.get('/user', async (req, res) => {
     }
 })
 
-//TODO LOGOUT
 
 
 module.exports = {
