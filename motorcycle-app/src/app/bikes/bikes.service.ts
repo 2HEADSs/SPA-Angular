@@ -38,7 +38,7 @@ export class BikesService {
 
   updateBike(bike: {}, id: string) {
 
-    return this.httpClient.put(`${apiUrl}/bikes/${id}`, bike)
+    return this.httpClient.put(`${apiUrl}/bikes/${id}`, bike, {headers:{'x-authorization': getSession().accessToken}})
   }
 
 

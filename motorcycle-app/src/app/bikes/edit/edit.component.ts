@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IBike } from 'src/app/shared/interfaces/bikes';
 import { BikesService } from '../bikes.service';
 let id = ''
@@ -27,7 +27,7 @@ export class EditComponent implements OnInit {
 
   })
 
-  constructor(private bikesService: BikesService, private formBuilder: FormBuilder, private activatedRoute: ActivatedRoute) { }
+  constructor(private bikesService: BikesService, private formBuilder: FormBuilder, private activatedRoute: ActivatedRoute, private router: Router) { }
   ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.params['id']
 
@@ -45,10 +45,16 @@ export class EditComponent implements OnInit {
   createHandler(): void {
     const { brand, model, year, power, price, description, img } = this.editFormGroup.value
     const body = { brand, model, year, power, price, description, img }
-
     console.log(body);
+    
+
     this.bikesService.updateBike(body, this.id).subscribe({
-      next: (a) => console.log(a),
+      next: (bike) => {
+        if (!bike) { return }
+        this.router.navigate([`/bikes/details/${this.id}`])
+        console.log(bike);
+        
+      },
       error: (err) => {
         console.log(err);
       }
