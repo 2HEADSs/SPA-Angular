@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, Subject, tap } from 'rxjs';
+import { tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { getSession, logoutSession, } from '../shared/function/api';
 import { IUser } from '../shared/interfaces/user';
 
 const apiUrl = environment.apiUrl
@@ -12,8 +13,9 @@ const apiUrl = environment.apiUrl
   providedIn: 'root'
 })
 export class AuthService {
-  user: IUser | null = null
-
+  user!: IUser | null;
+  isLogged: boolean = false
+  errorString: string | null = null
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -22,43 +24,40 @@ export class AuthService {
 
 
   getUser() {
-    return this.http.get<IUser>(`${apiUrl}/auth/user`).pipe(tap((userData) => {
+    return this.http.get<IUser>(`${apiUrl}/auth/user`,).pipe(tap((userData) => {
       console.log(userData + 'getUser');
 
-      this.user = userData
     }))
   }
 
+  // /auth/register
   register(userData: {}) {
-    return this.http.post<IUser>(`${apiUrl}/auth/register`, userData).pipe(tap((userData) => {
-      console.log(userData);
-
-      localStorage.setItem('token', userData.accessToken)
-      console.log(userData.accessToken);
-
-      this.user = userData
+    return this.http.post<IUser>(`${apiUrl}/auth/register`, userData).pipe(tap((response) => {
+      if (!response._id) { return }
+      console.log(response + 'register');
     }))
   }
 
   login(userData: {}) {
-    return this.http.post<IUser>(`${apiUrl}/auth/login`, userData).pipe(tap((userData) => {
-      localStorage.setItem('token', userData.accessToken)
-      this.user = userData
+    return this.http.post<IUser>(`${apiUrl}/auth/login`, userData).pipe(tap((response) => {
+      if (!response._id) { return }
+      console.log(response + 'login');
     }))
   }
 
   logout() {
-    this.user = null;
-    return localStorage.removeItem('token')
+    if (!getSession()) { return }
+    logoutSession()
+    this.setLoginInfo(null, false)
+    this.router.navigate(['/'])
   }
 
-
-  get isLoggedIn(): boolean {
-    if (this.user) {
-      return true
-    } else {
-      return false
-    }
+  setLoginInfo(user: IUser | null, status: boolean) {
+    return (
+      this.user = user,
+      this.isLogged = status
+    );
   }
+
 
 }
