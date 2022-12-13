@@ -15,8 +15,8 @@ async function register(email, username, password) {
         email,
         hashedPassword: await bcrypt.hash(password, 10)
     });
-    let token = createToken(user)
-    return token
+
+    return createToken(user)
 }
 
 async function login(email, password) {

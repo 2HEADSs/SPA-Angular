@@ -4,7 +4,6 @@ const cors = require('./middlewares/cors')
 const { mongoose } = require('mongoose');
 const session = require('./middlewares/session');
 const router = require('./routes');
-
 const connectionString = 'mongodb://127.0.0.1:27017/motorcycle';
 
 const initDB = () => mongoose.connect(connectionString)

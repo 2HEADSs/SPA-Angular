@@ -13,7 +13,7 @@ bikeController.get('/', async (req, res) => {
 });
 
 bikeController.get('/my-bikes', async (req, res) => {
-    console.log(req.user._id);
+    console.log(req.user);
     const bikes = await getByUserId(req.user._id);
     res.status(200).json(bikes)
 });
@@ -22,6 +22,7 @@ bikeController.post('/', async (req, res) => {
     try {
         const data = Object.assign({ _ownerId: req.user._id }, req.body)
         const bike = await create(data);
+        //todo error
         res.json(bike)
     } catch (err) {
         // const message = parseError(err)
@@ -68,7 +69,7 @@ bikeController.delete('/:id', async (req, res) => {
 });
 
 bikeController.get('/myBikes', async (req, res) => {
-
+    console.log(req.user);
     const bikes = await getMyBikes(req.user._id)
     return res.status(200).json(bikes)
 })
