@@ -7,7 +7,7 @@ import { BikesListComponent } from './bikes-list/bikes-list.component';
 import { CreateBikesComponent } from './create-bikes/create-bikes.component';
 import { EditComponent } from './edit/edit.component';
 import { MyBikesComponent } from './my-bikes/my-bikes.component';
-
+//todo guard
 const routes: Routes = [
   {
     path: 'bikes',
