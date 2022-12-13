@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 import { BikesService } from '../bikes.service';
 
 
@@ -24,14 +25,17 @@ export class CreateBikesComponent {
 
   })
 
-  constructor(private formBuilder: FormBuilder, private bikesService: BikesService) { }
+  constructor(private formBuilder: FormBuilder, private bikesService: BikesService, private router: Router) { }
 
   createHandler(): void {
     const { brand, model, year, power, price, description, img } = this.createFormGroup.value
     const bike = { brand, model, year, power, price, description, img }
 
     this.bikesService.createBike(bike).subscribe({
-      next: (a) => console.log(a + '---||||----create-bikes component'),
+      next: (bike) => {
+        if (!bike) { return }
+        this.router.navigate(['/bike/catalog'])
+      },
       error: (err) => {
         console.log(err.error.error);
         this.errors = err.error.error
