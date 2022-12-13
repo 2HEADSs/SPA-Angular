@@ -1,6 +1,6 @@
 import { Token } from "@angular/compiler";
 import { Injectable } from "@angular/core";
-import { CanActivate, Router } from "@angular/router";
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from "@angular/router";
 import { AuthService } from "src/app/auth/auth.service";
 
 @Injectable({
@@ -8,16 +8,23 @@ import { AuthService } from "src/app/auth/auth.service";
 })
 
 export class HasUser implements CanActivate {
-//todo one more check - rest request
-    constructor(private authService: AuthService, private router: Router) { }
+    //todo one more check - rest request
+    constructor(private authService: AuthService, private router: Router, private state: RouterStateSnapshot) { }
 
-    canActivate() {
-        const token = localStorage.getItem('token')
-        if (token == null) {
-            return true
-            
-        }
-        this.router.navigate(['/']);
-        return false;
+
+    canContoniue(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+        return this.checkIfAuth() || this.router.createUrlTree(["/"]);
+    }
+
+    checkIfAuth(): boolean {
+        //     if (!this.authService.isLogged) {
+        //         this.authService.errorString = null
+        //         return true
+        //     }
+
+        //     this.authService.errorString = 'You are already logged in!'
+        //     return false;
+        // }
+        return true
     }
 }
