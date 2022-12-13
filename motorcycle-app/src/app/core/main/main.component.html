@@ -1,5 +1,12 @@
-<div id="main-page">
-
+<div *ngIf="!authService.errorString" id="main-page">
     <h1>Buy the motorcycle of your life!!!</h1>
-
 </div>
+
+<div *ngIf="authService.errorString" class="error-container">
+    <p class="error-message">
+      {{authService.errorString}}
+      <button class="button" (click)="authService.errorString = null">
+        OK
+      </button>
+    </p>
+  </div>
