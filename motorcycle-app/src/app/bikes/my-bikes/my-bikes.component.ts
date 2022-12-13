@@ -7,10 +7,10 @@ import { BikesService } from '../bikes.service';
   templateUrl: './my-bikes.component.html',
   styleUrls: ['./my-bikes.component.css']
 })
-export class MyBikesComponent  {
+export class MyBikesComponent {
 
 
-  bikesList: IBike[] | null = [];
+  bikesList: IBike[] | null = null;
   hasBikes: boolean = false
 
   constructor(private bikesSerice: BikesService) { }
@@ -18,6 +18,7 @@ export class MyBikesComponent  {
   ngOnInit(): void {
     this.bikesSerice.loadMyBikes().subscribe({
       next: (bikes) => {
+        if (!bikes) { return }
         this.bikesList = bikes
         if (this.bikesList.length > 0) {
           this.hasBikes = true;
