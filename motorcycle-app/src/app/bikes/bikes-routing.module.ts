@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HasUser } from '../shared/routeGards/hasUser.gaurd';
-import { IsGuest } from '../shared/routeGards/isGuest.guards';
 import { BikeDetailsComponent } from './bike-details/bike-details.component';
 import { BikesListComponent } from './bikes-list/bikes-list.component';
 import { CreateBikesComponent } from './create-bikes/create-bikes.component';
