@@ -55,9 +55,7 @@ bikeController.get('/myBikes', async (req, res) => {
 })
 
 bikeController.delete('/:id', async (req, res) => {
-    console.log(req);
     const bike = await getById(req.params.id);
-    console.log(bike);
     if (req.user._id != bike._ownerId._id) {
         return res.status(403).json({ message: 'You cannot modify this record' })
     }

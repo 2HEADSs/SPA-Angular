@@ -4,7 +4,7 @@
 
 <div *ngIf="authService.errorString" class="error-container">
   <h1 class="error-message">
-    sadsadsadassadsadasdsadasdsa{{authService.errorString}}
+    {{authService.errorString}}
     <button class="button" [routerLink]="['/']" (click)="authService.errorString = null">
       HOME
     </button>

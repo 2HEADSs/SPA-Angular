@@ -45,14 +45,12 @@ export class EditComponent implements OnInit {
   createHandler(): void {
     const { brand, model, year, power, price, description, img } = this.editFormGroup.value
     const body = { brand, model, year, power, price, description, img }
-    console.log(body);
     
 
     this.bikesService.updateBike(body, this.id).subscribe({
       next: (bike) => {
         if (!bike) { return }
         this.router.navigate([`/bikes/details/${this.id}`])
-        console.log(bike);
         
       },
       error: (err) => {
