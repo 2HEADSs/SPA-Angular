@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HasUser } from '../shared/guards/hasUser.guard';
 import { BikeDetailsComponent } from './bike-details/bike-details.component';
 import { BikesListComponent } from './bikes-list/bikes-list.component';
 import { CreateBikesComponent } from './create-bikes/create-bikes.component';
@@ -17,14 +18,17 @@ const routes: Routes = [
       {
         path: 'create',
         component: CreateBikesComponent,
+        canActivate: [HasUser]
       },
       {
         path: 'my-bikes',
         component: MyBikesComponent,
+        canActivate: [HasUser]
       },
       {
         path: 'edit/:id',
         component: EditComponent,
+        canActivate: [HasUser]
       },
       {
         path: 'details/:id',
