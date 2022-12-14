@@ -9,7 +9,6 @@ bikeController.get('/', async (req, res) => {
 });
 
 bikeController.get('/my-bikes', async (req, res) => {
-    console.log(req.user);
     const bikes = await getByUserId(req.user._id);
     res.status(200).json(bikes)
 });
@@ -22,7 +21,7 @@ bikeController.post('/', async (req, res) => {
         res.json(bike)
     } catch (err) {
         // const message = parseError(err)
-        console.log(err + 'errr');
+
         res.status(400).json({ error: err.message })
     }
     res.end()
@@ -35,6 +34,7 @@ bikeController.get('/:id', async (req, res) => {
 
 bikeController.put('/:id', async (req, res) => {
 const bike = await getById(req.params.id);
+
     // todo parse token
     if (req.user._id != bike._ownerId._id) {
         return res.status(403).json({ message: 'You cannot modify this record' })
@@ -50,7 +50,6 @@ const bike = await getById(req.params.id);
 });
 
 bikeController.get('/myBikes', async (req, res) => {
-    console.log(req.user);
     const bikes = await getMyBikes(req.user._id)
     return res.status(200).json(bikes)
 })
@@ -59,7 +58,7 @@ bikeController.delete('/:id', async (req, res) => {
     console.log(req);
     const bike = await getById(req.params.id);
     console.log(bike);
-    if (req.user._id != item._ownerId) {
+    if (req.user._id != bike._ownerId._id) {
         return res.status(403).json({ message: 'You cannot modify this record' })
     }
     try {

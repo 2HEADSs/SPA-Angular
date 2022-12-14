@@ -1,7 +1,6 @@
 const { parseToken } = require("../service/userService");
 
 module.exports = () => (req, res, next) => {
-console.log(req.headers);
     const token = req.headers['x-authorization'];
 
     if (token) {

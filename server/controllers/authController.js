@@ -10,7 +10,7 @@ authController.post('/register', async (req, res) => {
         res.status(201).json(token)
         res.end()
     } catch (error) {
-        console.log(error);
+
         res.status(400).json({ error: error.message })
     }
 })
@@ -23,7 +23,6 @@ authController.post('/login', async (req, res) => {
             throw new Error('Unable to register with this credential!!!')
         }
 
-        console.log(token.accessToken);
         res.status(200).json(token)
         res.end()
     } catch (error) {

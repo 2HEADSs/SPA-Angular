@@ -21,7 +21,6 @@ export class AuthService {
 
   getUser() {
     return this.http.get<IUser>(`${apiUrl}/auth/user`,).pipe(tap((userData) => {
-      console.log(userData + 'getUser');
 
     }))
   }

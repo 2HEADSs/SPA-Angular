@@ -30,19 +30,21 @@ export class BikesService {
   }
 
   createBike(bike: {},) {
-    console.log(bike);
 
     return this.httpClient.post(`${apiUrl}/bikes`, bike, { headers: { 'x-authorization': getSession().accessToken } })
   }
 
   updateBike(bike: {}, id: string) {
 
-    return this.httpClient.put(`${apiUrl}/bikes/${id}`, bike, { headers: { 'x-authorization': getSession().accessToken } })
+    return this.httpClient.put(`${apiUrl}/bikes/${id}`, bike,
+      { headers: { 'x-authorization': getSession().accessToken } })
   }
 
   deleteBike(id: string) {
-    return this.httpClient.put(`${apiUrl}/bikes/${id}`, { headers: { 'x-authorization': getSession().accessToken } })
+    return this.httpClient.delete(`${apiUrl}/bikes/${id}`,
+      { headers: { 'x-authorization': getSession().accessToken } })
   }
+
 
 
 }

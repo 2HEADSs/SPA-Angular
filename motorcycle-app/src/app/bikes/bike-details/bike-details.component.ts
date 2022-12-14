@@ -25,11 +25,9 @@ export class BikeDetailsComponent implements OnInit {
 
         this.singleBike = bike
         //todo errorString = error.message
-
         if (this.singleBike._ownerId._id === this.authService?.user?._id) {
           this.isOwner = true
         }
-
 
       },
       error: (err) => {
@@ -38,14 +36,10 @@ export class BikeDetailsComponent implements OnInit {
     })
   }
   deleteBike():void{
-    const id = this.singleBike?._id
-    console.log(id);
-    
+    const id = this.singleBike?._id  
     
     this.bikesService.deleteBike(id!).subscribe({
-      next: (a) => { 
-        console.log(a);
-        
+      next: () => {        
         this.router.navigate(['/bikes/catalog'])
       },
       error: (err) => {
