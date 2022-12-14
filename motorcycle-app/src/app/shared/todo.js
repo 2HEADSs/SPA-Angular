@@ -7,5 +7,7 @@
 5. PARSE ERRRORS FOR SERVER
 6. Rendering server errors
 7. Search page
+8. Add documentation - gitHub
+9. 
 
 */
