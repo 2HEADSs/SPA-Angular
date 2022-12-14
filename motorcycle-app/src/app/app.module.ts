@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
 import { BikesModule } from './bikes/bikes.module';
 import { CoreModule } from './core/core.module';
+import { HasUser } from './shared/guards/hasUser.guard';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { CoreModule } from './core/core.module';
     RouterModule,
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [HasUser],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
