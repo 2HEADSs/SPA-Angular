@@ -41,7 +41,7 @@ html {
     padding: 15px 0;
     font-size: 16px;
     color: #fff;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     border: none;
     border-bottom: 1px solid #fff;
     outline: none;
@@ -52,7 +52,7 @@ html {
     position: absolute;
     top: 0;
     left: 0;
-    padding: 30px 0;
+    padding: 25px 0;
     font-size: 16px;
     color: red;
     pointer-events: none;
@@ -61,7 +61,7 @@ html {
   
   .create-box .bike-box input:focus~label,
   .create-box .bike-box input:valid~label {
-    top: -20px;
+    top: -30px;
     left: 0;
     color: #f40b03;
     font-size: 18px;
