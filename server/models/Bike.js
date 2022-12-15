@@ -36,7 +36,7 @@ const bikeSchema = new Schema({
         }
     },
     _ownerId: { type: ObjectId, ref: 'User', required: true },
-    likes: { type: [Types.ObjectId], ref: 'User', default: [] }
+    likes: { type: ObjectId, ref: 'User', default: [] }
 });
 
 
