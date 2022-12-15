@@ -7,8 +7,9 @@
 
         <li><a routerLink="/bikes/catalog">All Bikes</a></li>
         <ng-container *ngIf="authService.isLogged">
-            <li><a routerLink="/bikes/create">Add Bike</a></li>
             <li><a routerLink="/bikes/my-bikes">My Bikes</a></li>
+            <li><a routerLink="/bikes/create">Add Bike</a></li>
+            <li><a routerLink="/bikes/my-likes">My Likes</a></li>
             <li><a routerLink="/auth/logout">Logout</a></li>
         </ng-container>
         <ng-container *ngIf="!authService.isLogged">

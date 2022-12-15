@@ -6,6 +6,7 @@ import { BikesListComponent } from './bikes-list/bikes-list.component';
 import { CreateBikesComponent } from './create-bikes/create-bikes.component';
 import { EditComponent } from './edit/edit.component';
 import { MyBikesComponent } from './my-bikes/my-bikes.component';
+import { MyLikesComponent } from './my-likes/my-likes.component';
 //todo guard
 const routes: Routes = [
   {
@@ -23,6 +24,11 @@ const routes: Routes = [
       {
         path: 'my-bikes',
         component: MyBikesComponent,
+        canActivate: [HasUser]
+      },
+      {
+        path: 'my-likes',
+        component: MyLikesComponent,
         canActivate: [HasUser]
       },
       {

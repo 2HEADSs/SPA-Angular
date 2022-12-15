@@ -50,4 +50,9 @@ export class BikesService {
       { headers: { 'x-authorization': getSession().accessToken } })
   }
 
+  loadMyLikes() {
+
+    return this.httpClient.get<IBike[]>(`${apiUrl}/bikes/my-likes`, { headers: { 'x-authorization': getSession().accessToken } })
+  }
+
 }

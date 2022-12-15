@@ -9,6 +9,7 @@ import { EditComponent } from './edit/edit.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MyBikesComponent } from './my-bikes/my-bikes.component';
+import { MyLikesComponent } from './my-likes/my-likes.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { MyBikesComponent } from './my-bikes/my-bikes.component';
     CreateBikesComponent,
     BikesListComponent,
     EditComponent,
-    MyBikesComponent
+    MyBikesComponent,
+    MyLikesComponent
   ],
   imports: [
     CommonModule,
