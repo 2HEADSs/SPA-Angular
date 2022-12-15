@@ -1,6 +1,6 @@
 const bikeController = require('express').Router();
 
-const { getAll, create, getById, update, deleteById, getByUserId, getMyBikes, likeBike } = require('../service/bikeService');
+const { getAll, create, getById, update, deleteById, getByUserId, getMyBikes, likeBike, getMyLikes } = require('../service/bikeService');
 
 
 bikeController.get('/', async (req, res) => {
@@ -26,6 +26,17 @@ bikeController.post('/', async (req, res) => {
     }
     res.end()
 });
+
+bikeController.get('/my-likes', async (req, res) => {
+
+    try {
+        const bikes = await getMyLikes(req.user._id)
+        return res.status(200).json(bikes)
+    } catch (error) {
+        console.log(error);
+        res.status(400).json({ error: error.message })
+    }
+})
 
 bikeController.get('/:id', async (req, res) => {
     try {
@@ -63,7 +74,7 @@ bikeController.get('/myBikes', async (req, res) => {
         const bikes = await getMyBikes(req.user._id)
         return res.status(200).json(bikes)
     } catch (error) {
-        res.status(400).json({ error: err.message })
+        res.status(400).json({ error: error.message })
     }
 })
 
@@ -99,6 +110,8 @@ bikeController.get('/like/:id', async (req, res) => {
 
     }
 });
+
+
 
 
 module.exports = {

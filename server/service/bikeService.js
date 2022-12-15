@@ -45,6 +45,19 @@ async function likeBike(bikeId, userId) {
     return existing.save()
 }
 
+async function getMyLikes(id) {
+
+    const bikes = await Bike.find({})
+    let arr = [];
+    bikes.map(x => {
+        if (!(x.likes.includes(id))) {
+            arr.push(x)
+        }
+    })
+    return arr;
+
+}
+
 
 module.exports = {
     getAll,
@@ -54,5 +67,6 @@ module.exports = {
     deleteById,
     getByUserId,
     getMyBikes,
-    likeBike
+    likeBike,
+    getMyLikes
 }
