@@ -55,15 +55,12 @@ export class BikeDetailsComponent implements OnInit {
   }
 
   likeBike(): void {
-    const id = this.singleBike?._id
-    console.log(id);
-    
+    const id = this.singleBike?._id   
     this.bikesService.likeBike(id!).subscribe({
       next: () => {
         this.router.navigate([`/bikes/catalog`])
       },
       error: (err) => {
-        console.log(err.error);
         this.errors = err.error.error
       }
 

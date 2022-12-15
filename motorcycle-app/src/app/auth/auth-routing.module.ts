@@ -4,7 +4,6 @@ import { HasUser } from '../shared/guards/hasUser.guard';
 import { IsGuest } from '../shared/guards/isGuest.guard';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
-import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
 //todo guard
 const routes: Routes = [
@@ -23,16 +22,9 @@ const routes: Routes = [
 
             },
             {
-                path: 'profile',
-                component: ProfileComponent,
-                canActivate:[HasUser]
-            },
-            {
                 path: 'logout',
                 component: LogoutComponent,
                 canActivate:[HasUser]
-
-
             },
         ]
     }
