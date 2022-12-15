@@ -39,6 +39,12 @@ async function getMyBikes(id) {
     return await Bike.find({ _ownerId: id })
 }
 
+async function likeBike(bikeId, userId) {
+    const existing = await Bike.findById(bikeId)
+    existing.likes.push(userId);
+    return existing.save()
+}
+
 
 module.exports = {
     getAll,
@@ -47,5 +53,6 @@ module.exports = {
     update,
     deleteById,
     getByUserId,
-    getMyBikes
+    getMyBikes,
+    likeBike
 }

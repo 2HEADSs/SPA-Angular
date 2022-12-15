@@ -61,7 +61,7 @@ bikeController.put('/:id', async (req, res) => {
 bikeController.get('/myBikes', async (req, res) => {
     try {
         const bikes = await getMyBikes(req.user._id)
-        return res.status(200).json(bikes)   
+        return res.status(200).json(bikes)
     } catch (error) {
         res.status(400).json({ error: err.message })
     }
@@ -78,6 +78,28 @@ bikeController.delete('/:id', async (req, res) => {
     } catch (err) {
         res.status(400).json({ err: err.message })
     }
+});
+
+bikeController.get('/like/:id', async (req, res) => {
+    try {
+        const bike = await getById(req.params.id)
+        if (bike._ownerId._id != req.user._id
+            && bike.likes.map(x => x.includes(req.user?._id) == false)) {
+            try {
+                await likeBike(req.params.id, req.user._id);
+                const bike = await getById(req.params.id)
+                return res.status(200).json(bike)
+            } catch (error) {
+                res.status(400).json({ err: err.message })
+            }
+        }
+    } catch (error) {
+        res.status(400).json({ err: err.message })
+
+    }
+
+
+
 });
 
 
