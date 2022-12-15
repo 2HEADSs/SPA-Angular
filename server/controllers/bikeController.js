@@ -19,7 +19,7 @@ bikeController.post('/', async (req, res) => {
         const bike = await create(data);
         //todo error
         res.json(bike)
-    } catch (err) {
+    } catch (error) {
         // const message = parseError(err)
 
         res.status(400).json({ error: err.message })
@@ -28,12 +28,21 @@ bikeController.post('/', async (req, res) => {
 });
 
 bikeController.get('/:id', async (req, res) => {
-    const bike = await getById(req.params.id)
-    return res.status(200).json(bike)
+    try {
+        const bike = await getById(req.params.id)
+        if (!bike) {
+            throw new Error('Bike does not exist')
+
+        }
+        return res.status(200).json(bike)
+    } catch (error) {
+        res.status(400).json({ error })
+
+    }
 });
 
 bikeController.put('/:id', async (req, res) => {
-const bike = await getById(req.params.id);
+    const bike = await getById(req.params.id);
 
     // todo parse token
     if (req.user._id != bike._ownerId._id) {
@@ -50,20 +59,23 @@ const bike = await getById(req.params.id);
 });
 
 bikeController.get('/myBikes', async (req, res) => {
-    const bikes = await getMyBikes(req.user._id)
-    return res.status(200).json(bikes)
+    try {
+        const bikes = await getMyBikes(req.user._id)
+        return res.status(200).json(bikes)   
+    } catch (error) {
+        res.status(400).json({ error: err.message })
+    }
 })
 
 bikeController.delete('/:id', async (req, res) => {
     const bike = await getById(req.params.id);
     if (req.user._id != bike._ownerId._id) {
-        return res.status(403).json({ message: 'You cannot modify this record' })
+        return res.status(403).json({ err: err.message })
     }
     try {
         await deleteById(req.params.id);
         res.status(204).end()
     } catch (err) {
-        // const message = parseError(err)
         res.status(400).json({ err: err.message })
     }
 });

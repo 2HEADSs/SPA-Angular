@@ -12,7 +12,7 @@
       
     </div>
     <div class="user-box">
-      <input formControlName="password" type="text" name="password" required>
+      <input formControlName="password" type="password" name="password" required>
       <label>Password</label>
       <ng-container *ngIf="loginFormGroup.get('password')?.touched && loginFormGroup.get('password')?.invalid">
         <p class="error">Password must be at least 5 characters</p>

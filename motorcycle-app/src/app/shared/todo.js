@@ -1,6 +1,5 @@
 //todo
 /*
-1. Add guard
 2. Add img on 404
 3. fix errors from server
 4. add email validator in rest

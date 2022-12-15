@@ -31,7 +31,9 @@ export class BikeDetailsComponent implements OnInit {
 
       },
       error: (err) => {
+        this.authService.errorString = err.message;
         console.log(err);
+        this.router.navigate(['/'])
       }
     })
   }
