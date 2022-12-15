@@ -1,0 +1,52 @@
+<h1 class="main-text">All bikes</h1>
+
+<form class="search" [formGroup]="searchFormGroup" (ngSubmit)="searchHandler()">
+    <input formControlName="search" type="search" placeholder="Search brand...." required>
+    <button type="submit">Search</button>
+</form>
+
+
+
+<!--  to check with empy database-->
+<ng-container *ngIf="!hasSearch">
+    <h1 *ngIf="!bikesList">Loading bikes...</h1>
+    <h1 *ngIf="!hasBikes">There is no bikes for sale!!!</h1>
+    <div class="container">
+        <div *ngFor="let bike of bikesList" class="card"
+            style="background: url('{{bike.img}}'); background-size:100% 100%">
+            <div class="border">
+
+                <a [routerLink]="['/bikes/details', bike._id]" class="details">Details</a>
+                <div class="icons">
+                    <i class="fa fa-codepen" aria-hidden="true"></i>
+                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                    <i class="fa fa-dribbble" aria-hidden="true"></i>
+                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>
+
+
+
+<ng-container *ngIf="hasSearch">
+    <h1 *ngIf="!bikesList">Loading bikes...</h1>
+    <h1 *ngIf="!hasBikes">There is no bikes for sale!!!</h1>
+    <div class="container">
+        <div *ngFor="let bike of searchList" class="card"
+            style="background: url('{{bike.img}}'); background-size:100% 100%">
+            <div class="border">
+                <a [routerLink]="['/bikes/details', bike._id]" class="details">Details</a>
+                <div class="icons">
+                    <i class="fa fa-codepen" aria-hidden="true"></i>
+                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                    <i class="fa fa-dribbble" aria-hidden="true"></i>
+                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>

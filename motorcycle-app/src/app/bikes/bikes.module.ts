@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MyBikesComponent } from './my-bikes/my-bikes.component';
 import { MyLikesComponent } from './my-likes/my-likes.component';
+import { SearchComponent } from './search/search.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { MyLikesComponent } from './my-likes/my-likes.component';
     BikesListComponent,
     EditComponent,
     MyBikesComponent,
-    MyLikesComponent
+    MyLikesComponent,
+    SearchComponent
   ],
   imports: [
     CommonModule,
