@@ -12,14 +12,13 @@ import { BikesService } from '../bikes.service';
 export class MyLikesComponent implements OnInit {
 
   bikesList: IBike[] | null = null;
-  hasBikes: boolean = true
+  hasBikes: boolean = false
 
   constructor(private bikesSerice: BikesService, private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
     this.bikesSerice.loadMyLikes().subscribe({
       next: (bikes) => {
-        console.log(bikes);
 
         this.bikesList = bikes
         if (this.bikesList.length > 0) {
@@ -27,8 +26,7 @@ export class MyLikesComponent implements OnInit {
         }
       },
       error: (err) => {
-        console.log(err);
-        
+       
         this.authService.errorString = err.name
         this.router.navigate(['/'])
 

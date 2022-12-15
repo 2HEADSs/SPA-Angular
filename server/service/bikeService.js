@@ -46,11 +46,11 @@ async function likeBike(bikeId, userId) {
 }
 
 async function getMyLikes(id) {
-
+    ;
     const bikes = await Bike.find({})
     let arr = [];
     bikes.map(x => {
-        if (!(x.likes.includes(id))) {
+        if (!!(x.likes.includes(id))) {
             arr.push(x)
         }
     })

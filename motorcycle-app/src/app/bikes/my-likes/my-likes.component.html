@@ -1,8 +1,9 @@
-<!-- <h1>Click on chosen bike for details!</h1> -->
+<h1 class="main-text">All liked bikes</h1>
+
 
 <!--  to check with empy database-->
-<h1 *ngIf="!bikesList">Loading bikes...</h1>
-<h1 *ngIf="!hasBikes">There is no bikes for sale!!!</h1>
+<h1 class="" *ngIf="!bikesList">Loading bikes...</h1>
+<h1 class="empty" *ngIf="!hasBikes">You don't have liked bikes!</h1>
 <div class="container">
     <div *ngFor="let bike of bikesList" class="card" style="background: url('{{bike.img}}'); background-size:100% 100%">
         <div class="border">
