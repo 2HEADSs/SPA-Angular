@@ -14,34 +14,36 @@ export class BikeDetailsComponent implements OnInit {
   singleBike: IBike | null = null
   isOwner: Boolean = false;
   errors: string | undefined = undefined;
+  hasLike: Boolean = false
 
 
-  constructor(private bikesService: BikesService, private activatedRoute: ActivatedRoute, private authService: AuthService, private router:Router) { }
+  constructor(private bikesService: BikesService, private activatedRoute: ActivatedRoute, private authService: AuthService, private router: Router) { }
   ngOnInit(): void {
     let id = this.activatedRoute.snapshot.params['id']
 
     this.bikesService.loadOneBike(id).subscribe({
       next: (bike) => {
-
+        // const user = this.authService?.user?._id
         this.singleBike = bike
         //todo errorString = error.message
         if (this.singleBike._ownerId._id === this.authService?.user?._id) {
           this.isOwner = true
         }
+        this.hasLike = this.singleBike.likes.some((userId) => userId == this.authService.user?._id)
+
 
       },
       error: (err) => {
         this.authService.errorString = err.message;
-        console.log(err);
         this.router.navigate(['/'])
       }
     })
   }
-  deleteBike():void{
-    const id = this.singleBike?._id  
-    
+  deleteBike(): void {
+    const id = this.singleBike?._id
+
     this.bikesService.deleteBike(id!).subscribe({
-      next: () => {        
+      next: () => {
         this.router.navigate(['/bikes/catalog'])
       },
       error: (err) => {
@@ -50,8 +52,22 @@ export class BikeDetailsComponent implements OnInit {
       }
 
     })
-    
+  }
 
+  likeBike(): void {
+    const id = this.singleBike?._id
+    console.log(id);
+    
+    this.bikesService.likeBike(id!).subscribe({
+      next: () => {
+        this.router.navigate([`/bikes/catalog`])
+      },
+      error: (err) => {
+        console.log(err.error);
+        this.errors = err.error.error
+      }
+
+    })
   }
 
 }

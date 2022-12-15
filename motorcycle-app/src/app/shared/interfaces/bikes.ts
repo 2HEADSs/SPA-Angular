@@ -10,6 +10,7 @@ export interface IBike {
     year: number,
     price: number,
     _ownerId: IUser,
+    likes: []
 
 }
 

@@ -2,17 +2,10 @@ html {
     height: 100%;
   }
   
-  body {
-    
-    margin: 0;
-    padding: 30%;
-    font-family: sans-serif;
-    background: linear-gradient(#141e30, #243b55);
-  }
   
   .create-box {
     position: absolute;
-    top: 45%;
+    top: 42%;
     left: 50%;
     height: 70%;
     width: 400px;
@@ -38,7 +31,7 @@ html {
   
   .create-box .bike-box input {
     width: 100%;
-    padding: 15px 0;
+    padding: 14px 0;
     font-size: 16px;
     color: #fff;
     margin-bottom: 30px;

@@ -1,6 +1,6 @@
 const bikeController = require('express').Router();
 
-const { getAll, create, getById, update, deleteById, getByUserId, getMyBikes } = require('../service/bikeService');
+const { getAll, create, getById, update, deleteById, getByUserId, getMyBikes, likeBike } = require('../service/bikeService');
 
 
 bikeController.get('/', async (req, res) => {
@@ -21,8 +21,8 @@ bikeController.post('/', async (req, res) => {
         res.json(bike)
     } catch (error) {
         // const message = parseError(err)
-
-        res.status(400).json({ error: err.message })
+        console.log(error);
+        res.status(400).json({ error: error.message })
     }
     res.end()
 });
@@ -88,18 +88,16 @@ bikeController.get('/like/:id', async (req, res) => {
             try {
                 await likeBike(req.params.id, req.user._id);
                 const bike = await getById(req.params.id)
+
                 return res.status(200).json(bike)
             } catch (error) {
-                res.status(400).json({ err: err.message })
+                res.status(400).json({ err: error.message })
             }
         }
     } catch (error) {
-        res.status(400).json({ err: err.message })
+        res.status(400).json({ err: error.message })
 
     }
-
-
-
 });
 
 

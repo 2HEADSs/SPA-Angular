@@ -25,6 +25,16 @@
                         <button class="btn btn-seconday" (click)="deleteBike()">Delete</button>
                     </div>
                 </ng-container>
+                <ng-container *ngIf="!hasLike">
+                    <div class="actions-edit">
+                        <button class="btn btn-seconday" (click)="likeBike()">Like</button>
+                    </div>
+                </ng-container>
+                <ng-container *ngIf="hasLike">
+                    <div class="actions-delete">
+                        <button class="btn btn-seconday">Already liked</button>
+                    </div>
+                </ng-container>
             </div>
         </div>
     </div>

@@ -45,6 +45,9 @@ export class BikesService {
       { headers: { 'x-authorization': getSession().accessToken } })
   }
 
-
+  likeBike(id: string) {
+    return this.httpClient.get(`${apiUrl}/bikes/like/${id}`,
+      { headers: { 'x-authorization': getSession().accessToken } })
+  }
 
 }
