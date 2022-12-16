@@ -16,16 +16,18 @@ export class BikeDetailsComponent implements OnInit {
   errors: string | undefined = undefined;
   hasLike: Boolean = false
   hasUser: Boolean = false
+  hasBike: Boolean = false
 
 
   constructor(private bikesService: BikesService, private activatedRoute: ActivatedRoute, private authService: AuthService, private router: Router) { }
   ngOnInit(): void {
     let id = this.activatedRoute.snapshot.params['id'];
     console.log(this.hasUser = !!(this.authService?.user));
-    
+
 
     this.bikesService.loadOneBike(id).subscribe({
       next: (bike) => {
+        this.hasBike = true
         // const user = this.authService?.user?._id
         this.singleBike = bike
         //todo errorString = error.message
@@ -37,7 +39,10 @@ export class BikeDetailsComponent implements OnInit {
 
       },
       error: (err) => {
-        this.authService.errorString = err.message;
+        this.hasBike = false
+        console.log(err);
+
+        this.authService.errorString = 'Sorry we can\'t load this bike'
         this.router.navigate(['/'])
       }
     })
