@@ -2,6 +2,13 @@
 @import url('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css');
 
 
+
+h1 {
+  position: absolute;
+  left: 49%;
+  color: red;
+}
+
 .details {
   color: white;
 }
