@@ -27,6 +27,8 @@ export class SearchComponent implements OnInit {
   searchHandler() {
     const { search } = this.searchFormGroup.value
     const string = this.searchFormGroup.value
+    this.hasSearch = false
+    this.searchList = []
     if (string.search == '') {
       this.hasSearch = false
     } else {
@@ -34,7 +36,7 @@ export class SearchComponent implements OnInit {
 
       console.log(string.search);
       this.bikesList?.map((x) => {
-        if (x.model.toLowerCase().includes(string.search.toLowerCase())) {
+        if (x.brand.toLowerCase().includes(string.search.toLowerCase())) {
           this.searchList.push(x)
         }
       })
