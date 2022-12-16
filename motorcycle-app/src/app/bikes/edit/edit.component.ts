@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router';
 import { IBike } from 'src/app/shared/interfaces/bikes';
 import { BikesService } from '../bikes.service';
+import { AuthService } from 'src/app/auth/auth.service';
 let id = ''
 
 @Component({
@@ -27,7 +28,7 @@ export class EditComponent implements OnInit {
 
   })
 
-  constructor(private bikesService: BikesService, private formBuilder: FormBuilder, private activatedRoute: ActivatedRoute, private router: Router) { }
+  constructor(private authService:AuthService,private bikesService: BikesService, private formBuilder: FormBuilder, private activatedRoute: ActivatedRoute, private router: Router) { }
   ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.params['id']
 
@@ -55,6 +56,8 @@ export class EditComponent implements OnInit {
       },
       error: (err) => {
         console.log(err);
+        this.authService.errorString = 'Sorry we can\'t load bikes from DataBase'
+        this.router.navigate(['/'])
       }
 
     })
