@@ -1,44 +1,49 @@
-<section class=" details">
-    <div class="container">
+<h1 *ngIf="!hasBike">Loading...</h1>
 
-        <div class="bike-info">
-            <div>
-                <img class="img" src={{singleBike?.img}} alt="car-image">
-            </div>
-            <div class="bike-details">
-                <h5 class="info">Bike details</h5>
-                <div class="lead">
-                    <p>Brand: {{singleBike?.brand}}</p>
-                    <p>Model: {{singleBike?.model}}</p>
-                    <p>Year: {{singleBike?.year}}</p>
-                    <p>Power: {{singleBike?.power}}HP</p>
-                    <p>Price: {{singleBike?.price}}BGN</p>
-                    <p>Owner: {{singleBike?._ownerId?.email}}</p>
+<ng-container *ngIf="hasBike">
+    <section class=" details">
+        <div class="container">
+
+            <div class="bike-info">
+                <div>
+                    <img class="img" src={{singleBike?.img}} alt="car-image">
                 </div>
+                <div class="bike-details">
+                    <h5 class="info">Bike details</h5>
+                    <div class="lead">
+                        <p>Brand: {{singleBike?.brand}}</p>
+                        <p>Model: {{singleBike?.model}}</p>
+                        <p>Year: {{singleBike?.year}}</p>
+                        <p>Power: {{singleBike?.power}}HP</p>
+                        <p>Price: {{singleBike?.price}}BGN</p>
+                        <p>Owner: {{singleBike?._ownerId?.email}}</p>
+                    </div>
 
-                <h5>Description: <span>{{singleBike?.description}}</span></h5>
-                <ng-container *ngIf="isOwner">
-                    <div class="actions-edit">
-                        <button class="btn btn-seconday" [routerLink]="['/bikes/edit', singleBike?._id]">Edit</button>
-                    </div>
-                    <div class="actions-delete">
-                        <button class="btn btn-seconday" (click)="deleteBike()">Delete</button>
-                    </div>
-                </ng-container>
-                <ng-container *ngIf="hasUser">
-                    <ng-container *ngIf="!hasLike">
+                    <h5>Description: <span>{{singleBike?.description}}</span></h5>
+                    <ng-container *ngIf="isOwner">
                         <div class="actions-edit">
-                            <button class="btn btn-seconday" (click)="likeBike()">Like</button>
+                            <button class="btn btn-seconday"
+                                [routerLink]="['/bikes/edit', singleBike?._id]">Edit</button>
                         </div>
-                    </ng-container>
-                    <ng-container *ngIf="hasLike">
                         <div class="actions-delete">
-                            <button class="btn btn-seconday">Already liked</button>
+                            <button class="btn btn-seconday" (click)="deleteBike()">Delete</button>
                         </div>
                     </ng-container>
-                </ng-container>
+                    <ng-container *ngIf="hasUser && !isOwner">
+                        <ng-container *ngIf="!hasLike">
+                            <div class="actions-edit">
+                                <button class="btn btn-seconday" (click)="likeBike()">Like</button>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="hasLike">
+                            <div class="actions-delete">
+                                <button class="btn btn-seconday">Already liked</button>
+                            </div>
+                        </ng-container>
+                    </ng-container>
 
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+</ng-container>
