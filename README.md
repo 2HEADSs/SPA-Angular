@@ -1,9 +1,11 @@
-Motorcycle
+Motorcycle:
+
 SPA  made for SoftUni-Angular course, created with Angular as FE, Node.js as BE and MongoDB as DB.
 
-![](Welcome%20Page.jpg)
+![](Welcome.jpg)
 
-Informaton
+Informaton:
+
 The app works as sale platform for motorcycles with basic functionality.
 Every user(not logged in) have access to : Home , All Bikes (catalog), Search, Details, Register and Login.
 Evry logged in user have acces to: Home, All Bikes (catalog), Search, My Bikes(if has liked bikes), Create, Edit(if has own bikes for edit) and Logout.
