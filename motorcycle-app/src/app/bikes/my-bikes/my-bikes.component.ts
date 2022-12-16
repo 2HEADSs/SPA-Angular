@@ -11,7 +11,7 @@ export class MyBikesComponent {
 
 
   bikesList: IBike[] | null = null;
-  hasBikes: boolean = false
+  hasBikes: boolean = true
 
   constructor(private bikesSerice: BikesService) { }
 
@@ -22,6 +22,8 @@ export class MyBikesComponent {
         this.bikesList = bikes
         if (this.bikesList.length > 0) {
           this.hasBikes = true;
+        } else {
+          this.hasBikes = false
         }
       },
       error: (err) => {
