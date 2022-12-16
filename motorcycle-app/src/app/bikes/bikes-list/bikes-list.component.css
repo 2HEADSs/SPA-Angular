@@ -90,14 +90,29 @@
 
 h1 {
     position: absolute;
-    left: 46%;
+    left: 49%;
+    color: red;
+}
+
+.empty {
+    position: absolute;
+    left: 41%;
+    top: 30%;
+    color: red;
+    font-size: 40px;
+}
+.loading {
+    position: absolute;
+    left: 47%;
+    top: 18%;
     color: red;
 }
 
 a {
     text-shadow:
-    -1px 0px 0px red,
-    1px 0px 0px red,
-    0px -1px 0px red,
-    0px 1px 0px red;color: blue;
-    }
+        -1px 0px 0px red,
+        1px 0px 0px red,
+        0px -1px 0px red,
+        0px 1px 0px red;
+    color: blue;
+}

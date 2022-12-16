@@ -20,16 +20,17 @@ export class BikesListComponent implements OnInit {
   ngOnInit(): void {
     this.bikesSerice.loadAllBike().subscribe({
       next: (bikes) => {
-        console.log(bikes);
-
         this.bikesList = bikes
         if (this.bikesList.length > 0) {
 
           this.hasBikes = true;
+        } else {
+          this.hasBikes = false;
+
         }
       },
       error: (err) => {
-        this.authService.errorString = err.name
+        this.authService.errorString = 'Sorry we can\'t load bikes from DataBase'
         this.router.navigate(['/'])
 
       }
