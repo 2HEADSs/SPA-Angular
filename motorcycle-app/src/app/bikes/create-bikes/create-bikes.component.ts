@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { BikesService } from '../bikes.service';
+import { AuthService } from 'src/app/auth/auth.service';
 
 
 @Component({
@@ -25,7 +26,7 @@ export class CreateBikesComponent {
 
   })
 
-  constructor(private formBuilder: FormBuilder, private bikesService: BikesService, private router: Router) { }
+  constructor(private authService: AuthService, private formBuilder: FormBuilder, private bikesService: BikesService, private router: Router) { }
 
   createHandler(): void {
     const { brand, model, year, power, price, description, img } = this.createFormGroup.value
@@ -38,7 +39,8 @@ export class CreateBikesComponent {
       },
       error: (err) => {
         console.log(err.error.error);
-        this.errors = err.error.error
+        this.authService.errorString = 'Sorry we can\'t add this bike!!!'
+        this.router.navigate(['/'])
       }
 
     })

@@ -39,7 +39,7 @@
 
         <div class="bike-box">
             <input formControlName="price" type="text">
-            <label>Price</label>
+            <label>Price/BGN</label>
             <ng-container *ngIf="createFormGroup.get('price')?.touched && createFormGroup.get('price')?.invalid">
                 <p class="error">Price must be positive number(0.01)! </p>
 
