@@ -16,6 +16,8 @@ export class SearchComponent implements OnInit {
   hasBikes: boolean = true
   hasSearch: boolean = false
   searchList: IBike[] = []
+  hasSearchList: Boolean = false
+  hasloadingSearch: Boolean = false
 
 
   searchFormGroup: FormGroup = this.formBuilder.group({
@@ -27,7 +29,8 @@ export class SearchComponent implements OnInit {
   searchHandler() {
     const { search } = this.searchFormGroup.value
     const string = this.searchFormGroup.value
-    this.hasSearch = false
+    this.hasSearch = true
+    this.hasloadingSearch = true
     this.searchList = []
     if (string.search == '') {
       this.hasSearch = false
@@ -40,6 +43,14 @@ export class SearchComponent implements OnInit {
           this.searchList.push(x)
         }
       })
+      this.hasloadingSearch = false
+      if (this.searchList.length > 0) {
+        this.hasSearchList = true
+      }else {
+        this.hasSearchList = false
+        this.hasloadingSearch = false
+
+      }
       this.hasSearch = true
     }
 

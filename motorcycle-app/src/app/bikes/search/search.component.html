@@ -9,8 +9,8 @@
 
 <!--  to check with empy database-->
 <ng-container *ngIf="!hasSearch">
-    <h1 *ngIf="!bikesList">Loading bikes...</h1>
-    <h1 *ngIf="!hasBikes">There is no bikes for sale!!!</h1>
+    <h1 class="loading" *ngIf="!bikesList">Loading bikes...</h1>
+    <h1 class="empty" *ngIf="!hasBikes">There is no bikes for sale!!!</h1>
     <div class="container">
         <div *ngFor="let bike of bikesList" class="card"
             style="background: url('{{bike.img}}'); background-size:100% 100%">
@@ -32,8 +32,8 @@
 
 
 <ng-container *ngIf="hasSearch">
-    <h1 *ngIf="!bikesList">Loading bikes...</h1>
-    <h1 *ngIf="!hasBikes">There is no bikes for sale!!!</h1>
+    <h1 class="loading" *ngIf="hasloadingSearch">Loading bikes...</h1>
+    <h1 class="empty" *ngIf="!hasSearchList">There is no bikes for sale!!!</h1>
     <div class="container">
         <div *ngFor="let bike of searchList" class="card"
             style="background: url('{{bike.img}}'); background-size:100% 100%">
