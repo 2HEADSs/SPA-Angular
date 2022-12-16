@@ -2,7 +2,7 @@ Motorcycle:
 
 SPA  made for SoftUni-Angular course, created with Angular as FE, Node.js as BE and MongoDB as DB.
 
-![](Welcome%20Page.jpg)
+![](Welcome.jpg)
 
 Informaton:
 
