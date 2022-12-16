@@ -49,3 +49,54 @@ button {
 
 
 
+/* <!-- HTML !-->
+<button class="button-1" role="button">Button 1</button> */
+.animate {
+  position: absolute;
+  top: 85%;
+  left: 5%;
+}
+/* .animate p {
+  position: absolute;
+  top: -250%;
+  left: 20%;
+} */
+
+.animate a {
+  position: absolute;
+  margin-top: -150%;
+  color: red;
+  font-size: 20px;
+}
+/* CSS */
+.animateBtn {
+  background-color: #f00808;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-1:hover,
+.button-1:focus {
+  background-color: #F082AC;
+}

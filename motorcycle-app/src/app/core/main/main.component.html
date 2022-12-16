@@ -2,6 +2,15 @@
   <h1 class="main-text">Buy the motorcycle of your life!!!</h1>
 </div>
 
+<div class="animate" *ngIf="!authService.errorString">
+  <div [@popOverState]="stateName">
+    <!-- <p> </p> -->
+    <a  href="https://github.com/2HEADSs" target="_blank"><img src="../../../assets/GitHub-Mark.png" width="80px">MyGithub</a>
+  </div>
+  <button class="animateBtn" (click)="toggle()">Click Me</button>
+</div>
+
+
 <div *ngIf="authService.errorString" class="error-container">
   <h1 class="error-message">
     {{authService.errorString}}

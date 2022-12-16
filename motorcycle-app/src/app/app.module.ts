@@ -9,12 +9,14 @@ import { AuthModule } from './auth/auth.module';
 import { BikesModule } from './bikes/bikes.module';
 import { CoreModule } from './core/core.module';
 import { HasUser } from './shared/guards/hasUser.guard';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 
 @NgModule({
   declarations: [
     AppComponent,
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     BikesModule,
     AuthModule,
