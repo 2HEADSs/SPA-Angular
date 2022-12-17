@@ -6,6 +6,8 @@ const session = require('./middlewares/session');
 const router = require('./routes');
 // const connectionString = 'mongodb://127.0.0.1:27017/motorcycle';
 const connectionString = 'mongodb+srv://2HEADS:icIwChZJhMBswg3N@cluster0.69tuqnn.mongodb.net/?retryWrites=true&w=majority';
+// const connectionString = 'https://motorcyleserverspa.vercel.app';
+
 
 
 const initDB = () => mongoose.connect(connectionString)
