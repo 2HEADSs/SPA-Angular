@@ -64,6 +64,7 @@ button {
 
 .animate a {
   position: absolute;
+  left: 8%;
   margin-top: -150%;
   color: red;
   font-size: 20px;
