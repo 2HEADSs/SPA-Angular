@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   // apiUrl: 'http://localhost:3000'
-  apiUrl: 'https://spa-angular-sepia.vercel.app/',
+  apiUrl: 'https://spa-angular-sepia.vercel.app',
 };
 
 /*
