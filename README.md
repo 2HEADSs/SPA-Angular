@@ -29,6 +29,7 @@ Setup
 To run app, in directory "motorcycle-app",  open inside cmd and run:
 
 $ npm install
+
 $ npm start
 
 Which opens the app at http://localhost:4200 in your browser.
