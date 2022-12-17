@@ -41,7 +41,9 @@ export class LoginComponent {
       },
       error: (err) => { 
         console.log(err.error.error);
-        this.errors = err.error.error
+        this.authService.errorString = 'Sorry we have problem with server!!!'
+
+        this.router.navigate(['/'])
       }
     })
 

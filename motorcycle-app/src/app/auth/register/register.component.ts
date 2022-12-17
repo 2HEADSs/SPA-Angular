@@ -38,12 +38,14 @@ export class RegisterComponent {
     this.authService.register(body).subscribe({
       next: (userData) => {
         setSession(userData)
-        this.authService.setLoginInfo(userData,true)
+        this.authService.setLoginInfo(userData, true)
         this.router.navigate(['/bikes/catalog'])
       },
       error: (err) => {
         console.log(err.error.error);
-        this.errors = err.error.error
+        this.authService.errorString = 'Sorry we have problem with server!!!'
+
+        this.router.navigate(['/'])
       }
     })
 

@@ -19,13 +19,15 @@ export class AuthService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  getUser() {
-    return this.http.get<IUser>(`${apiUrl}/auth/user`,).pipe(tap((userData) => {
 
-    }))
-  }
+  //
+  // getUser() {
+  //   return this.http.get<IUser>(`${apiUrl}/auth/user`,).pipe(tap((userData) => {
 
-  // /auth/register
+  //   }))
+  // }
+
+
   register(userData: {}) {
     return this.http.post<IUser>(`${apiUrl}/auth/register`, userData).pipe(tap((response) => {
       if (!response._id) { return }

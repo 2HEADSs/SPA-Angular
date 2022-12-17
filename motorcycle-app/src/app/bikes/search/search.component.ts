@@ -67,7 +67,10 @@ export class SearchComponent implements OnInit {
         }
       },
       error: (err) => {
-        this.authService.errorString = err.name
+        console.log(err.message);
+        
+        this.authService.errorString = 'Sorry we have problem with server!!!'
+
         this.router.navigate(['/'])
 
       }
