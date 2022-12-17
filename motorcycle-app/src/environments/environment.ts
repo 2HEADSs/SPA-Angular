@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   // apiUrl: 'http://localhost:3000'
-  apiUrl: 'motorcyleserverspa-1r7f6f5od-2headss.vercel.app',
+  apiUrl: 'motorcyleserverspa-2headss.vercel.app',
 };
 
 /*
