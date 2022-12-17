@@ -24,16 +24,20 @@ TechStack
     mongoose: 6.7.4,
     nodemon: 2.0.20
 
--Setup
+Setup
 
 To run app, in directory "motorcycle-app",  open inside cmd and run:
 
 $ npm install
+
 $ npm start
+
 Which opens the app at http://localhost:4200 in your browser.
 Also should run REST_API server.
 Open directory "server", open inside cmd and run:
 
 $ npm install
+
 $ npm start
+
 And the server will start listening on port 3000.
