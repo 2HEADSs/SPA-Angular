@@ -64,7 +64,7 @@
                 <p class="error" *ngIf="editFormGroup.get('img')?.errors?.['required']">Image is required!</p>
             </ng-container>
         </div>
-        <button class="edit">
+        <button class="edit" [disabled]="editFormGroup.invalid">
             <span></span>
             <span></span>
             <span></span>
