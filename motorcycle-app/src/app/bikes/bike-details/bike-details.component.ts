@@ -22,7 +22,7 @@ export class BikeDetailsComponent implements OnInit {
   constructor(private bikesService: BikesService, private activatedRoute: ActivatedRoute, private authService: AuthService, private router: Router) { }
   ngOnInit(): void {
     let id = this.activatedRoute.snapshot.params['id'];
-    console.log(this.hasUser = !!(this.authService?.user));
+
 
 
     this.bikesService.loadOneBike(id).subscribe({
@@ -69,7 +69,7 @@ export class BikeDetailsComponent implements OnInit {
 
     this.bikesService.likeBike(id!).subscribe({
       next: () => {
-        this.router.navigate(['/bikes/catalog'])
+        this.router.navigate(['/bikes/my-likes'])
       },
       error: (err) => {
         this.authService.errorString = err.name
