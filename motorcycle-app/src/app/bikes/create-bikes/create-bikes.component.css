@@ -1,15 +1,13 @@
-html {
-    height: 100%;
-  }
+
   
   
   .create-box {
     position: absolute;
-    top: 42%;
+    top: 51%;
     left: 50%;
-    height: 70%;
+    /* height: 20%; */
     width: 400px;
-    padding: 20px;
+    padding: 3px;
     transform: translate(-50%, -50%);
     background: rgba(0, 0, 0, .5);
     box-sizing: border-box;
@@ -18,7 +16,7 @@ html {
   }
   
   .create-box h2 {
-    margin: 0 0 5px;
+    margin: 0 0 0px;
     padding: 0;
     color: #fff;
     text-align: center;
@@ -31,7 +29,7 @@ html {
   
   .create-box .bike-box input {
     width: 100%;
-    padding: 14px 0;
+    padding: 12px 0;
     font-size: 16px;
     color: #fff;
     margin-bottom: 30px;
@@ -63,6 +61,7 @@ html {
   .create-box form button {
     position: relative;
     display: inline-block;
+    left: 32%;
     padding: 10px 10px;
     color: #f41303;
     font-size: 18px;
@@ -70,7 +69,7 @@ html {
     text-transform: uppercase;
     overflow: hidden;
     transition: .5s;
-    margin-top: 10px;
+    /* margin-top: 8px; */
     letter-spacing: 4px
   }
   
