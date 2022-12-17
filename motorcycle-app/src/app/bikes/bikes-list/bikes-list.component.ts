@@ -30,6 +30,8 @@ export class BikesListComponent implements OnInit {
         }
       },
       error: (err) => {
+        console.log(err);
+        
         this.authService.errorString = 'Sorry we can\'t load bikes from DataBase'
         this.router.navigate(['/'])
 
