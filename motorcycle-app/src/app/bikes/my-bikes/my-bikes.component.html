@@ -1,8 +1,11 @@
 <!-- <h1>Click on chosen bike for details!</h1> -->
+<h1 class="username">User: {{user?.username}}</h1>
+<h1 class="email">Email: {{user?.email}}</h1>
 
-<!--  to check with empy database-->
-<h1 *ngIf="!bikesList">Loading bikes...</h1>
-<h1 *ngIf="!hasBikes">You don't have bikes fo sale!</h1>
+
+
+<h1 class="info" *ngIf="!bikesList">Loading bikes...</h1>
+<h1 class="info" *ngIf="!hasBikes">You don't have bikes fo sale!</h1>
 <div class="container">
     <div *ngFor="let bike of bikesList" class="card" style="background: url('{{bike.img}}'); background-size:100% 100%">
         <div class="border">

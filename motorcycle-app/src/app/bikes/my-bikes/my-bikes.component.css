@@ -88,16 +88,31 @@
     justify-content: space-around;
 }
 
-h1 {
+.info {
     position: absolute;
     left: 41%;
+    top: 30%;
+    color: red;
+}
+
+.username {
+    position: absolute;
+    left: 45%;
+    color: red;
+}
+
+.email {
+    position: absolute;
+    left: 43%;
+    top: 10%;
     color: red;
 }
 
 a {
     text-shadow:
-    -1px 0px 0px red,
-    1px 0px 0px red,
-    0px -1px 0px red,
-    0px 1px 0px red;color: blue;
-    }
+        -1px 0px 0px red,
+        1px 0px 0px red,
+        0px -1px 0px red,
+        0px 1px 0px red;
+    color: blue;
+}

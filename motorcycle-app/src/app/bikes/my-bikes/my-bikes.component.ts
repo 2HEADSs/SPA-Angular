@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { IBike } from 'src/app/shared/interfaces/bikes';
 import { BikesService } from '../bikes.service';
+import { AuthService } from 'src/app/auth/auth.service';
+import { Router } from '@angular/router';
+import { IUser } from 'src/app/shared/interfaces/user';
 
 @Component({
   selector: 'app-my-bikes',
@@ -12,10 +15,12 @@ export class MyBikesComponent {
 
   bikesList: IBike[] | null = null;
   hasBikes: boolean = true
+  user: IUser | null = null
 
-  constructor(private bikesSerice: BikesService) { }
+  constructor(private bikesSerice: BikesService, public authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
+    this.user = this.authService.user
     this.bikesSerice.loadMyBikes().subscribe({
       next: (bikes) => {
         if (!bikes) { return }
@@ -28,7 +33,8 @@ export class MyBikesComponent {
       },
       error: (err) => {
         console.log(err);
-
+        this.authService.errorString = 'Sorry we can\'t load bikes from DataBase'
+        this.router.navigate(['/'])
       }
     })
   }
