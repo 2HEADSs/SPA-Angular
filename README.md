@@ -24,7 +24,7 @@ TechStack
     mongoose: 6.7.4,
     nodemon: 2.0.20
 
--Setup
+Setup
 
 To run app, in directory "motorcycle-app",  open inside cmd and run:
 
