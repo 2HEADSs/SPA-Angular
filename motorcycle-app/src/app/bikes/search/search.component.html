@@ -33,7 +33,7 @@
 
 <ng-container *ngIf="hasSearch">
     <h1 class="loading" *ngIf="hasloadingSearch">Loading bikes...</h1>
-    <h1 class="empty" *ngIf="!hasSearchList">There is no bikes for sale!!!</h1>
+    <h1 class="empty" *ngIf="!hasSearchList">There is no bikes fot this search!</h1>
     <div class="container">
         <div *ngFor="let bike of searchList" class="card"
             style="background: url('{{bike.img}}'); background-size:100% 100%">
