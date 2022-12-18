@@ -15,14 +15,14 @@
                         <p>Model: {{singleBike?.model}}</p>
                         <p>Year: {{singleBike?.year}}</p>
                         <p>Power: {{singleBike?.power}}HP</p>
-                        <p>Price: {{singleBike?.price}}BGN</p>
+                        <p>Price: {{singleBike?.price}} BGN</p>
                         <p>Owner: {{singleBike?._ownerId?.email}}</p>
                     </div>
 
                     <h5>Description: <span>{{singleBike?.description}}</span></h5>
                     <ng-container *ngIf="isOwner">
                         <div class="actions-edit">
-                            <button class="btn btn-seconday"
+                            <button  class="btn btn-seconday"
                                 [routerLink]="['/bikes/edit', singleBike?._id]">Edit</button>
                         </div>
                         <div class="actions-delete">
@@ -36,8 +36,8 @@
                             </div>
                         </ng-container>
                         <ng-container *ngIf="hasLike">
-                            <div class="actions-delete">
-                                <div class="btn-seconday">Already liked</div>
+                            <div class="actions-already">
+                                <div >Already liked</div>
                             </div>
                         </ng-container>
                     </ng-container>

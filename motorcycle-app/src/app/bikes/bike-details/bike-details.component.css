@@ -79,6 +79,7 @@ div.container {
 .actions-delete{
   position: absolute;
   left: 60%;
+  cursor: default;
 }
 
 
@@ -96,7 +97,18 @@ div.container {
 div .btn-seconday {
   background-color: rgb(197, 2, 2); 
   border: none;
-  cursor:default;
+  cursor:pointer;
+  color: white;
+  padding: 10px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+}
+
+.actions-already {
+  background-color: rgb(197, 2, 2); 
+  border: none;
   color: white;
   padding: 10px 32px;
   text-align: center;

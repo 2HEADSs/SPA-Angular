@@ -34,8 +34,12 @@ export class BikeDetailsComponent implements OnInit {
         if (this.singleBike._ownerId._id === this.authService?.user?._id) {
           this.isOwner = true
         }
+        if (this.authService.user) {
+          this.hasUser  = true
+        }
         this.hasLike = this.singleBike.likes.some((userId) => userId == this.authService.user?._id)
 
+        
 
       },
       error: (err) => {
