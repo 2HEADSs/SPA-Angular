@@ -57,7 +57,7 @@ export class BikeDetailsComponent implements OnInit {
     this.bikesService.deleteBike(id!).subscribe({
       next: () => {
         this.hasLike = true
-        this.router.navigate(['/bikes/catalog'])
+        this.router.navigate(['/bikes/my-bikes'])
       },
       error: (err) => {
         console.log(err.error);
