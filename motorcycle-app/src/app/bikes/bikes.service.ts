@@ -21,7 +21,6 @@ export class BikesService {
   }
 
   loadMyBikes() {
-
     return this.httpClient.get<IBike[]>(`${apiUrl}/bikes/my-bikes`, { headers: { 'x-authorization': getSession().accessToken } })
   }
 
@@ -30,12 +29,10 @@ export class BikesService {
   }
 
   createBike(bike: {},) {
-
     return this.httpClient.post(`${apiUrl}/bikes`, bike, { headers: { 'x-authorization': getSession().accessToken } })
   }
 
   updateBike(bike: {}, id: string) {
-
     return this.httpClient.put(`${apiUrl}/bikes/${id}`, bike,
       { headers: { 'x-authorization': getSession().accessToken } })
   }
@@ -51,7 +48,6 @@ export class BikesService {
   }
 
   loadMyLikes() {
-
     return this.httpClient.get<IBike[]>(`${apiUrl}/bikes/my-likes`, { headers: { 'x-authorization': getSession().accessToken } })
   }
 
